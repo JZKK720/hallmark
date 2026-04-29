@@ -153,15 +153,26 @@ How we know Hallmark is getting better, not just bigger:
 
 ## What's already shipped
 
-For reference. Everything below is in current `0.2.0`.
+For reference. Everything below is in current `0.4.0`.
 
-- ✓ Skill: 4 verbs (default, audit, refine, redesign)
-- ✓ References: typography, color, layout-and-space, motion, microinteractions, structure, interaction-and-states, responsive, copy, anti-patterns
-- ✓ 12 themes with structural fingerprints
-- ✓ Theme picker UI on the landing page
+- ✓ Skill: 5 verbs (default, audit, refine, redesign, study)
+- ✓ References: typography, color, layout-and-space, motion, microinteractions, structure, interaction-and-states, responsive, copy, anti-patterns, macrostructures, component-cookbook, study, hero-enrichment, custom-craft, assets
+- ✓ 16 themes with structural fingerprints (including Studio, Pastel, Riso, Quiet)
+- ✓ 21 named macrostructures + 36 component archetypes with within-archetype variation knobs
+- ✓ Sticky-top banner theme picker with random + ?theme= URL parameter
+- ✓ Per-theme component archetype swap (hero + footer rebuild on theme change)
+- ✓ Hero enrichment: demo video / mockup / illustration / abstract background, with Lottie demoted to last resort
+- ✓ Custom-craft canon: pure CSS art, hand-built SVG, declarative animation, View Transitions, Three.js when justified
+- ✓ Asset-source catalogue: Lucide / Phosphor / Heroicons (icons), Simple Icons / SVGL (logos), Nanobanana 2 / Recraft V4 (generated illustration), Storyset / Humaaans (library), Mixkit / Coverr (video), Unsplash / Nappy (photography)
 - ✓ Working install path: `cp skill/* ~/.claude/skills/hallmark/`
 - ✓ Two test specimens: bakery (`site/_example-bakery/`) and command palette (`site/_example-cmdk/`)
-- ✓ Slop test extended from 12 to 20 questions covering microinteractions
+- ✓ Slop test 33 questions: visual (8), structural (2), microinteractions (10), variety (3), implementation (6), hero enrichment (4)
 - ✓ View Transitions on theme switch, with reduced-motion fallback
 - ✓ Copy-to-clipboard with silent success on install code blocks
-- ✓ Keyboard shortcut (`T`) to open theme picker, with delay-revealed hint
+- ✓ Keyboard shortcut (`T` cycle, `Shift+T` reverse, `R` random)
+
+---
+
+## Deferred
+
+- **Tier 2.3 — Data-viz / chart canon.** Small multiples, axis restraint, banned types (3D donut, dual-axis), Tufte principles. Mentioned in hero-enrichment.md but full reference not yet written.

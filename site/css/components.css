@@ -1218,6 +1218,194 @@
 
 .hero__photo-text { display: grid; gap: 0; }
 
+/* H7 — Demo Video Clipped-by-viewport-edge.
+   Pure-CSS dashboard mockup that extends past the right page edge.
+   No real video — this is a custom-craft demonstration of the clip layout. */
+.hero--clipped {
+  display: grid;
+  grid-template-columns: minmax(20rem, 1fr) 1.4fr;
+  gap: var(--space-2xl);
+  padding-block: var(--space-2xl) var(--space-xl);
+  align-items: center;
+  position: relative;
+}
+
+.hero--clipped .hero__copy { display: grid; gap: 0; }
+.hero--clipped .hero__display { max-width: 16ch; margin: 0; }
+.hero--clipped .hero__lede { max-width: 42ch; }
+.hero--clipped .hero__cta { margin-top: var(--space-xl); }
+
+.hero__mock {
+  width: calc(100% + 12vw);                  /* the clip — 12% spills past viewport */
+  max-width: none;
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -28px oklch(20% 0.02 260 / 0.28),
+              0 1px 2px oklch(20% 0.02 260 / 0.06);
+  background: var(--color-paper-2);
+  border: var(--rule-hair) solid var(--color-rule);
+  display: flex;
+  flex-direction: column;
+  transform: rotate(-0.4deg) translateY(-2px);
+  transform-origin: left center;
+}
+
+.hero__mock-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: color-mix(in oklch, var(--color-paper-2) 100%, var(--color-rule) 12%);
+  border-block-end: var(--rule-hair) solid var(--color-rule);
+}
+
+.hero__mock-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: color-mix(in oklch, var(--color-rule-2) 80%, transparent);
+}
+
+.hero__mock-url {
+  margin-inline-start: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+
+.hero__mock-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  background: var(--color-paper);
+  min-height: 0;
+}
+
+.hero__mock-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 12px;
+  background: color-mix(in oklch, var(--color-paper) 100%, var(--color-paper-2) 60%);
+  border-inline-end: var(--rule-hair) solid var(--color-rule);
+}
+
+.hero__mock-rail-item {
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  background: color-mix(in oklch, var(--color-rule) 100%, transparent);
+}
+
+.hero__mock-rail-item.is-active {
+  background: var(--color-accent);
+  opacity: 0.85;
+}
+
+.hero__mock-main {
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.hero__mock-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.hero__mock-row--head { padding-block-end: 4px; }
+
+.hero__mock-bar {
+  height: 8px;
+  border-radius: 2px;
+  background: color-mix(in oklch, var(--color-rule) 80%, transparent);
+  flex: 1;
+}
+.hero__mock-bar--lg { height: 12px; max-width: 180px; }
+.hero__mock-bar--sm { max-width: 80px; }
+.hero__mock-bar--xs { height: 6px; max-width: 56px; }
+.hero__mock-bar--short { max-width: 50%; }
+
+.hero__mock-pill {
+  display: inline-block;
+  width: 64px; height: 22px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  opacity: 0.18;
+}
+
+.hero__mock-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  grid-template-rows: 1fr;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+.hero__mock-card {
+  background: color-mix(in oklch, var(--color-paper) 100%, var(--color-paper-2) 60%);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+
+.hero__mock-card--accent {
+  background: color-mix(in oklch, var(--color-paper) 100%, var(--color-accent) 8%);
+  border-color: color-mix(in oklch, var(--color-accent) 40%, var(--color-rule));
+}
+
+.hero__mock-card--wide {
+  /* spans larger column already */
+}
+
+.hero__mock-stat {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.hero__mock-spark {
+  flex: 1;
+  background:
+    linear-gradient(95deg,
+      transparent 0 6%,
+      var(--color-accent) 6% 7%,
+      transparent 7% 14%,
+      var(--color-accent) 14% 15%,
+      transparent 15% 28%,
+      var(--color-accent) 28% 29%,
+      transparent 29% 42%,
+      var(--color-accent) 42% 43%,
+      transparent 43% 60%,
+      var(--color-accent) 60% 61%,
+      transparent 61% 80%,
+      var(--color-accent) 80% 81%,
+      transparent 81% 100%);
+  opacity: 0.55;
+  border-radius: 4px;
+  min-height: 36px;
+  align-self: stretch;
+}
+
+.hero__mock-rows { display: flex; flex-direction: column; gap: 8px; }
+
+@media (max-width: 60rem) {
+  .hero--clipped { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .hero__mock { width: 100%; transform: none; aspect-ratio: 16 / 11; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__mock { transform: none; }
+}
+
 /* ───────────── FOOTER ARCHETYPES ───────────── */
 
 .foot { display: grid; gap: var(--space-md); padding-block: var(--space-2xl) var(--space-xl); border-block-start: var(--rule-hair) solid var(--color-rule); }
@@ -1368,3 +1556,77 @@
 @media (prefers-reduced-motion: reduce) {
   .slot[data-populating] > * { animation: none; opacity: 1; }
 }
+
+/* ───────────── QUIET — restraint as the design ─────────────
+   Override every "expressive" treatment on the page when Quiet is active.
+   No reveals, no per-theme display weight tricks, no shadow glows.
+   System fonts inherit naturally; just make sure nothing yells. */
+
+[data-theme="quiet"] .reveal,
+[data-theme="quiet"] .reveal.is-in,
+[data-theme="quiet"] .slot[data-populating] > * {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+[data-theme="quiet"] .hero__display,
+[data-theme="quiet"] .hero__quote p,
+[data-theme="quiet"] .hero__stat,
+[data-theme="quiet"] .section__title,
+[data-theme="quiet"] .foot__wordmark,
+[data-theme="quiet"] .spec__name,
+[data-theme="quiet"] .tell__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: -0.015em;
+  text-shadow: none;            /* override Riso's off-register if a user toggled */
+}
+
+[data-theme="quiet"] .hero__lede,
+[data-theme="quiet"] .hero__letter-body,
+[data-theme="quiet"] .spec__rule,
+[data-theme="quiet"] .tell__why,
+[data-theme="quiet"] .foot__tagline {
+  font-family: var(--font-body);
+  font-style: normal;
+  color: var(--color-neutral);
+}
+
+[data-theme="quiet"] .hero__salutation {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 500;
+  font-size: var(--text-xl);
+  letter-spacing: 0;
+}
+
+[data-theme="quiet"] .hero__sign,
+[data-theme="quiet"] .hero__signoff {
+  font-family: var(--font-body);
+  font-style: normal;
+}
+
+[data-theme="quiet"] .banner__center {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+[data-theme="quiet"] .banner {
+  background: color-mix(in oklch, var(--color-paper) 92%, transparent);
+}
+
+/* No reveal animation on Quiet — the page is intentionally still. */
+[data-theme="quiet"] .hero,
+[data-theme="quiet"] .hero > * {
+  animation: none !important;
+}
+
+/* Quiet's hero never shows the clipped mockup — even if forced. */
+[data-theme="quiet"] .hero--clipped .hero__mock { display: none; }
+[data-theme="quiet"] .hero--clipped { grid-template-columns: 1fr; }

@@ -1,7 +1,7 @@
 ---
 name: hallmark
 description: Use this skill when the user asks to design, build, redesign, audit, refine, or study a UI, web page, landing page, dashboard, component, or interface — or when they ask to make something "feel less AI-generated." Hallmark forces intentional design decisions (typography, color, layout, motion, interaction, structure) and refuses to default to the generic AI-UI template. Trigger phrases include "design a", "build a landing page", "make a dashboard", "redesign this site", "redesign the page", "refine this UI", "audit this design", "this looks AI-generated", "fix the design", "polish this", "give this a different look", and any request that will produce HTML / CSS / JSX / Tailwind output. **Also trigger when the user attaches a screenshot of a design they admire** — that is the `hallmark study` verb (extracts design DNA, never pixel-clones).
-version: 0.3.0
+version: 0.4.0
 ---
 
 # Hallmark
@@ -87,11 +87,24 @@ The non-negotiables live in [`references/`](references/). Read only what you nee
 - [`responsive.md`](references/responsive.md) — mobile-first, content-driven breakpoints, safe areas
 - [`copy.md`](references/copy.md) — verbs, labels, error structure, link text
 - [`anti-patterns.md`](references/anti-patterns.md) — the named tells you must not emit
+- [`hero-enrichment.md`](references/hero-enrichment.md) — when (and when not) to add a demo video / illustration / mockup / animated loop / abstract background to the hero, plus the eight enrichment archetypes (load when reaching Step 4)
+- [`custom-craft.md`](references/custom-craft.md) — *how* to hand-build hero artwork: pure CSS art, hand-built SVG, declarative animation (`@property`, `animation-timeline`, View Transitions), JS-driven (Motion / GSAP), and when Three.js earns its place. Load only when an enrichment archetype requires construction.
+- [`assets.md`](references/assets.md) — the sourcing catalogue: icons (Lucide / Phosphor / Heroicons / Tabler), brand logos (Simple Icons / SVGL), generated illustration (Nanobanana 2 / Recraft V4 / Midjourney), library illustration, app mockups, hero video, photography, abstract backgrounds, Lottie. Per-category rules and what to avoid. Load only when an enrichment archetype actually needs an external asset.
 - [`study.md`](references/study.md) — vision-extraction protocol for the `hallmark study` verb (load only when that verb runs)
 
 For most design work you need `macrostructures`, `component-cookbook`, `typography`, `color`, `layout-and-space`, and `anti-patterns`. **Load `microinteractions` whenever the output has *any* interactive element** — buttons, links, inputs, forms, modals, tabs, dropdowns, toasts, drag handles, command palettes, copy buttons, anything with hover/focus/active states. That is most pages.
 
-### 4. Build
+### 4. Decide on hero enrichment
+
+Most pages don't need it. The strongest hero is often a typographic one. **Reach for [`hero-enrichment.md`](references/hero-enrichment.md) only when the brief points there** — a SaaS / dev-tool brief wants a demo video or mockup; a bakery / café / atelier brief wants a hand-built illustration; a manifesto wants nothing.
+
+Eyeball the brief or ask one short question. State the decision in one sentence (e.g., *"Enrichment: E1 Clipped-Edge Demo Video, Tier-A CSS-art mockup."* or *"Enrichment: none — typography only."*). The decision goes into the macrostructure stamp at Step 5.
+
+**The enrichment hierarchy is non-negotiable.** Reach for the highest tier you can ship: typography only → Tier A pure CSS art → Tier B hand-built SVG → Tier C generated still (Nanobanana / Recraft) → Tier D library + customisation → **Tier E Lottie is last resort**, only for complex character motion that hand-build can't reach. Reaching for Lottie when CSS would have built it is the new tell.
+
+When an enrichment archetype requires construction, also load [`custom-craft.md`](references/custom-craft.md). When it requires an external asset, load [`assets.md`](references/assets.md).
+
+### 5. Build
 
 Emit code that satisfies the tone and structural fingerprint. Match the complexity of the code to the ambition of the tone — a brutalist page needs raw, heavy CSS; an austere page needs restraint.
 
@@ -109,9 +122,9 @@ Always:
 - Cut motion before adding it. Most pages have too much, not too little. If removing an animation wouldn't lose the user information, remove it.
 - **Stamp the output.** The first non-empty line of the produced CSS file (or the top of `<style>` if inline) MUST be a comment of the form: `/* Hallmark · macrostructure: <name> · tone: <tone> · anchor hue: <hue> */`. This stamp is the durable record of what you chose. The next time Hallmark runs in this project, it reads the stamp and picks a *different* macrostructure.
 
-### 5. The slop test
+### 6. The slop test
 
-Before handing back, run the output through these twenty-nine questions. Every answer must be **no**.
+Before handing back, run the output through these thirty-three questions. Every answer must be **no**.
 
 **Visual:**
 
@@ -156,6 +169,13 @@ Before handing back, run the output through these twenty-nine questions. Every a
 27. Is any prose container's `max-width` outside the 45–75 ch range? Measure must read; under 45 ch is choppy, over 75 ch loses the eye.
 28. Does any interactive element lack `:focus-visible`, `:active`, OR `:disabled` styling? (Eight states is the rule. Default + hover is two; you need at least default + hover + focus-visible + active + disabled present in code.)
 29. Is there any `transform` / `animation` keyframe that is NOT covered by a `@media (prefers-reduced-motion: reduce)` fallback? Every motion gets a reduced-motion alternative.
+
+**Hero enrichment gates** (when the page carries enrichment — see [`references/hero-enrichment.md`](references/hero-enrichment.md)):
+
+30. If the page has a demo video, does it autoplay with sound, lack a `poster`, lack `fetchpriority="high"`, or use `loading="lazy"` on the LCP element? (LCP-killers fail this gate.)
+31. If the page has an abstract background, is it more than one accent colour, more than ~5 % footprint, or animating mesh-gradient on the whole page? (Aurora blobs and mesh-on-everything fail this gate.)
+32. Does the page mix two or more icon libraries? (Material + Heroicons + Lucide on the same page = the icon-set tell.)
+33. If the page has illustration, did I default to a Lottie library when a hand-built SVG or pure-CSS shape would have worked? (Lottie is last resort, not the default.)
 
 If any answer is yes, fix it. Do not ship slop.
 

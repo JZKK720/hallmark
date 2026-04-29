@@ -1,6 +1,6 @@
 # Component cookbook
 
-Thirty-three component archetypes you can compose into any macrostructure. Every entry: a *shape*, a one-line "use when", a one-line "don't confuse with", and a short structural sketch (DOM + minimal CSS). Pick from this file when you're building a section and don't know which shape to reach for.
+Thirty-six component archetypes you can compose into any macrostructure. Every entry: a *shape*, a one-line "use when", a one-line "don't confuse with", and a short structural sketch (DOM + minimal CSS). Pick from this file when you're building a section and don't know which shape to reach for.
 
 The same macrostructure (e.g., Bento Grid) can be built from many different combinations of these archetypes. The macrostructure picks the *page shape*; this file picks the *components inside it*.
 
@@ -26,6 +26,9 @@ When you pick an archetype, **state the knob values you chose** in the macrostru
 | **H4 Stat-Led** | Number style: tabular display · italic display · monospace | Qualifier position: below · inline-right · stacked-above | Secondary stats: none · two below · row of four |
 | **H5 Letter** | Salutation: greeting · "Dear X," · time-stamp | Body length: 1 paragraph · 2 paragraphs · 3 paragraphs | Signoff: typed name · drawn signature SVG · initials |
 | **H6 Photographic** | Image area: full-bleed · 16/7 · 4/3 · 1/1 square | Caption position: lower-left · upper-right · margin | Text below or overlaid |
+| **H7 Demo Video Clipped-Edge** | Clip side: right · left · both | Aspect ratio: 16/10 · 16/9 · 4/3 | Frame: hairline · browser chrome · none |
+| **H8 Mockup Split** | Frame style: browser chrome · macOS toolbar · minimal hairline · floating no-frame | Tilt: 0° · 1.5° · 3° | Screenshot count: 1 · stack-of-3 · orbit-of-3 |
+| **H9 Custom Illustration** | Build method: Tier-A pure-CSS · Tier-B hand-SVG · Tier-C generated · Tier-D library | Animation: none · loop · scroll-linked | Scale: small accent · dominant |
 | **F1 Bento (feature)** | Tiles: 4 · 6 · 7 · 9 | Spans: regular · irregular · mosaic | Border: hairline all · accent corners · none |
 | **F2 Sticky-scroll stack** | Pinned side: left · right | Right pane content: code · screenshot · diagram | Pin steps: 3 · 4 · 5 |
 | **F3 Tabular spec sheet** | Columns: 2 (key/val) · 3 (key/val/unit) · 4 (with footnote) | Rule density: every row · groups of 3 · headers only | Numbers: tabular · proportional |
@@ -140,6 +143,84 @@ Single full-bleed image fills the viewport. Caption sits in a corner.
 .hero-photo { position: relative; height: 80dvh; }
 .hero-photo .bleed { width: 100%; height: 100%; object-fit: cover; }
 .hero-photo .caption { position: absolute; bottom: var(--space-md); right: var(--space-md); }
+```
+
+### H7 · Demo Video — Clipped-by-viewport-edge
+Display headline left, demo video right, the rightmost ~10–20 % extending past the viewport so it's intentionally cut off. The clip *is* the design — implies "there's more product than fits the screen". Pioneered by Linear, refined by Vercel / Resend / Cursor.
+*Use when:* the brief is SaaS / dev-tool / dashboard / platform AND you have real footage of the product (or a hand-built CSS-art mockup of it).
+*Don't confuse with:* H4 Stat-Led (number-led, no video) or H8 Mockup Split (still screenshot, not video).
+
+See [`hero-enrichment.md`](hero-enrichment.md) for the full E1 recipe (codec chain, autoplay rules, `prefers-reduced-motion` fallback, mobile collapse). The cookbook entry below is the structural sketch.
+
+```html
+<section class="hero hero--clipped">
+  <div class="hero__copy">
+    <h1>Plan, build, ship.</h1>
+    <p>The project tracker your engineering team won't ignore.</p>
+  </div>
+  <figure class="hero__media">
+    <video autoplay muted loop playsinline preload="metadata"
+           poster="/hero-poster.webp" fetchpriority="high">
+      <source src="/hero.av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'>
+      <source src="/hero.h264.mp4" type="video/mp4">
+    </video>
+  </figure>
+</section>
+```
+```css
+.hero--clipped { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--space-2xl); overflow: visible; }
+.hero__media   { width: calc(100% + 12vw); aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden; }
+@media (max-width: 60rem) { .hero--clipped { grid-template-columns: 1fr; } .hero__media { width: 100%; } }
+```
+
+### H8 · Mockup Split (browser-framed)
+Headline left, browser-frame mockup right, the mockup tilted 1–3° for life. Frame can be browser chrome, macOS toolbar, minimal hairline, or floating no-frame.
+*Use when:* you're selling a web app and you have a clean, well-lit screenshot.
+*Don't confuse with:* H7 Clipped-Edge (which extends past the viewport) or H2 Split Diptych (which uses photography or proof column, not a product mockup).
+
+```html
+<section class="hero-mock">
+  <div>
+    <h1>The studio's new mute button.</h1>
+    <p>Press <kbd>⌘ M</kbd> from anywhere.</p>
+  </div>
+  <figure class="mock">
+    <header class="mock__chrome"><span></span><span></span><span></span></header>
+    <div class="mock__body"><!-- screenshot or CSS-art mockup --></div>
+  </figure>
+</section>
+```
+```css
+.hero-mock  { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-2xl); align-items: center; }
+.mock       { transform: rotate(1.5deg); border-radius: 12px; overflow: hidden; box-shadow: 0 24px 60px -20px oklch(20% 0.02 60 / 0.18); }
+.mock__chrome { display: flex; gap: 6px; padding: 10px 12px; background: var(--color-paper-2); border-block-end: var(--rule-hair) solid var(--color-rule); }
+.mock__chrome span { width: 10px; height: 10px; border-radius: 50%; background: var(--color-rule-2); }
+```
+
+### H9 · Custom Illustration Centerpiece
+A single hand-built SVG (Tier B in the enrichment hierarchy — or pure CSS at Tier A for simpler shapes) sitting on the hero as one illustrative element. The bakery loaf, the studio's mascot, the workflow diagram.
+*Use when:* the brand has a *thing* that benefits from being drawn — a craft, a character, a process.
+*Don't confuse with:* H6 Photographic (real photography) or H8 Mockup (a product screenshot, not artwork).
+
+The illustration itself is *built*, not picked from Storyset / Humaaans / unDraw / Lottie. See [`custom-craft.md`](custom-craft.md) for full recipes (CSS art, hand-built SVG, declarative animation). The cookbook entry below is the page-level structural sketch.
+
+```html
+<section class="hero-art">
+  <div>
+    <p class="eyebrow">Maple Street Bread · est. 2026</p>
+    <h1>Sourdough, every morning.</h1>
+    <p>Slow-fermented overnight, baked on stone, before you wake.</p>
+  </div>
+  <svg viewBox="0 0 200 100" class="loaf" aria-label="A loaf of bread">
+    <path class="loaf__body" d="M 20 70 Q 100 10 180 70 L 180 90 L 20 90 Z" />
+    <path class="loaf__score" d="M 60 50 L 90 30 M 100 45 L 130 25 M 140 50 L 165 35" />
+  </svg>
+</section>
+```
+```css
+.hero-art   { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center; }
+.loaf__body { fill: oklch(72% 0.14 50); }
+.loaf__score{ stroke: oklch(38% 0.10 35); stroke-width: 2; fill: none; stroke-linecap: round; }
 ```
 
 ---

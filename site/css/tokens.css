@@ -740,3 +740,61 @@
   --lh-tight: 0.92;
   --lh-snug:  1.10;
 }
+
+/* ──────────────────────────────────────────────────────────────
+   QUIET — restraint as the design · system fonts, near-white paper
+   The opposite of every other theme. Average-sized headers (smaller
+   than the others), generous whitespace, no chromatic accent, no
+   ornament, no reveal. System-native typography is the design — a
+   deliberate exception to Hallmark's "pair distinctive display + body"
+   rule. The brief is restraint; the design honours it.
+   ────────────────────────────────────────────────────────────── */
+
+[data-theme="quiet"] {
+  --color-paper:    oklch(99.5% 0.002 90);   /* barely-warm near-white */
+  --color-paper-2:  oklch(97%   0.003 90);
+  --color-paper-3:  oklch(94%   0.004 90);
+  --color-rule:     oklch(86%   0.003 240);
+  --color-rule-2:   oklch(72%   0.003 240);
+  --color-muted:    oklch(50%   0.004 240);
+  --color-neutral:  oklch(38%   0.004 240);
+  --color-ink-2:    oklch(22%   0.005 240);
+  --color-ink:      oklch(16%   0.005 240);  /* barely-cool near-black */
+  --color-accent:   oklch(16%   0.005 240);  /* accent IS ink — no chroma */
+  --color-accent-ink: oklch(16% 0.005 240);
+  --color-focus:    oklch(16%   0.005 240);
+
+  --font-display: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body:    system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif:   ui-serif, Georgia, "Times New Roman", serif;
+  --font-label:   ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --display-weight: 500;
+  --display-style:  normal;
+
+  /* Average-sized headers — much smaller than other themes' 3.5–8rem display */
+  --text-display:   clamp(1.75rem, 2.5vw + 0.5rem, 2.75rem);
+  --text-display-s: clamp(1.5rem, 2vw + 0.25rem, 2rem);
+  --text-2xl: 1.625rem;
+  --text-xl:  1.25rem;
+  --text-lg:  1.125rem;
+
+  --tracking-display: -0.02em;
+  --tracking-tight:   -0.01em;
+  --tracking-label:   0.06em;
+
+  --lh-tight:   1.15;
+  --lh-snug:    1.4;
+  --lh-normal:  1.6;
+  --lh-relaxed: 1.75;
+
+  /* Generous whitespace — the page breathes */
+  --section-gap:      12rem;
+  --section-head-gap: 2.5rem;
+  --space-2xl:        6rem;
+  --space-3xl:        9rem;
+  --space-4xl:        14rem;
+
+  --measure: 60ch;
+}

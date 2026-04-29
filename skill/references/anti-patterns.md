@@ -72,6 +72,38 @@ Producing the Specimen macrostructure (numbered left-margin labels like `01 — 
 
 **Fix.** The Specimen macrostructure is one of twenty-one in [`macrostructures.md`](macrostructures.md), not a default. If the brief is vague, pick from the first ten in that file (Bento Grid, Long Document, Marquee Hero, Stat-Led, Workbench, Conversational FAQ, Manifesto, Photographic, Quote-Led, then Specimen). Reach for Specimen only when the brief explicitly says "editorial", "specimen sheet", "type foundry", or names the Specimen theme.
 
+### Aurora-blob background
+
+Flowing organic mesh blobs in purple-to-pink-to-cyan, layered behind hero text. Looks "premium" until you've seen it on every Dribbble shot since 2022.
+
+**Why it fails.** It's the 2022–2023 generated-design default. Audiences pattern-match this in milliseconds: AI template.
+
+**Fix.** Solid surface. Or a subtle two-stop CSS gradient + SVG `<feTurbulence>` grain at < 0.1 opacity. See [`hero-enrichment.md`](hero-enrichment.md) E7 for the recipe.
+
+### Floating-orb decoration
+
+Ambient generic 3D spheres or blurred coloured circles drifting behind the hero, often added "for depth". They have no semantic role.
+
+**Why it fails.** Generic 3D ambience is the new corporate-stock-photo. It implies "I needed something here, so I added something here."
+
+**Fix.** Cut them. The hero doesn't need depth; it needs a strong typographic anchor.
+
+### Sound-on autoplay
+
+A hero video that auto-plays with audio. Browsers block it anyway, but intent matters: a video element shipped without `muted` is a video that wanted to shout at the user.
+
+**Why it fails.** Hostile to the audience. Accessibility fail. SEO penalty. Browser blocked.
+
+**Fix.** `<video autoplay muted loop playsinline>` — always all four. A separate audio toggle button if sound is genuinely useful.
+
+### Lazy-loaded LCP
+
+`loading="lazy"` on the hero image or hero video — the LCP element. The page waits to start downloading until the user scrolls to it, except they're already looking at it, so the page just sits there blank.
+
+**Why it fails.** Tanks Largest Contentful Paint. Real-world data: lazy-loaded LCP images show p75 of 720 ms vs. 364 ms for preloaded — 2× slower, 4× more "poor" experiences.
+
+**Fix.** `fetchpriority="high"` and `preload="metadata"` on the LCP element. Lazy-load only below-the-fold media.
+
 ---
 
 ## Major (looks AI-generated)
@@ -123,6 +155,38 @@ A list of prices, dates, or metrics where the numbers don't align vertically bec
 Every section fades in when it enters the viewport. Every list staggers. The page never settles.
 
 **Fix.** Pick one orchestrated entrance. Let the rest just *be there*.
+
+### Mismatched icon sets
+
+Material Icons in the navbar, Heroicons in the feature cards, Lucide in the footer, an emoji "✨" in a hero badge. Each library has its own stroke voice; mixing them is the icon-set tell.
+
+**Why it fails.** Icons are typography. You wouldn't ship a page with three different body fonts; don't ship one with three different icon strokes.
+
+**Fix.** Pick one library per project. Lucide is the default for SaaS, Phosphor when you need weight variants, Heroicons for Tailwind/shadcn projects. See [`assets.md`](assets.md) for the canon.
+
+### AI-illustration look
+
+Smooth-mesh-blob characters with no joint articulation, mid-2010s "modern flat" stock poses, unmistakably-Midjourney compositions with the symmetric default lighting.
+
+**Why it fails.** It reads as AI in milliseconds. The 2026 audience pattern-matches this faster than any other tell.
+
+**Fix.** Hand-build the illustration in pure CSS or SVG (Tier A or B in [`hero-enrichment.md`](hero-enrichment.md)). If you must generate, use Nanobanana 2 or Recraft V4 with reference images, asymmetric crop, and grain post-processing — never raw output. See [`custom-craft.md`](custom-craft.md) Tier E.
+
+### Lottie shortcut
+
+Reaching for a LottieFiles community animation — the spinning logo, the checkmark draw, the loading spinner, the "loading dots" loop — when pure CSS or hand-built SVG would have produced it stronger and lighter.
+
+**Why it fails.** Lottie pulls were an AI-tool shortcut throughout 2023–2024; the audience now reads them as one. The 50–500 KB JSON file plus the runtime cost is a tax on a job CSS does in zero bytes.
+
+**Fix.** Build it custom. Spinning logo → CSS `@keyframes rotate`. Checkmark → SVG `stroke-dasharray` animated. Loading dots → CSS `@property` + `animation-delay`. Lottie is Tier F in the enrichment hierarchy — last resort, only for genuinely articulated character motion.
+
+### Three.js for a still object
+
+A WebGL hero where the 3D doesn't earn its place by being interactive. A stationary spinning thing the user can't touch, can't reorient, can't customise — just a model rotating because someone wanted "3D".
+
+**Why it fails.** The 100–300 KB Three.js bundle, the model, the textures, the GPU work — all for a thing that could be a static photograph or an SVG.
+
+**Fix.** If the user can't manipulate it, it doesn't justify Three.js. Use a still photograph or a hand-built SVG.
 
 ---
 

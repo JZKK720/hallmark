@@ -62,6 +62,7 @@
       <button class="banner__dot" type="button" data-theme-btn="studio"    aria-label="Studio"    style="--dot: oklch(96.5% 0.014 95); --dot-edge: oklch(46% 0.140 145);"></button>
       <button class="banner__dot" type="button" data-theme-btn="pastel"    aria-label="Pastel"    style="--dot: oklch(96% 0.022 285); --dot-edge: oklch(56% 0.130 282);"></button>
       <button class="banner__dot" type="button" data-theme-btn="riso"      aria-label="Riso"      style="--dot: oklch(91% 0.034 30); --dot-edge: oklch(58% 0.170 220);"></button>
+      <button class="banner__dot" type="button" data-theme-btn="quiet"     aria-label="Quiet"     style="--dot: oklch(99.5% 0.002 90); --dot-edge: oklch(16% 0.005 240);"></button>
 
       <span class="banner__sep" aria-hidden="true"></span>
 
@@ -484,6 +485,61 @@
         <h1 class="hero__display hero__display--small">{{title}}</h1>
         <p class="hero__lede">{{lede}}</p>
       </div>
+    </div>
+  </template>
+
+  <template id="hero-clipped">
+    <div class="hero hero--clipped">
+      <div class="hero__copy">
+        <p class="hero__eyebrow"><span class="mark" aria-hidden="true"></span>{{eyebrow}}</p>
+        <h1 class="hero__display hero__display--small">{{title}}</h1>
+        <p class="hero__lede">{{lede}}</p>
+        <div class="hero__cta">
+          <pre class="code" data-copy-source><span class="prompt">$</span><span data-copy-text>npx skills add hallmark</span><button class="code__copy" type="button" data-copy-btn aria-label="Copy install command"><span class="code__copy-default">Copy</span><span class="code__copy-done">Copied</span></button></pre>
+        </div>
+      </div>
+      <figure class="hero__mock" aria-hidden="true">
+        <header class="hero__mock-chrome">
+          <span class="hero__mock-dot"></span>
+          <span class="hero__mock-dot"></span>
+          <span class="hero__mock-dot"></span>
+          <span class="hero__mock-url">hallmark.studio</span>
+        </header>
+        <div class="hero__mock-body">
+          <aside class="hero__mock-rail">
+            <span class="hero__mock-rail-item is-active"></span>
+            <span class="hero__mock-rail-item"></span>
+            <span class="hero__mock-rail-item"></span>
+            <span class="hero__mock-rail-item"></span>
+            <span class="hero__mock-rail-item"></span>
+          </aside>
+          <main class="hero__mock-main">
+            <div class="hero__mock-row hero__mock-row--head">
+              <span class="hero__mock-bar hero__mock-bar--lg"></span>
+              <span class="hero__mock-pill"></span>
+            </div>
+            <div class="hero__mock-grid">
+              <div class="hero__mock-card hero__mock-card--accent">
+                <span class="hero__mock-bar hero__mock-bar--xs"></span>
+                <span class="hero__mock-stat">{{mockStat}}</span>
+                <span class="hero__mock-bar hero__mock-bar--sm"></span>
+              </div>
+              <div class="hero__mock-card">
+                <span class="hero__mock-bar hero__mock-bar--xs"></span>
+                <span class="hero__mock-spark" aria-hidden="true"></span>
+              </div>
+              <div class="hero__mock-card hero__mock-card--wide">
+                <span class="hero__mock-bar hero__mock-bar--xs"></span>
+                <div class="hero__mock-rows">
+                  <span class="hero__mock-bar"></span>
+                  <span class="hero__mock-bar"></span>
+                  <span class="hero__mock-bar hero__mock-bar--short"></span>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </figure>
     </div>
   </template>
 
