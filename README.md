@@ -2,6 +2,8 @@
 
 A design skill for AI coding assistants. Makes the UIs they generate look made, not generated.
 
+→ **Live demo:** [hallmark-murex.vercel.app](https://hallmark-murex.vercel.app) — sixteen themes, eight generation tests, press `T` to cycle.
+
 **Powered by Together AI.**
 
 ---
@@ -43,11 +45,13 @@ npx skills add hallmark
 
 Or copy [`skill/`](skill/) into `~/.claude/skills/hallmark/` (Claude Code) or `.cursor/rules/hallmark.mdc` (Cursor — body of `SKILL.md`, no frontmatter).
 
-To preview the landing page:
+To preview the landing page locally:
 
 ```
 cd site && python3 -m http.server 4173    # → http://localhost:4173
 ```
+
+Or visit the live deploy at **[hallmark-murex.vercel.app](https://hallmark-murex.vercel.app)**.
 
 Press `T` to cycle themes, `R` for random, `?theme=studio` for a shareable link.
 
