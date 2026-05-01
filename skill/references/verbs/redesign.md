@@ -36,7 +36,7 @@ Before redesigning a single file:
 
 Write a single file at the project root: `design.md` (or `DESIGN.md` — match the project's existing case convention). This file is the **one source of truth** every subsequent page redesign reads. Format:
 
-```markdown
+````markdown
 # Design — <Project name>
 
 A locked design system for this app. Every page redesign reads this file before
@@ -107,7 +107,90 @@ tokens (`var(--space-md)`), never raw values.
   type, colour, and CTA voice).
 - Hero archetype (within the family's allowance).
 - Enrichment — only on marketing pages, only Tier-A or Tier-B.
+
+## Exports
+
+Drop-in formats for re-using this design system in other projects.
+See [`export-formats.md`](../export-formats.md) for the canonical mapping.
+
+### tokens.css
+```css
+:root {
+  --color-paper:      oklch(<L> <C> <H>);
+  --color-paper-2:    oklch(<L> <C> <H>);
+  --color-ink:        oklch(<L> <C> <H>);
+  --color-ink-2:      oklch(<L> <C> <H>);
+  --color-rule:       oklch(<L> <C> <H>);
+  --color-accent:     oklch(<L> <C> <H>);
+  --color-accent-ink: oklch(<L> <C> <H>);
+  --color-focus:      oklch(<L> <C> <H>);
+
+  --font-display: "<face>", ...;
+  --font-body:    "<face>", ...;
+  --font-outlier: "<face>", ...;
+
+  --space-3xs: 0.25rem;  --space-2xs: 0.5rem;  --space-xs: 0.75rem;
+  --space-sm:  1rem;     --space-md:  1.5rem;  --space-lg: 2rem;
+  --space-xl:  3rem;     --space-2xl: 4.5rem;  --space-3xl: 7rem;
+
+  --text-xs: 0.75rem;  --text-sm: 0.875rem; --text-md: 1.125rem;
+  --text-lg: 1.375rem; --text-xl: 1.75rem;  --text-2xl: 2.25rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-short: 220ms;
+  --radius-card: <px>; --radius-pill: <px>; --radius-input: <px>;
+}
 ```
+
+### Tailwind v4 `@theme`
+```css
+@theme {
+  --color-paper:   oklch(<L> <C> <H>);
+  --color-ink:     oklch(<L> <C> <H>);
+  --color-accent:  oklch(<L> <C> <H>);
+  --font-display:  "<face>", sans-serif;
+  --font-body:     "<face>", sans-serif;
+  --spacing-md:    1.5rem;
+  --text-md:       1.125rem;
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  /* mirror the rest of tokens.css with `--spacing-*` for Tailwind's spacing utilities */
+}
+```
+
+### DTCG `tokens.json`
+```json
+{
+  "color": {
+    "paper":  { "$value": "oklch(<L> <C> <H>)", "$type": "color" },
+    "ink":    { "$value": "oklch(<L> <C> <H>)", "$type": "color" },
+    "accent": { "$value": "oklch(<L> <C> <H>)", "$type": "color" }
+  },
+  "font": {
+    "display": { "$value": "<face>", "$type": "fontFamily" },
+    "body":    { "$value": "<face>", "$type": "fontFamily" }
+  },
+  "space": {
+    "md": { "$value": "1.5rem", "$type": "dimension" }
+  }
+}
+```
+
+### shadcn/ui CSS variables
+```css
+:root {
+  --background:        <L>  <C>  <H>;   /* paper */
+  --foreground:        <L>  <C>  <H>;   /* ink */
+  --primary:           <L>  <C>  <H>;   /* accent */
+  --primary-foreground: <L> <C>  <H>;   /* accent-ink */
+  --muted:             <L>  <C>  <H>;   /* rule */
+  --muted-foreground:  <L>  <C>  <H>;   /* muted */
+  --border:            <L>  <C>  <H>;   /* rule */
+  --input:             <L>  <C>  <H>;   /* rule */
+  --ring:              <L>  <C>  <H>;   /* focus */
+  --radius:            <px>;
+}
+```
+````
 
 State the picks aloud in plain text BEFORE writing the file. *"Genre: modern-minimal. Theme: a custom OKLCH palette anchored on your brand teal. Display: Geist 600. Body: Geist 400. Three macrostructure families: Marquee Hero (marketing), Workbench (app), Long Document (content)."* Then ask: *"Want me to proceed with this system across every page, or amend any of it first?"*
 

@@ -297,13 +297,127 @@
       </div>
     </section>
 
-    <!-- 03 · WITHOUT / WITH — same copy, two design languages, two examples -->
-    <section class="section reveal" style="--i:2" aria-labelledby="s3">
+    <!-- 03 · STUDY — what `study` extracts from a design -->
+    <section class="section reveal" style="--i:2" id="study" aria-labelledby="s-study">
       <header class="section__head">
         <p class="section-label">
-          <span class="num">03</span><span class="divider">⁄</span><span>Without / with</span>
+          <span class="num">03</span><span class="divider">⁄</span><span>Study</span>
         </p>
-        <h2 class="section__title" id="s3">
+        <h2 class="section__title" id="s-study">
+          What Hallmark sees when it reads a design.
+        </h2>
+      </header>
+
+      <p class="study__intro">
+        <code>hallmark study</code> reads a design's structure, not its pixels. Below, four Hallmark-built pages put through the same DNA extraction the verb runs on user-supplied references. Each video is the page in motion; each panel is the structured DNA.
+      </p>
+
+      <div class="study-grid">
+
+        <!-- Tile 01 — Tide -->
+        <article class="study-card">
+          <div class="study-card__media">
+            <video class="study-card__video" autoplay muted loop playsinline
+                   poster="_tests/_thumbs/01-tide.png" aria-label="Tide page in motion">
+              <!-- USER: drop <source src="study/01-tide.mp4" type="video/mp4" /> here -->
+            </video>
+            <span class="study-card__badge">01 · Tide</span>
+          </div>
+          <ol class="study-card__dna">
+            <li class="dna__row"><span class="dna__k">Macrostructure</span><span class="dna__v">Letter</span></li>
+            <li class="dna__row"><span class="dna__k">Hero archetype</span><span class="dna__v">H5 Letter · salutation + body + signoff</span></li>
+            <li class="dna__row"><span class="dna__k">Display role</span><span class="dna__v">italic editorial serif</span></li>
+            <li class="dna__row"><span class="dna__k">Body role</span><span class="dna__v">italic editorial serif (same family, smaller weight)</span></li>
+            <li class="dna__row"><span class="dna__k">Label role</span><span class="dna__v">small-caps grotesque</span></li>
+            <li class="dna__row"><span class="dna__k">Paper band</span><span class="dna__v">light · warm cream</span></li>
+            <li class="dna__row"><span class="dna__k">Accent hue</span><span class="dna__v">warm orange · ≤ 3% footprint</span></li>
+            <li class="dna__row"><span class="dna__k">Density</span><span class="dna__v">generous · single-column letter</span></li>
+            <li class="dna__row"><span class="dna__k">Pairing logic</span><span class="dna__v">single family carrying the page; mono labels for register</span></li>
+            <li class="dna__row"><span class="dna__k">Rhythm</span><span class="dna__v">left-biased · varied padding · letter-format intimacy</span></li>
+          </ol>
+        </article>
+
+        <!-- Tile 02 — Tracejam -->
+        <article class="study-card">
+          <div class="study-card__media">
+            <video class="study-card__video" autoplay muted loop playsinline
+                   poster="_tests/_thumbs/05-tracejam.png" aria-label="Tracejam page in motion">
+              <!-- USER: drop <source src="study/02-tracejam.mp4" type="video/mp4" /> here -->
+            </video>
+            <span class="study-card__badge">02 · Tracejam</span>
+          </div>
+          <ol class="study-card__dna">
+            <li class="dna__row"><span class="dna__k">Macrostructure</span><span class="dna__v">Workbench</span></li>
+            <li class="dna__row"><span class="dna__k">Hero archetype</span><span class="dna__v">H3 Stat-Led · trace number + sticky panel</span></li>
+            <li class="dna__row"><span class="dna__k">Display role</span><span class="dna__v">soft geometric sans · 600</span></li>
+            <li class="dna__row"><span class="dna__k">Body role</span><span class="dna__v">soft geometric sans · 400</span></li>
+            <li class="dna__row"><span class="dna__k">Label role</span><span class="dna__v">monospace · uppercase</span></li>
+            <li class="dna__row"><span class="dna__k">Paper band</span><span class="dna__v">dark · cool charcoal</span></li>
+            <li class="dna__row"><span class="dna__k">Accent hue</span><span class="dna__v">cyan · phosphor-bright · 8% footprint</span></li>
+            <li class="dna__row"><span class="dna__k">Density</span><span class="dna__v">medium · sticky-panel observability layout</span></li>
+            <li class="dna__row"><span class="dna__k">Pairing logic</span><span class="dna__v">sans display + body, mono labels carry the technical register</span></li>
+            <li class="dna__row"><span class="dna__k">Rhythm</span><span class="dna__v">three-step walkthrough · sticky right panel · medium padding</span></li>
+          </ol>
+        </article>
+
+        <!-- Tile 03 — USER will fill -->
+        <article class="study-card" data-user-content>
+          <div class="study-card__media">
+            <video class="study-card__video" autoplay muted loop playsinline
+                   poster="_tests/_thumbs/03-maple.png" aria-label="User study tile 3">
+              <!-- USER: drop <source src="study/03-<your-page>.mp4" type="video/mp4" /> here -->
+            </video>
+            <span class="study-card__badge">03 · Yours</span>
+          </div>
+          <!-- USER CONTENT — replace each "—" with your DNA value. Keep the same shape. -->
+          <ol class="study-card__dna">
+            <li class="dna__row"><span class="dna__k">Macrostructure</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Hero archetype</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Display role</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Body role</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Label role</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Paper band</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Accent hue</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Density</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Pairing logic</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Rhythm</span><span class="dna__v">—</span></li>
+          </ol>
+        </article>
+
+        <!-- Tile 04 — USER will fill -->
+        <article class="study-card" data-user-content>
+          <div class="study-card__media">
+            <video class="study-card__video" autoplay muted loop playsinline
+                   poster="_tests/_thumbs/07-foundry.png" aria-label="User study tile 4">
+              <!-- USER: drop <source src="study/04-<your-page>.mp4" type="video/mp4" /> here -->
+            </video>
+            <span class="study-card__badge">04 · Yours</span>
+          </div>
+          <!-- USER CONTENT — replace each "—" with your DNA value. Keep the same shape. -->
+          <ol class="study-card__dna">
+            <li class="dna__row"><span class="dna__k">Macrostructure</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Hero archetype</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Display role</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Body role</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Label role</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Paper band</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Accent hue</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Density</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Pairing logic</span><span class="dna__v">—</span></li>
+            <li class="dna__row"><span class="dna__k">Rhythm</span><span class="dna__v">—</span></li>
+          </ol>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 04 · WITHOUT / WITH — same copy, two design languages, four examples -->
+    <section class="section reveal" style="--i:3" aria-labelledby="s4">
+      <header class="section__head">
+        <p class="section-label">
+          <span class="num">04</span><span class="divider">⁄</span><span>Without / with</span>
+        </p>
+        <h2 class="section__title" id="s4">
           Same brief. Same words. Two very different pages.
         </h2>
       </header>
@@ -469,13 +583,13 @@
       </div>
     </section>
 
-    <!-- 04 · FOUNDATIONS — five plain-English rules -->
-    <section class="section reveal" style="--i:3" aria-labelledby="s4">
+    <!-- 05 · FOUNDATIONS — five plain-English rules -->
+    <section class="section reveal" style="--i:4" aria-labelledby="s5-foundations">
       <header class="section__head">
         <p class="section-label">
-          <span class="num">04</span><span class="divider">⁄</span><span>Foundations</span>
+          <span class="num">05</span><span class="divider">⁄</span><span>Foundations</span>
         </p>
-        <h2 class="section__title" id="s4">
+        <h2 class="section__title" id="s5-foundations">
           Five things Hallmark holds the line on — explained without the jargon.
         </h2>
       </header>
@@ -589,13 +703,13 @@
       </div>
     </section>
 
-    <!-- 05 · FAQ — six typographic Q/A pairs -->
-    <section class="section reveal" style="--i:4" id="faq" aria-labelledby="s5">
+    <!-- 06 · FAQ — five typographic Q/A pairs -->
+    <section class="section reveal" style="--i:5" id="faq" aria-labelledby="s6">
       <header class="section__head">
         <p class="section-label">
-          <span class="num">05</span><span class="divider">⁄</span><span>FAQ</span>
+          <span class="num">06</span><span class="divider">⁄</span><span>FAQ</span>
         </p>
-        <h2 class="section__title" id="s5">
+        <h2 class="section__title" id="s6">
           The questions people actually ask.
         </h2>
       </header>
@@ -635,13 +749,13 @@
       </ol>
     </section>
 
-    <!-- 06 · INSTALL — one command, every harness -->
-    <section class="section reveal" style="--i:5" id="install" aria-labelledby="s6">
+    <!-- 07 · INSTALL — one command, every harness -->
+    <section class="section reveal" style="--i:6" id="install" aria-labelledby="s7">
       <header class="section__head">
         <p class="section-label">
-          <span class="num">06</span><span class="divider">⁄</span><span>Install</span>
+          <span class="num">07</span><span class="divider">⁄</span><span>Install</span>
         </p>
-        <h2 class="section__title" id="s6">
+        <h2 class="section__title" id="s7">
           One command. Works in every harness.
         </h2>
       </header>
@@ -690,7 +804,7 @@
     </section>
 
     <!-- FOOTER SLOT — archetype swaps per theme -->
-    <footer class="slot slot--foot reveal" data-slot="footer" style="--i:6" role="contentinfo" aria-label="Colophon">
+    <footer class="slot slot--foot reveal" data-slot="footer" style="--i:7" role="contentinfo" aria-label="Colophon">
     </footer>
 
   </main>

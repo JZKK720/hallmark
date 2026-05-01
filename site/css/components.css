@@ -3030,6 +3030,137 @@ html[data-theme="bloom"] body {
 
 [data-theme="riso"] .ex-card__name { text-transform: lowercase; }
 
+/* — Study gallery card ————————————————————————————————
+   Each card pairs a video-shaped media tile with a structured DNA
+   panel below it. The video uses poster as the static fallback when
+   no <source> is supplied — drop one in to enable playback. The DNA
+   panel renders as an editorial table: mono numeral key, body value,
+   hairline divider per row. Theme-adaptive throughout. */
+.study-card {
+  display: grid;
+  gap: var(--space-md);
+  background: var(--color-paper);
+  border: var(--rule-card, 1px) solid var(--color-rule);
+  border-radius: var(--radius-card, 0);
+  box-shadow: var(--shadow-card, none);
+  overflow: hidden;
+  transition: border-color var(--dur-micro) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .study-card:hover { border-color: var(--color-rule-2); }
+}
+
+.study-card[data-user-content] {
+  border-style: dashed;
+}
+
+.study-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--color-paper-2);
+  border-block-end: var(--rule-card, 1px) solid var(--color-rule);
+  overflow: hidden;
+}
+
+.study-card__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  background: var(--color-paper-2);
+}
+
+.study-card__badge {
+  position: absolute;
+  bottom: var(--space-sm);
+  left: var(--space-sm);
+  padding: 0.25rem 0.55rem;
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-paper);
+  background: color-mix(in oklch, var(--color-ink) 85%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  font-feature-settings: "tnum";
+}
+
+.study-card[data-user-content] .study-card__badge {
+  background: color-mix(in oklch, var(--color-accent) 80%, transparent);
+}
+
+[data-theme="riso"] .study-card__badge,
+[data-theme="brutal"] .study-card__badge,
+[data-theme="manifesto"] .study-card__badge,
+[data-theme="sport"] .study-card__badge { text-transform: uppercase; }
+
+[data-theme="riso"] .study-card__badge { text-transform: lowercase; }
+
+/* DNA panel — structured 10-field key/value table. */
+.study-card__dna {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  display: grid;
+  gap: 0;
+}
+
+.dna__row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: var(--space-sm);
+  align-items: baseline;
+  padding-block: var(--space-sm);
+  border-block-end: var(--rule-hair) solid var(--color-rule);
+}
+
+.dna__row:last-child { border-block-end: 0; }
+
+@media (max-width: 36rem) {
+  .dna__row { grid-template-columns: 1fr; gap: 0.15rem; padding-block: var(--space-xs); }
+}
+
+.dna__k {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  font-feature-settings: "tnum";
+}
+
+.dna__v {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-ink);
+  letter-spacing: 0;
+}
+
+.study-card[data-user-content] .dna__v {
+  color: var(--color-rule-2);
+}
+
+[data-theme="brutal"] .study-card,
+[data-theme="manifesto"] .study-card { border-width: 2px; }
+
+[data-theme="atelier"] .study-card,
+[data-theme="salon"] .study-card {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  border-block-end: var(--rule-hair) solid var(--color-rule);
+  border-radius: 0;
+}
+
+[data-theme="atelier"] .study-card__media,
+[data-theme="salon"] .study-card__media {
+  border-block-end: 0;
+}
+
 /* Decision-trail popover — appears after 600ms hover/focus on a tile.
    Shows the routing chain Hallmark used to arrive at this output.
    Pure CSS — no JS, just transition-delay on the show transition. */
