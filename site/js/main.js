@@ -489,7 +489,7 @@ function buildDenseColophon(themeName) {
   // template-string'd so it stays monospace-aligned.
   const today = "2026-05-01";
   return [
-    `# hallmark · v0.7.0 · ${themeName.toLowerCase()}`,
+    `# hallmark · v0.8.0 · ${themeName.toLowerCase()}`,
     `# build: ${today} · MIT · powered by together ai`,
     `#`,
     `# stats:  21 macrostructures · 32 archetypes · 17 themes · 38 gates`,

@@ -191,7 +191,7 @@ Concrete example:
 /* Hallmark · macrostructure: Long Document · H5 hero knobs: salutation=time-stamp, body=2 paragraphs, signoff=initials
  * theme: custom · vibe: "archival warmth, hand-set, no varnish" · paper: oklch(94% 0.020 65) · accent: oklch(58% 0.16 35)
  * display: Fraunces italic · body: Source Serif 4 · axes: light / italic-serif / chromatic-terracotta
- * studied: no · context: explicit · v0.7.0
+ * studied: no · context: explicit · v0.8.0
  */
 ```
 
@@ -249,7 +249,7 @@ Concrete generations to seed model imitation. Each shows the brief, the user's v
 /* Hallmark · macrostructure: Long Document · H5 hero knobs: salutation=time-stamp, body=2 paragraphs, signoff=initials
  * theme: custom · vibe: "archival warmth, hand-set, no varnish" · paper: oklch(94% 0.020 65) · accent: oklch(58% 0.16 35)
  * display: Fraunces italic · body: Source Serif 4 · axes: light / italic-serif / chromatic-terracotta
- * studied: no · context: explicit · v0.7.0
+ * studied: no · context: explicit · v0.8.0
  */
 ```
 
@@ -281,7 +281,7 @@ Note: this *is* a single-family page (Geist + Geist Mono are the same family at 
 /* Hallmark · macrostructure: Workbench · F2 sticky-scroll knobs: pinned=right, content=trace-panel, steps=3
  * theme: custom · vibe: "industrial precision, cool, technical" · paper: oklch(13% 0.012 220) · accent: oklch(72% 0.16 220)
  * display: Geist Mono 500 · body: Geist · axes: dark / mono / cool
- * studied: no · context: explicit · v0.7.0
+ * studied: no · context: explicit · v0.8.0
  */
 ```
 
@@ -312,7 +312,7 @@ The vibe names two hues: *moss* (greenish, ~140°) and *soft pink* (warm, ~350°
 /* Hallmark · macrostructure: Catalogue · F1 catalogue knobs: tiles=8, columns=2, rule=hairline-between
  * theme: custom · vibe: "moss, lichen, soft pink, herbal" · paper: oklch(96% 0.018 145) · accent: oklch(72% 0.13 350)
  * display: Cormorant Garamond · body: EB Garamond · axes: light / roman-serif / chromatic-other (dusty-pink)
- * studied: no · context: explicit · v0.7.0
+ * studied: no · context: explicit · v0.8.0
  */
 ```
 

@@ -1,7 +1,7 @@
 ---
 name: hallmark
 description: Use this skill when the user asks to design, build, redesign, audit, refine, or study a UI, web page, landing page, dashboard, component, or interface — or when they ask to make something "feel less AI-generated." Hallmark forces intentional design decisions (typography, color, layout, motion, interaction, structure) and refuses to default to the generic AI-UI template. Trigger phrases include "design a", "build a landing page", "make a dashboard", "redesign this site", "redesign the page", "refine this UI", "audit this design", "this looks AI-generated", "fix the design", "polish this", "give this a different look", and any request that will produce HTML / CSS / JSX / Tailwind output. **Also trigger when the user attaches a screenshot of a design they admire** — that is the `hallmark study` verb (extracts design DNA, never pixel-clones).
-version: 0.7.0
+version: 0.8.0
 ---
 
 # Hallmark
@@ -266,7 +266,7 @@ Before emitting any code, output a tight summary of what you're about to ship. T
 **Format** (Markdown bullets, not ASCII boxes — they render reliably across every chat client and terminal):
 
 ```markdown
-**Hallmark · v0.7.0**
+**Hallmark · v0.8.0**
 
 - **Macrostructure** · Stat-Led
 - **Theme** · Plain (#fff paper · cool greys · ink-blue accent)
@@ -290,7 +290,7 @@ Before emitting any code, output a tight summary of what you're about to ship. T
 **Three more sample preview blocks** for the model to imitate, varied across macrostructure types:
 
 *Long Document (editorial, motion-cut):*
-> **Hallmark · v0.7.0**
+> **Hallmark · v0.8.0**
 >
 > - **Macrostructure** · Long Document
 > - **Theme** · Linen (cool slate paper · steel-blue accent · geometric sans)
@@ -301,7 +301,7 @@ Before emitting any code, output a tight summary of what you're about to ship. T
 > - **Diversification** · first run for this project
 
 *Bento Grid (SaaS, motion-on):*
-> **Hallmark · v0.7.0**
+> **Hallmark · v0.8.0**
 >
 > - **Macrostructure** · Bento Grid
 > - **Theme** · Pastel (light cool paper · indigo accent · geometric Geist)
@@ -312,7 +312,7 @@ Before emitting any code, output a tight summary of what you're about to ship. T
 > - **Diversification** · differs from Plain on paper hue (light-cool vs pure-white) + accent (indigo vs ink-blue)
 
 *Manifesto (declarative, no enrichment):*
-> **Hallmark · v0.7.0**
+> **Hallmark · v0.8.0**
 >
 > - **Macrostructure** · Manifesto
 > - **Theme** · Manifesto (dark · Inter Tight 900 · single red bleed)
@@ -323,7 +323,7 @@ Before emitting any code, output a tight summary of what you're about to ship. T
 > - **Diversification** · differs from Linen on paper band (dark vs light) + display style (display-heavy vs geometric-sans)
 
 *Custom (Coffeebox archival café):*
-> **Hallmark · v0.7.0**
+> **Hallmark · v0.8.0**
 >
 > - **Macrostructure** · Long Document
 > - **Theme** · custom (vibe: "archival warmth, hand-set, no varnish" · paper oklch(94% 0.020 65) · accent oklch(58% 0.16 35) terracotta · Fraunces italic display + Source Serif 4 body)

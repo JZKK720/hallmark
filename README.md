@@ -3,7 +3,7 @@
 **A design skill that studies what you admire — and rebuilds your content with it.**
 
 → Live demo: **[hallmark-murex.vercel.app](https://hallmark-murex.vercel.app)** · seventeen themes, eight worked tests, press `T` to cycle.
-→ Current version: **v0.7.0** — adds the `custom` theme route (catalog stays the default; custom fires only when the brief signals it).
+→ Current version: **v0.8.0** — adds genres (editorial · modern-minimal · atmospheric · playful), `design.md` for whole-project redesigns, lazy reference loading, and two new themes (Quiet refreshed, Bloom added).
 
 <table>
   <tr>
