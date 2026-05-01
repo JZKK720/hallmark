@@ -601,18 +601,22 @@
   font-size: 0.875rem;
 }
 
-/* — "Without Hallmark" — the slop stack ————————————————— */
+/* — "Without Hallmark" — the slop stack —————————————————
+   The bg uses theme paper so the panel integrates on dark themes
+   (otherwise a pure-white card looks like a glitch on Manifesto /
+   Midnight / Terminal). The AI-slop tells are still carried by the
+   centred layout, Inter font, gradient title, and gradient pill. */
 .vs__panel[data-variant="slop"] {
   text-align: center;
   align-content: center;
   justify-items: center;
-  background: #fff;
-  border-color: #e6e6ec;
+  background: var(--color-paper);
+  border-color: var(--color-rule);
   font-family: "Inter", system-ui, sans-serif;
 }
 
 .vs__panel[data-variant="slop"] .vs__panel-eyebrow {
-  color: #6b6b76;
+  color: var(--color-muted);
   font-family: inherit;
   font-weight: 500;
   letter-spacing: 0;
@@ -623,7 +627,7 @@
   font-family: inherit;
   font-weight: 800;
   letter-spacing: -0.025em;
-  background: linear-gradient(95deg, #6b4de0 0%, #c14de0 50%, #e04db4 100%);
+  background: linear-gradient(95deg, #8b5dff 0%, #c14de0 50%, #e04db4 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -631,7 +635,7 @@
 }
 
 .vs__panel[data-variant="slop"] .vs__panel-sub {
-  color: #6b6b76;
+  color: var(--color-muted);
   font-family: inherit;
   max-width: 28ch;
 }
@@ -982,8 +986,10 @@
 
 /* — Easter egg overlay ——————————————————————————————————
    Hidden by default. Revealed when the user spams T faster than the
-   site can keep up — see js/main.js. Uses theme tokens so the panel
-   adapts to whichever theme is active when it fires. */
+   site can keep up — see js/main.js. Pure white full-screen, system
+   mono font, dark text — deliberately decoupled from the active
+   theme so it reads as the page itself stepping in. Auto-dismisses
+   after ~4.2s; while it's open, all keystrokes are swallowed. */
 .easter {
   position: fixed;
   inset: 0;
@@ -991,40 +997,35 @@
   display: grid;
   place-items: center;
   padding: var(--space-xl);
-  background: color-mix(in oklch, var(--color-paper) 92%, transparent);
-  backdrop-filter: blur(10px) saturate(1.1);
-  -webkit-backdrop-filter: blur(10px) saturate(1.1);
-  animation: easter-fade-in 280ms var(--ease-out) both;
+  background: #fff;
+  color: #111;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  animation: easter-fade-in 240ms ease-out both;
 }
 
 .easter[hidden] { display: none; }
+
+.easter[data-state="closing"] {
+  animation: easter-fade-out 360ms ease-in forwards;
+}
 
 @keyframes easter-fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-.easter__panel {
-  display: grid;
-  gap: var(--space-xl);
-  max-width: 52rem;
-  width: 100%;
-  padding: var(--space-2xl);
-  background: var(--color-paper);
-  border: var(--rule-hair) solid var(--color-rule);
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  line-height: 1.7;
-  color: var(--color-ink);
+@keyframes easter-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
 
-[data-theme="brutal"] .easter__panel,
-[data-theme="manifesto"] .easter__panel { border-width: 2px; }
-
-[data-theme="terminal"] .easter__panel,
-[data-theme="midnight"] .easter__panel,
-[data-theme="manifesto"] .easter__panel {
-  background: var(--color-paper-2);
+.easter__panel {
+  display: grid;
+  gap: 1.4rem;
+  max-width: 38rem;
+  width: 100%;
 }
 
 .easter__lines {
@@ -1032,75 +1033,73 @@
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .easter__line {
   margin: 0;
   opacity: 0;
   transform: translateY(6px);
-  animation: easter-line 360ms var(--ease-out) forwards;
+  animation: easter-line 360ms ease-out forwards;
 }
 
-.easter__line:nth-child(1) { animation-delay: 80ms; }
-.easter__line:nth-child(2) { animation-delay: 280ms; }
-.easter__line:nth-child(3) { animation-delay: 460ms; }
-.easter__line:nth-child(4) { animation-delay: 620ms; }
-.easter__line:nth-child(5) { animation-delay: 880ms; }
+.easter__line:nth-child(1) { animation-delay: 180ms; }
+.easter__line:nth-child(2) { animation-delay: 380ms; }
+.easter__line:nth-child(3) { animation-delay: 560ms; }
+.easter__line:nth-child(4) { animation-delay: 720ms; }
+.easter__line:nth-child(5) { animation-delay: 1000ms; }
 
 @keyframes easter-line {
   to { opacity: 1; transform: none; }
 }
 
 .easter__line--cmd {
-  font-size: var(--text-md);
+  font-size: 1rem;
   font-weight: 500;
-  color: var(--color-ink);
-  margin-block-end: 0.4rem;
+  color: #111;
+  margin-block-end: 0.6rem;
+  letter-spacing: 0;
 }
 
 .easter__prompt,
 .easter__arrow {
-  color: var(--color-accent);
+  color: #b0b0b0;
   user-select: none;
-  margin-inline-end: 0.4rem;
+  margin-inline-end: 0.5rem;
 }
 
 .easter__num {
-  color: var(--color-ink);
-  font-weight: 500;
+  color: #111;
+  font-weight: 600;
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
 }
 
 .easter__line--punchline {
-  margin-block-start: 0.6rem;
-  font-family: var(--font-display);
-  font-style: var(--display-style, italic);
-  font-weight: var(--display-weight, 400);
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  color: var(--color-ink);
+  margin-block-start: 0.8rem;
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  color: #111;
 }
 
 .easter__line--punchline .easter__arrow {
-  font-family: var(--font-mono);
-  font-style: normal;
-  font-size: var(--text-sm);
-  vertical-align: middle;
+  font-size: 0.9rem;
+  vertical-align: 0.25em;
+  font-weight: 400;
 }
 
 .easter__cursor {
   display: inline-block;
-  width: 0.5em;
-  height: 1em;
-  background: var(--color-ink);
-  margin-inline-start: 0.2em;
-  vertical-align: -0.12em;
-  animation: easter-blink 1.05s steps(2) infinite;
-  animation-delay: 1.3s;
+  width: 0.42em;
+  height: 0.95em;
+  background: #111;
+  margin-inline-start: 0.18em;
+  vertical-align: -0.08em;
   opacity: 0;
+  animation: easter-blink 1.05s steps(2) infinite;
+  animation-delay: 1.4s;
 }
 
 @keyframes easter-blink {
@@ -1110,29 +1109,21 @@
 
 .easter__hint {
   margin: 0;
-  padding-block-start: var(--space-md);
-  border-block-start: var(--rule-hair) solid var(--color-rule);
-  font-family: var(--font-label);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-label);
+  padding-block-start: 1.2rem;
+  border-block-start: 1px solid #e5e5e5;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-muted);
+  color: #888;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
   align-items: center;
 }
 
-.easter__hint-key {
-  color: var(--color-ink);
-  border: var(--rule-hair) solid var(--color-rule);
-  padding: 0.18rem 0.55rem;
-}
-
-.easter__hint-sep { color: var(--color-rule-2); }
-
 @media (prefers-reduced-motion: reduce) {
   .easter,
+  .easter[data-state="closing"],
   .easter__line { animation: none; }
   .easter__line { opacity: 1; transform: none; }
   .easter__cursor { animation: none; opacity: 1; }

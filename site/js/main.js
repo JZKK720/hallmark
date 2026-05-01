@@ -568,27 +568,41 @@ if (shuffleBtn) {
 }
 
 /* — Easter egg — "chill, designer." ————————————————————————
-   Spam T fast enough and the page intervenes. We track timestamps in a
-   rolling 3.2-second window; if the user crosses the threshold (≈ a
-   full catalog cycle inside the window), we show an overlay and reset
-   the counter. A 30-second cooldown stops it from firing twice in a row. */
+   Spam T fast enough and the page intervenes. We track timestamps in
+   a rolling 3.2s window; if the user crosses the threshold (≈ a full
+   catalog cycle inside the window), the overlay takes over. While
+   it's visible, every keystroke is swallowed — no theme cycling, no
+   shortcuts. After ~4s the overlay fades and the page returns. A 30s
+   cooldown stops it from firing back-to-back. */
 const easterEl = document.querySelector("[data-easter-egg]");
 const EASTER_WINDOW_MS = 3200;
-const EASTER_THRESHOLD = 14;       // ≈ 4.4 presses/sec
+const EASTER_THRESHOLD = 12;       // ≈ 3.8 presses/sec
+const EASTER_VISIBLE_MS = 4200;    // total time the overlay stays up
+const EASTER_FADE_MS = 360;        // matches the fade-out animation
 const EASTER_COOLDOWN_MS = 30000;
+const EASTER_PUNCHLINES = [
+  "chill, designer.",
+  "you've seen them all.",
+  "sixteen is plenty.",
+  "pick. build. ship.",
+  "easy on the keyboard.",
+  "one theme will do.",
+];
 const tStamps = [];
 let easterLastFired = 0;
 let easterOpen = false;
+let easterDismissTimer = null;
+let easterFadeTimer = null;
 
 function showEasterEgg() {
-  if (!easterEl) return;
+  if (!easterEl || easterOpen) return;
   const now = performance.now();
   const span = (now - tStamps[0]) / 1000;
   const cycles = (tStamps.length / Object.keys(THEMES).length).toFixed(1);
 
-  // Re-mount the lines container so the staggered fade-in animation
-  // re-triggers each time the easter egg is shown. Populate the live
-  // values after replacement so we don't write into a detached node.
+  // Re-mount the lines so the staggered fade-in animation re-runs each
+  // time. Populate live values + a random punchline after replacement
+  // so we don't write into a detached node.
   const lines = easterEl.querySelector(".easter__lines");
   if (lines) {
     const fresh = lines.cloneNode(true);
@@ -596,32 +610,42 @@ function showEasterEgg() {
   }
   const cyclesEl = easterEl.querySelector("[data-easter-cycles]");
   const secondsEl = easterEl.querySelector("[data-easter-seconds]");
+  const lineEl = easterEl.querySelector("[data-easter-line]");
   if (cyclesEl) cyclesEl.textContent = cycles;
   if (secondsEl) secondsEl.textContent = span.toFixed(1);
+  if (lineEl) lineEl.textContent = EASTER_PUNCHLINES[Math.floor(Math.random() * EASTER_PUNCHLINES.length)];
 
+  delete easterEl.dataset.state;
   easterEl.hidden = false;
   easterOpen = true;
   document.body.style.overflow = "hidden";
+
+  clearTimeout(easterDismissTimer);
+  clearTimeout(easterFadeTimer);
+  easterDismissTimer = setTimeout(hideEasterEgg, EASTER_VISIBLE_MS);
 }
 
 function hideEasterEgg() {
   if (!easterEl || !easterOpen) return;
-  easterEl.hidden = true;
-  easterOpen = false;
-  document.body.style.overflow = "";
-}
-
-if (easterEl) {
-  easterEl.addEventListener("click", hideEasterEgg);
+  clearTimeout(easterDismissTimer);
+  clearTimeout(easterFadeTimer);
+  easterEl.dataset.state = "closing";
+  easterFadeTimer = setTimeout(() => {
+    easterEl.hidden = true;
+    delete easterEl.dataset.state;
+    easterOpen = false;
+    document.body.style.overflow = "";
+  }, EASTER_FADE_MS);
 }
 
 /* — Keyboard shortcuts ————————————————————————————————— */
 // T cycles forward, Shift+T cycles back, R picks random.
 document.addEventListener("keydown", (e) => {
-  // While the easter egg is open, any key dismisses it (and only that).
+  // While the easter egg is up, swallow every key — including T —
+  // so the user can't trigger anything until it auto-dismisses.
   if (easterOpen) {
     e.preventDefault();
-    hideEasterEgg();
+    e.stopPropagation();
     return;
   }
 
@@ -631,21 +655,24 @@ document.addEventListener("keydown", (e) => {
 
   if (e.key === "t" || e.key === "T") {
     e.preventDefault();
-    const order = Object.keys(THEMES);
-    const i = order.indexOf(root.dataset.theme);
-    const dir = e.shiftKey ? -1 : 1;
-    const next = order[(i + dir + order.length) % order.length];
-    applyTheme(next);
-
     // Easter-egg counter — track press cadence in a rolling window.
+    // Push BEFORE applying the theme so the trigger fires on this same
+    // keystroke if we've crossed the threshold.
     const now = performance.now();
     while (tStamps.length && now - tStamps[0] > EASTER_WINDOW_MS) tStamps.shift();
     tStamps.push(now);
     if (tStamps.length >= EASTER_THRESHOLD && now - easterLastFired > EASTER_COOLDOWN_MS) {
       easterLastFired = now;
-      showEasterEgg();
       tStamps.length = 0;
+      showEasterEgg();
+      return; // skip the theme swap on the trigger keystroke
     }
+
+    const order = Object.keys(THEMES);
+    const i = order.indexOf(root.dataset.theme);
+    const dir = e.shiftKey ? -1 : 1;
+    const next = order[(i + dir + order.length) % order.length];
+    applyTheme(next);
   } else if (e.key === "r" || e.key === "R") {
     e.preventDefault();
     applyTheme(pickRandomTheme());

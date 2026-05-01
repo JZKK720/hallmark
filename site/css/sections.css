@@ -569,7 +569,6 @@
   animation: blink 1.05s steps(2) infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
-[data-theme="terminal"] .vs__col:first-child { background: var(--color-paper-3); }
 [data-theme="terminal"] .step__num::before { content: "[ "; color: var(--color-accent); }
 [data-theme="terminal"] .step__num::after  { content: " ]"; color: var(--color-accent); }
 
@@ -610,15 +609,6 @@
   text-transform: uppercase;
   max-width: 18ch;
   font-weight: 800;
-}
-[data-theme="manifesto"] .vs { border: 3px solid var(--color-ink); }
-[data-theme="manifesto"] .vs__col:first-child {
-  background: var(--color-ink);
-  color: var(--color-paper);
-}
-[data-theme="manifesto"] .vs__col:first-child .vs__label,
-[data-theme="manifesto"] .vs__col:first-child .vs__caption {
-  color: var(--color-paper);
 }
 [data-theme="manifesto"] .step { border-top: 3px solid var(--color-ink); }
 
@@ -771,14 +761,6 @@ html[data-theme="almanac"] body {
 }
 @media (max-width: 56rem) { [data-theme="sport"] .foundations { grid-template-columns: 1fr; } }
 [data-theme="sport"] .spec { border-top: var(--rule-hair) solid var(--color-rule-2); }
-[data-theme="sport"] .vs__col:first-child {
-  background: var(--color-accent);
-  color: var(--color-paper);
-}
-[data-theme="sport"] .vs__col:first-child .vs__label,
-[data-theme="sport"] .vs__col:first-child .vs__caption {
-  color: var(--color-paper);
-}
 [data-theme="sport"] .step__num {
   font-style: italic;
   color: var(--color-accent);
@@ -795,14 +777,6 @@ html[data-theme="almanac"] body {
 }
 [data-theme="brutal"] .section__head {
   border-bottom: 3px solid var(--color-ink);
-}
-[data-theme="brutal"] .vs__col:first-child {
-  background: var(--color-accent);
-  color: var(--color-paper);
-}
-[data-theme="brutal"] .vs__col:first-child .vs__label,
-[data-theme="brutal"] .vs__col:first-child .vs__caption {
-  color: var(--color-paper);
 }
 
 /* ── GARDEN existing — augment ──────────────────────────────── */
