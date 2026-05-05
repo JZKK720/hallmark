@@ -3608,7 +3608,7 @@ html[data-theme="halo"] aside {
 
 .study-card__media {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 7;
   background: var(--color-paper-2);
   border-block-end: var(--rule-card, 1px) solid var(--color-rule);
   overflow: hidden;
@@ -3651,13 +3651,19 @@ html[data-theme="halo"] aside {
 
 [data-theme="riso"] .study-card__badge { text-transform: lowercase; }
 
-/* DNA panel — structured 10-field key/value table. */
+/* DNA panel — structured 10-field key/value table. Tightened vertical
+   rhythm so the study card doesn't dominate the page: panel padding
+   one step lighter, per-row padding-block reduced from sm → xs. */
 .study-card__dna {
   list-style: none;
   margin: 0;
-  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  padding: var(--space-sm) var(--space-md) var(--space-md);
   display: grid;
   gap: 0;
+}
+
+.study-card__dna .dna__row {
+  padding-block: var(--space-xs);
 }
 
 .dna__row {

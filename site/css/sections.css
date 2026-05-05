@@ -656,6 +656,13 @@
   grid-template-columns: 1fr;
 }
 
+/* Mobile — only show one study example. Two stacked DNA cards (image
+   + 10-field key/value table each) eat too much vertical scroll on
+   phones; one example is enough to make the point. */
+@media (max-width: 48rem) {
+  .skill-row__body--study .study-card + .study-card { display: none; }
+}
+
 .skill-row__demo {
   position: relative;
   margin: 0;
