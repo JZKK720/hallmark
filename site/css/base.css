@@ -128,6 +128,9 @@ hr.rule,
 html {
   background: var(--color-paper);
   color: var(--color-ink);
+  /* Hard stop on horizontal overflow at the root. `clip` (not `hidden`)
+     so descendants with `position: sticky` keep working. */
+  overflow-x: clip;
 }
 
 body {
@@ -142,7 +145,18 @@ body {
   min-height: 100dvh;
   padding-inline: max(var(--page-gutter), env(safe-area-inset-left));
   padding-block-end: env(safe-area-inset-bottom);
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* Long-word safety: hero display headlines must break inside long
+   words on narrow viewports rather than push the layout wider than
+   the viewport. Critical for hyphenated brand-style words like
+   "AI-generated" in uppercase / heavy display faces. */
+.hero__display,
+.section__title,
+.skill-row__title {
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
 /* — Selection ——————————————————————————————————————— */

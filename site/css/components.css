@@ -2001,7 +2001,6 @@
    editorial-magazine instead of agency-deck. */
 
 [data-theme="studio"] .hero__photo {
-  aspect-ratio: 16 / 7;
   border-radius: 0;
   border-color: var(--color-rule-2);
 }
@@ -2482,11 +2481,14 @@
   letter-spacing: var(--tracking-display);
 }
 
-/* H6 — Photographic. Image area + small caption + text below. */
+/* H6 — Photographic. Image area + small caption + text below.
+   minmax(0, 1fr) on the grid tracks lets columns shrink below the
+   intrinsic min-content (image natural width = 1600px); without it
+   the grid would force the page wider than the mobile viewport. */
 .hero--photo {
   padding-block: var(--space-xl) var(--space-xl);
   gap: var(--space-xl);
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .hero__photo {
@@ -2495,16 +2497,28 @@
   background: var(--color-paper-2);
   border: var(--rule-hair) solid var(--color-rule);
   overflow: hidden;
+  min-width: 0;
+}
+
+@media (max-width: 40rem) {
+  .hero__photo { aspect-ratio: 4 / 3; }
 }
 
 .hero__photo-grid {
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 1px;
   background: var(--color-rule);
+}
+
+@media (max-width: 40rem) {
+  .hero__photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .hero__photo-grid > span {

@@ -846,7 +846,7 @@
   color: var(--color-accent-ink, var(--color-accent));
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 48rem) {
   .skill-row__demo--diptych {
     grid-template-columns: 1fr;
     gap: var(--space-md);
@@ -1344,5 +1344,26 @@ html[data-theme="almanac"] body {
   font-family: var(--font-serif);
   font-style: italic;
   color: var(--color-accent-ink);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Mobile collapse — section-head one-column on narrow viewports.
+   Many themes override `.section__head`'s `grid-template-columns`
+   (e.g. sport: 6rem 1fr · atelier: custom · linen: 6rem 1fr · …).
+   Per-theme overrides have specificity (0, 2, 0); the original
+   mobile collapse rule was (0, 1, 0) and lost the cascade — the
+   fixed-column heads stayed 2-column on mobile, causing the title
+   to overlap the section label (most visible on Sport: italic
+   Anton title wrapped onto the "02 / EXAMPLES" label).
+
+   This rule restores single-column collapse with matching
+   specificity so it wins source-order against every per-theme
+   head override above. Keep this block last in the file. */
+@media (max-width: 48rem) {
+  [data-theme] .section__head {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    align-items: start;
+  }
 }
 

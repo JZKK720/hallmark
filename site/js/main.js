@@ -1020,3 +1020,43 @@ if (statesBtn && statesReadout) {
     }, 900);
   });
 }
+
+/* — Tab-click scroll-jump fix —————————————————————————————
+   The CSS-only radio tab pattern in Section 04 (Without/With) and
+   Section 05 (Foundations) places the radio inputs at top:0 of their
+   section. When the user clicks a label, the browser focuses the
+   associated input — which scrolls the section's top into view, even
+   if the user clicked from the middle of the page. The result is the
+   page jumping upward on every tab click.
+
+   Fix: intercept label clicks, prevent the default chain, manually
+   toggle the radio's checked state, and focus with preventScroll so
+   keyboard navigation still works without the unwanted scroll. */
+const tabLabels = document.querySelectorAll(
+  ".vs-toggle__btn, .found-nav__btn"
+);
+tabLabels.forEach((label) => {
+  label.addEventListener("click", (e) => {
+    const id = label.getAttribute("for");
+    if (!id) return;
+    const radio = document.getElementById(id);
+    if (!radio) return;
+
+    e.preventDefault();
+    if (!radio.checked) {
+      radio.checked = true;
+      radio.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    // Keep keyboard nav working — focus the input but don't scroll.
+    try {
+      radio.focus({ preventScroll: true });
+    } catch (_) {
+      // Older browsers without preventScroll option — fall back to
+      // saving and restoring scroll position.
+      const x = window.scrollX;
+      const y = window.scrollY;
+      radio.focus();
+      window.scrollTo(x, y);
+    }
+  });
+});
