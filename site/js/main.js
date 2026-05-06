@@ -707,6 +707,46 @@ function attachCopyButtons(scope = document) {
 }
 attachCopyButtons();
 
+/* — GitHub star count — cached in localStorage for 1h ——————————
+   Hits the public GitHub API once on first paint, caches the count
+   to avoid rate-limiting. Falls back to "★" if the request fails. */
+(() => {
+  const starEl = document.querySelector("[data-star-count]");
+  if (!starEl) return;
+
+  const REPO = "Luffixos/hallmark";
+  const CACHE_KEY = "hallmark-star-count";
+  const TTL = 60 * 60 * 1000; // 1h
+
+  const format = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n));
+
+  // Read cache first — show instantly if fresh.
+  try {
+    const raw = localStorage.getItem(CACHE_KEY);
+    if (raw) {
+      const cached = JSON.parse(raw);
+      if (cached && Date.now() - cached.t < TTL && typeof cached.n === "number") {
+        starEl.textContent = format(cached.n);
+        return; // skip network entirely
+      }
+    }
+  } catch (e) { /* localStorage may throw on private mode */ }
+
+  // No fresh cache — fetch.
+  fetch(`https://api.github.com/repos/${REPO}`, { headers: { Accept: "application/vnd.github+json" } })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((d) => {
+      if (!d || typeof d.stargazers_count !== "number") {
+        starEl.textContent = "★";
+        return;
+      }
+      const n = d.stargazers_count;
+      starEl.textContent = format(n);
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify({ n, t: Date.now() })); } catch (e) { }
+    })
+    .catch(() => { starEl.textContent = "★"; });
+})();
+
 /* — Theme application ————————————————————————————————— */
 /* Cached banner subnodes — populated once at startup. */
 const themeLabelEl = document.querySelector(".banner__theme");

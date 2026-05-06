@@ -23,32 +23,39 @@
   position: relative;            /* anchors absolute children (hidden radios) */
 }
 
+/* Section head — single-column always. Section label stacks ABOVE
+   the title, separated by a small gap. No more 10rem fixed sidebar
+   that forced the section label ("ANTI-PATTERNS") to wrap on
+   themes that needed wider title columns. Section titles can grow
+   bigger now since they have full width. */
 .section__head {
   display: grid;
-  grid-template-columns: 10rem 1fr;
-  gap: var(--space-xl);
-  align-items: baseline;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
   padding-bottom: var(--section-head-gap);
   border-bottom: var(--rule-hair) solid var(--color-rule-2);
+}
+
+/* Section label — small mono uppercase coordinate above the title.
+   Hard rule: never wrap. White-space: nowrap forces single-line at
+   every viewport. The label is short ("05 / Foundations") so this
+   is safe. */
+.section-label,
+.section__head .section-label {
+  white-space: nowrap;
 }
 
 .section__title {
   font-family: var(--font-display);
   font-weight: var(--display-weight, 400);
   font-style: var(--display-style, normal);
-  font-size: var(--text-2xl);
-  line-height: var(--lh-snug);
+  font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
+  line-height: var(--lh-tight);
   letter-spacing: var(--tracking-display);
-  max-width: 24ch;
+  max-width: 28ch;
   color: var(--color-ink);
   font-optical-sizing: auto;
-}
-
-@media (max-width: 48rem) {
-  .section__head {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
+  margin: 0;
 }
 
 /* Narrow viewports — let headings wrap freely + cap display sizes so
@@ -191,12 +198,13 @@
   overflow-x: auto;
   overflow-y: visible;
   scroll-snap-type: x mandatory;
-  /* Escape the page gutter so tiles can extend past the container edge */
-  margin-inline: calc(-1 * var(--page-gutter));
+  /* Full-bleed: escape both the page max-width AND the page gutter so
+     the rail spans the full viewport regardless of how wide the
+     screen is. Cards extend right up to the viewport's edge. */
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
   padding-inline: var(--page-gutter);
   padding-block: var(--space-md) var(--space-lg);
-  /* Symmetric scroll-padding so the first AND last card snap clean to the
-     gutter — without inline-end the last card always reads as clipped. */
   scroll-padding-inline: var(--page-gutter);
   scrollbar-color: var(--color-rule-2) transparent;
 }
@@ -1452,10 +1460,9 @@ html[data-theme="almanac"] body {
 }
 [data-theme="sport"] .opening__sub { font-weight: 500; }
 [data-theme="sport"] .section__head {
-  grid-template-columns: 6rem 1fr;
+  grid-template-columns: 1fr;
   border-bottom: 2px solid var(--color-rule-2);
   padding-bottom: var(--space-md);
-  align-items: end;
 }
 [data-theme="sport"] .section__title {
   font-style: italic;
@@ -1678,15 +1685,21 @@ html[data-theme="almanac"] body {
   font-style: normal;
 }
 
+/* Foundations cards — explicit per-card right + bottom borders so
+   every column gap renders crisp at every theme + viewport. The
+   prior gap-as-border pattern (gap: 0.5px, parent bg showing
+   through) sub-pixel-rounded inconsistently — col 2/3 gaps
+   sometimes vanished. The new approach uses real 1px borders on
+   each card, parent gives top + left, cards give right + bottom.
+   Result: every divider renders. */
 .found-cards {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--rule-hair);
-  background: var(--color-rule);
-  border: var(--rule-hair) solid var(--color-rule);
+  border-block-start: 1px solid var(--color-rule);
+  border-inline-start: 1px solid var(--color-rule);
 }
 
 .found-card {
@@ -1696,6 +1709,8 @@ html[data-theme="almanac"] body {
   gap: var(--space-sm);
   align-content: start;
   min-height: 12rem;
+  border-block-end: 1px solid var(--color-rule);
+  border-inline-end: 1px solid var(--color-rule);
 }
 
 .found-card__icon {
@@ -1747,16 +1762,16 @@ html[data-theme="almanac"] body {
 [data-theme="atelier"] .found-card,
 [data-theme="salon"] .found-card {
   background: transparent;
+  border-inline-end: 0;
+  border-block-end: var(--rule-hair) dashed var(--color-rule);
 }
 
 [data-theme="atelier"] .found-cards,
 [data-theme="salon"] .found-cards {
   background: transparent;
   border: 0;
-  gap: var(--space-md);
   border-block-start: var(--rule-hair) solid var(--color-rule);
-  border-block-end: var(--rule-hair) solid var(--color-rule);
-  padding-block: var(--space-lg);
+  padding-block-start: var(--space-md);
 }
 
 @media (max-width: 60rem) {

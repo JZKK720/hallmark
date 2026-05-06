@@ -104,6 +104,63 @@
   .banner__install { display: none; }
 }
 
+/* GitHub star button — sits next to Install in the banner, shows
+   the live star count fetched from the GitHub API on load (cached
+   in localStorage for 1 hour to avoid rate-limit). Click → repo. */
+.banner__star {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-inline-start: var(--space-2xs);
+  padding: 0.18rem 0.65rem;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--color-ink);
+  text-decoration: none;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-pill, 999px);
+  transition: background-color var(--dur-micro) var(--ease-out),
+              color var(--dur-micro) var(--ease-out),
+              border-color var(--dur-micro) var(--ease-out);
+}
+
+.banner__star-icon {
+  flex-shrink: 0;
+  display: block;
+  color: var(--color-accent);
+}
+
+.banner__star-count {
+  font-feature-settings: "tnum" 1;
+  letter-spacing: 0.04em;
+}
+
+.banner__star:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-paper);
+}
+
+.banner__star:hover .banner__star-icon {
+  color: var(--color-paper);
+}
+
+.banner__star:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 36rem) {
+  .banner__star {
+    padding: 0.18rem 0.5rem;
+    gap: 0.3rem;
+  }
+}
+
 /* Genre label — small text after the theme name in the banner. */
 .banner__theme {
   display: inline;
