@@ -711,8 +711,6 @@ attachCopyButtons();
 /* Cached banner subnodes — populated once at startup. */
 const themeLabelEl = document.querySelector(".banner__theme");
 const themeGenreEl = document.querySelector("[data-theme-genre]");
-const stampTextEl = document.querySelector("[data-stamp-text]");
-const stampDetailEl = document.querySelector("[data-stamp-detail]");
 
 function setPressed(theme) {
   dots.forEach((btn) => {
@@ -721,12 +719,9 @@ function setPressed(theme) {
   });
   const themeName = THEMES[theme] || "Specimen";
   const genre = THEME_GENRES[theme] || "editorial";
-  const archetype = (ARCHETYPES[theme] && ARCHETYPES[theme].hero) || "marquee";
 
   if (themeLabelEl) themeLabelEl.textContent = themeName;
   if (themeGenreEl) themeGenreEl.textContent = genre;
-  if (stampTextEl)  stampTextEl.textContent = `${archetype} · ${theme} · enrich-A`;
-  if (stampDetailEl) stampDetailEl.textContent = `/* Hallmark · genre: ${genre} · macrostructure: ${archetype} · theme: ${theme} · enrichment: A */`;
 
   // Fallback for older callers — keep the public theme-current span up to date.
   if (currentLabel && !themeLabelEl) currentLabel.textContent = themeName;

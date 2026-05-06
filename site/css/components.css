@@ -104,53 +104,6 @@
   .banner__install { display: none; }
 }
 
-/* Live stamp callout — small mono annotation showing what Hallmark
-   is currently rendering. Hover expands to the full stamp comment.
-   Sits between the install link and the spacer; hides on narrow. */
-.banner__stamp {
-  position: relative;
-  margin-inline-start: var(--space-sm);
-  padding: 0.18rem 0.55rem;
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0;
-  text-transform: lowercase;
-  color: var(--color-muted);
-  border: 1px dashed var(--color-rule);
-  border-radius: 2px;
-  user-select: text;
-  cursor: default;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .banner__stamp:hover { color: var(--color-ink); border-color: var(--color-rule-2); }
-  .banner__stamp:hover .banner__stamp-detail { opacity: 1; pointer-events: auto; transform: translateY(0); }
-}
-
-.banner__stamp-detail {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  white-space: nowrap;
-  padding: 0.5rem 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--color-ink-2);
-  background: var(--color-paper);
-  border: 1px solid var(--color-rule-2);
-  border-radius: 2px;
-  box-shadow: 0 4px 12px -4px oklch(20% 0.02 60 / 0.16);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-4px);
-  transition: opacity 140ms var(--ease-out), transform 140ms var(--ease-out);
-  z-index: 10;
-}
-
-@media (max-width: 64rem) {
-  .banner__stamp { display: none; }
-}
-
 /* Genre label — small text after the theme name in the banner. */
 .banner__theme {
   display: inline;
@@ -3450,7 +3403,7 @@ html[data-theme="halo"] aside {
    active theme's --radius-card, --rule-card, and --shadow-card so
    switching themes restyles them along with everything else. */
 .ex-card {
-  flex: 0 0 32rem;
+  flex: 0 0 clamp(32rem, 60vw, 44rem);
   scroll-snap-align: start;
   display: grid;
   grid-template-rows: auto auto;
@@ -3468,11 +3421,11 @@ html[data-theme="halo"] aside {
 }
 
 @media (max-width: 60rem) {
-  .ex-card { flex-basis: 22rem; }
+  .ex-card { flex-basis: 26rem; }
 }
 
 @media (max-width: 36rem) {
-  .ex-card { flex-basis: 80vw; }
+  .ex-card { flex-basis: 84vw; }
 }
 
 @media (hover: hover) and (pointer: fine) {

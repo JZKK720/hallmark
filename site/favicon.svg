@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .bg { fill: #f5efe2; }
+    .fg { fill: #1a1410; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1410; }
+      .fg { fill: #f5efe2; }
+    }
+  </style>
+  <rect class="bg" width="32" height="32"/>
+  <text class="fg" x="50%" y="72%"
+        font-family="'Fraunces', 'Tiempos', 'Georgia', serif"
+        font-size="24" font-weight="500" font-style="italic"
+        text-anchor="middle">H</text>
+</svg>

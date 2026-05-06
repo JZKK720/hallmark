@@ -195,8 +195,17 @@
   margin-inline: calc(-1 * var(--page-gutter));
   padding-inline: var(--page-gutter);
   padding-block: var(--space-md) var(--space-lg);
-  scroll-padding-inline-start: var(--page-gutter);
+  /* Symmetric scroll-padding so the first AND last card snap clean to the
+     gutter — without inline-end the last card always reads as clipped. */
+  scroll-padding-inline: var(--page-gutter);
   scrollbar-color: var(--color-rule-2) transparent;
+}
+
+/* Reserve trailing whitespace inside the rail so the last card snaps
+   clean to the gutter and isn't cut off by the bleed margin. */
+.examples-rail::after {
+  content: "";
+  flex: 0 0 var(--page-gutter);
 }
 
 .examples-rail::-webkit-scrollbar { height: 6px; }
