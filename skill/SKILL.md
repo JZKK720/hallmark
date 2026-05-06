@@ -1,6 +1,6 @@
 ---
 name: hallmark
-description: Use this skill when the user asks to design, build, redesign, audit, refine, or study a UI, web page, landing page, dashboard, component, or interface — or when they ask to make something "feel less AI-generated." Hallmark forces intentional design decisions (typography, color, layout, motion, interaction, structure) and refuses to default to the generic AI-UI template. Trigger phrases include "design a", "build a landing page", "make a dashboard", "redesign this site", "redesign the page", "refine this UI", "audit this design", "this looks AI-generated", "fix the design", "polish this", "give this a different look", and any request that will produce HTML / CSS / JSX / Tailwind output. **Also trigger when the user attaches a screenshot of a design they admire** — that is the `hallmark study` verb (extracts design DNA, never pixel-clones).
+description: Use this skill when the user asks to design, build, redesign, audit, or study a UI, web page, landing page, dashboard, component, or interface — or when they ask to make something "feel less AI-generated." Hallmark forces intentional design decisions (typography, color, layout, motion, interaction, structure) and refuses to default to the generic AI-UI template. Trigger phrases include "design a", "build a landing page", "make a dashboard", "redesign this site", "redesign the page", "audit this design", "this looks AI-generated", "fix the design", "polish this", "give this a different look", and any request that will produce HTML / CSS / JSX / Tailwind output. **Also trigger when the user attaches a screenshot of a design they admire** — that is the `hallmark study` verb (extracts design DNA, never pixel-clones).
 version: 1.0.0
 ---
 
@@ -18,17 +18,16 @@ The differentiator: Hallmark insists on **structural variety**, not just visual 
 
 ## How to use this skill
 
-Hallmark has one default behaviour and four explicit verbs.
+Hallmark has one default behaviour and three explicit verbs.
 
 | Invocation | What it does |
 | --- | --- |
 | *(default)* | The user asked you to design or build something new. Follow the **Design flow** below. |
 | `hallmark audit <target>` | Read the target, score it against the anti-pattern list, return a ranked punch list. **Do not edit.** |
-| `hallmark refine <target>` | Apply the ruleset to polish the target in place. Preserve layout structure. **Smallest possible diff.** No redesign. |
 | `hallmark redesign <target> [--mood <name>]` | Take the target's content and intent, throw out the structure, and **rebuild it from scratch with a deliberately different structural fingerprint.** New section rhythm, new heading placement, new component voice. Preserve copy, brand, and information architecture; replace everything else. |
 | `hallmark study <screenshot>` | The user pasted or attached an image of a design they admire. Extract the **DNA** — macrostructure, archetypes, type-pairing role, colour anchor — and produce a diagnosis report, then optionally rebuild the user's content using the extracted DNA. **Never copies pixels. Never claims to identify exact fonts. Refuses obvious template-marketplace or competitor-page screenshots.** Load [`references/study.md`](references/study.md) before this verb runs. |
 
-If the user types anything that does not clearly map to `audit`, `refine`, `redesign`, or `study`, treat it as default. If the user attaches an image without a verb prefix, ask: *"Should I `study` this (extract the DNA), or should I treat it as a reference for a fresh build?"*
+If the user types anything that does not clearly map to `audit`, `redesign`, or `study`, treat it as default. If the user attaches an image without a verb prefix, ask: *"Should I `study` this (extract the DNA), or should I treat it as a reference for a fresh build?"*
 
 The default Design flow always picks a theme. By default it picks one of the **23 named themes** — the *catalog* — and rotates among them per the diversification rule. There is also a quiet *custom* branch that constructs a one-off OKLCH palette + free-font pairing for the brief; the custom route fires **only when the brief carries a creative-intent signal** (the user names a brand colour, names a multi-attribute vibe the catalog can't carry, or explicitly asks for a custom theme). For vanilla briefs, the user never sees the words "catalog" or "custom" — the catalog runs silently. See Step 1 (signal detection) and Step 2.6 (dispatch); the protocol lives in [`references/custom-theme.md`](references/custom-theme.md).
 
@@ -36,7 +35,7 @@ The default Design flow always picks a theme. By default it picks one of the **2
 
 ## Disciplines that hold across every verb
 
-These four disciplines are **not** verb-specific. They apply to default Design, `audit`, `refine`, `redesign`, `study`, and component-scope alike. They sit alongside the slop test, not inside one branch of it.
+These four disciplines are **not** verb-specific. They apply to default Design, `audit`, `redesign`, `study`, and component-scope alike. They sit alongside the slop test, not inside one branch of it.
 
 1. **Pre-emit self-critique.** Before handing back any output, score it 1–5 on six axes — Philosophy, Hierarchy, Execution, Specificity, Restraint, Variety. Anything **< 3** triggers a revision pass. Stamp the six scores at the top of the artifact (`/* Hallmark · pre-emit critique: P5 H4 E5 S4 R5 V5 */`). See [`references/slop-test.md`](references/slop-test.md) § Pre-emit self-critique.
 
@@ -200,7 +199,23 @@ Hallmark works best when you know three things before writing code:
 2. **Use case.** What single job does this interface do? What is the one action the user should be able to take?
 3. **Tone.** Pick an extreme — *editorial, brutalist, soft, utilitarian, luxury, playful, technical, austere*. "Clean and modern" is not a tone.
 
-**Ask once, then commit.** If any of the three is missing, ask for all missing items in **one** short message — not one at a time, not in a follow-up. Offer the user an opt-out at the end of that message: *"or say 'go ahead' and I'll infer from the brief — I'll tell you what I picked."*
+**Always ask — answering is optional.** Hallmark almost always asks before it designs. Even when the brief looks complete, post one short bundled prompt covering all three fields **plus** any open questions you'd want answered (brand colour, reference site, page sections, must-have content). Make every field skippable — the user can fill in some, all, or none.
+
+The prompt format:
+
+> *"Before I start, three quick fields — answer any or skip:*
+> *· **Audience** — who's this for?*
+> *· **Use case** — what one action should they take?*
+> *· **Tone** — pick an extreme: editorial / brutalist / soft / utilitarian / luxury / playful / technical / austere.*
+> *Anything else I should know — brand colour, reference site, must-have sections? Or just say 'go ahead' and I'll infer from the brief and tell you what I picked."*
+
+Send the prompt **once**, in one message. Do not ladder follow-ups; if the user answers some fields and skips others, treat the skipped fields as opt-out and infer them. If the user says "go ahead", "you pick", "just build it", "don't ask", or doesn't engage after one prompt, the inference protocol below kicks in.
+
+**Two narrow exceptions** where the gate is silent:
+- The user already named all three (audience, use, tone) explicitly in the brief.
+- The skill is invoked with `audit`, `study`, or `redesign --mood` — those verbs read context from the target, not the user.
+
+In every other case, ask the bundled prompt. Default is to ask, not to skip.
 
 **Genre — pick before themes.** Before the theme route, settle on a genre. Hallmark ships four: **editorial** (default · the canonical anti-slop voice), **modern-minimal** (Stripe / Linear / ElevenLabs school), **atmospheric** (Suno / Runway / dark-AI-tool school), **playful** (post-Linear soft school). The genre scopes which themes can rotate, which slop-test gates apply, and which voice fixtures the LLM picks from. Detection is signal-based — silent default to editorial unless the brief fires one of these:
 
@@ -223,7 +238,7 @@ If any of those fires, ask one short follow-up before picking: *"This brief read
 
 If none of the signals fires, **proceed with catalog silently. Do not mention the fork.** Most briefs don't need a custom theme — the catalog's 23 themes plus the rotation rule already deliver structural variety. See Step 2.6 for the dispatch.
 
-**If the user opts out** (says "go ahead", "you pick", "skip", "just build it", "don't ask", or simply doesn't engage with the question after one prompt):
+**If the user opts out or skips fields** (says "go ahead", "you pick", "skip", "just build it", "don't ask", answers some fields and leaves others blank, or simply doesn't engage with the question after one prompt):
 
 - Infer audience, use case, and tone from the brief, the domain, and any visible context (filename, framework, surrounding code is fair game *now* — only because the user delegated).
 - **State the inferences in one sentence at the top of your reply** — *"Going with: audience = X · use = Y · tone = Z. If any of those is wrong, tell me and I'll redirect."*
@@ -350,7 +365,7 @@ The non-negotiables live in [`references/`](references/). **Be precise about wha
 - [`export-formats.md`](references/export-formats.md) — load at Step 6 only when the project warrants multi-format exports (i.e. has a `design.md`). Single-page builds emit `tokens.css` from the in-memory token state and don't need this file.
 
 **Verb-specific:**
-- [`verbs/audit.md`](references/verbs/audit.md), [`verbs/refine.md`](references/verbs/refine.md), [`verbs/redesign.md`](references/verbs/redesign.md) — load only when that verb runs.
+- [`verbs/audit.md`](references/verbs/audit.md), [`verbs/redesign.md`](references/verbs/redesign.md) — load only when that verb runs.
 - [`study.md`](references/study.md) — load only when `hallmark study` runs.
 
 **Human-only (do NOT auto-load):**
@@ -479,12 +494,6 @@ If any gate fails, fix it. Do not ship slop.
 ## `hallmark audit`
 
 Load [`references/verbs/audit.md`](references/verbs/audit.md) and follow it.
-
----
-
-## `hallmark refine`
-
-Load [`references/verbs/refine.md`](references/verbs/refine.md) and follow it.
 
 ---
 

@@ -4,24 +4,9 @@
 
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* — Page-load reveals (one orchestrated entrance) ——————————— */
-const reveals = document.querySelectorAll(".reveal");
-if (reduced || !("IntersectionObserver" in window)) {
-  reveals.forEach((el) => el.classList.add("is-in"));
-} else {
-  const io = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-in");
-          io.unobserve(entry.target);
-        }
-      }
-    },
-    { threshold: 0.05, rootMargin: "0px 0px -2% 0px" }
-  );
-  reveals.forEach((el) => io.observe(el));
-}
+/* Reveal/scroll-in animations are disabled by design — every .reveal
+   element renders in its final state on load so scrolling reads clean. */
+document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-in"));
 
 /* — Theme registry ————————————————————————————————————— */
 const THEMES = {
@@ -56,7 +41,7 @@ const STORAGE_KEY = "hallmark-theme";
    variety: switching themes literally rebuilds the page, not just
    recolours it. See skill/references/component-cookbook.md. */
 const ARCHETYPES = {
-  specimen: { hero: "specimen", footer: "colophon" },
+  specimen: { hero: "marquee", footer: "colophon" },
   newsprint: { hero: "split", footer: "colophon" },
   atelier: { hero: "quote-led", footer: "colophon" },
   garden: { hero: "letter", footer: "colophon" },

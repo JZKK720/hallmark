@@ -2,7 +2,7 @@
 
 **A design skill for Claude Code, Cursor, and Codex that refuses to look AI-generated.**
 
-[Live demo →](https://hallmark-murex.vercel.app) &nbsp;·&nbsp; twenty-three themes &nbsp;·&nbsp; five verbs &nbsp;·&nbsp; press `T` to cycle.
+[Live demo →](https://hallmark-murex.vercel.app) &nbsp;·&nbsp; twenty-three themes &nbsp;·&nbsp; four verbs &nbsp;·&nbsp; press `T` to cycle.
 
 Powered by Together AI.
 
@@ -43,19 +43,18 @@ If Hallmark is wired correctly, you'll see Long Document · Linen (warm-paper ro
 | **Refuses pixel-clone** | yes — DNA only, never pixels | n/a | n/a | n/a (full token export) |
 | **Tactile-rebellion alignment** | warm-paper, custom-craft, slopless canon | strong | medium | none — token-only |
 | **Pages by archetype** | 21 named macrostructures, picked per brief | by brief | 5 deterministic directions | n/a |
-| **Verbs** | 5 (default · `audit` · `refine` · `redesign` · `study`) | 1 | 31 | 1 (CLI) |
+| **Verbs** | 4 (default · `audit` · `redesign` · `study`) | 1 | 31 | 1 (CLI) |
 
 Hallmark's edge is **`study`** — every other tool ships a preset menu or a scraper. Hallmark is the only one that takes a screenshot of a design you admire, names what it sees, refuses paid-template-marketplace listings, and rebuilds your content with the extracted DNA. Three worked study examples in [`docs/study-examples.md`](docs/study-examples.md).
 
 ---
 
-## Five verbs
+## Four verbs
 
 | Verb | What it does |
 | --- | --- |
 | *(default)* | Build new UI. Asks for audience + use + tone (skippable — the skill states what it inferred). Picks a macrostructure, applies the rule-set, runs the slop test before handing back. |
 | `hallmark audit <target>` | Score existing code against the named anti-patterns + structural sameness. Punch list, no edits. |
-| `hallmark refine <target>` | Polish in place. Smallest possible diff. Preserves structure. |
 | `hallmark redesign <target> [--mood <name>]` | Throw out the structure, keep copy + IA + brand, rebuild with a deliberately different fingerprint. |
 | **`hallmark study <screenshot>`** | The differentiator. Extract the **DNA** from a design the user admires — macrostructure, archetypes, type-pairing role, colour anchor — and produce a diagnosis report. Optionally rebuild *the user's* content using the extracted DNA. **Refuses paid templates and competitor pages. Names font roles, never font IDs. Never copies pixels.** |
 
@@ -107,7 +106,7 @@ Each page is its own self-contained HTML + CSS — no shared theme, no shared la
 
 ## What's distinct (the long list)
 
-- **One skill, five verbs.** Not eighteen commands.
+- **One skill, four verbs.** Not eighteen commands.
 - **Genres broaden the range.** Hallmark routes a brief through one of four genres before picking a theme: **editorial** (default · the canonical anti-slop voice), **modern-minimal** (Stripe / Linear / ElevenLabs school), **atmospheric** (Suno / Runway / dark-AI-tool school), **playful** (post-Linear soft school). Each genre is its own rule overlay — atmospheric allows radial blooms; modern-minimal allows pure white and pill CTAs; editorial bans both. Detection is signal-based, silent default to editorial.
 - **Tone is a first-class decision.** "Clean and modern" is rejected. Pick an extreme — *editorial · brutalist · soft · technical · luxury · playful · austere*.
 - **Macrostructures over axes.** Pick one of 21 named whole-page shapes wholesale; the macrostructure stamp lives in the CSS comment, so the next Hallmark run picks something different.

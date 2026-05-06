@@ -27,10 +27,10 @@
   --color-focus:    #FC4C02;
 
   --font-display: "Fraunces", "Tiempos", ui-serif, Georgia, serif;
-  --font-body:    "The Future", "Söhne", ui-sans-serif, sans-serif;
+  --font-body:    "Geist", "Söhne", ui-sans-serif, sans-serif;
   --font-serif:   "Fraunces", ui-serif, Georgia, serif;
-  --font-label:   "The Future Mono", "JetBrains Mono", ui-monospace, monospace;
-  --font-mono:    "The Future Mono", "JetBrains Mono", ui-monospace, monospace;
+  --font-label:   "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+  --font-mono:    "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
 
   --display-weight: 340;
   --display-optical: 144;
@@ -127,11 +127,11 @@
   --color-accent-ink: oklch(72% 0.16 220);
   --color-focus:    oklch(72%  0.16 220);
 
-  --font-display: "The Future", "Futura", "Avenir Next", ui-sans-serif, sans-serif;
-  --font-body:    "The Future", "Söhne", ui-sans-serif, sans-serif;
+  --font-display: "Geist", "Futura", "Avenir Next", ui-sans-serif, sans-serif;
+  --font-body:    "Geist", "Söhne", ui-sans-serif, sans-serif;
   --font-serif:   "Instrument Serif", ui-serif, Georgia, serif;
-  --font-label:   "The Future Mono", "JetBrains Mono", ui-monospace, monospace;
-  --font-mono:    "The Future Mono", "JetBrains Mono", ui-monospace, monospace;
+  --font-label:   "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+  --font-mono:    "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
 
   --display-weight: 300;
   --display-optical: 144;
@@ -166,9 +166,9 @@
   --color-accent-ink: oklch(58% 0.24 25);
   --color-focus:    #E63946;
 
-  --font-display: "Space Grotesk", "GT America", ui-sans-serif, sans-serif;
-  --font-body:    "Space Grotesk", "The Future", ui-sans-serif, sans-serif;
-  --font-serif:   "Space Grotesk", ui-sans-serif, sans-serif;
+  --font-display: "Albert Sans", "GT America", ui-sans-serif, sans-serif;
+  --font-body:    "Albert Sans", "Hanken Grotesk", ui-sans-serif, sans-serif;
+  --font-serif:   "Albert Sans", ui-sans-serif, sans-serif;
   --font-label:   "JetBrains Mono", ui-monospace, monospace;
   --font-mono:    "JetBrains Mono", ui-monospace, monospace;
 
@@ -216,10 +216,10 @@
   --color-focus:    #B6485E;
 
   --font-display: "Cormorant Garamond", "Instrument Serif", "Fraunces", ui-serif, Georgia, serif;
-  --font-body:    "The Future", "Söhne", ui-sans-serif, sans-serif;
+  --font-body:    "Geist", "Söhne", ui-sans-serif, sans-serif;
   --font-serif:   "Cormorant Garamond", "Instrument Serif", ui-serif, Georgia, serif;
-  --font-label:   "The Future Mono", ui-monospace, monospace;
-  --font-mono:    "The Future Mono", ui-monospace, monospace;
+  --font-label:   "Geist Mono", ui-monospace, monospace;
+  --font-mono:    "Geist Mono", ui-monospace, monospace;
 
   --display-weight: 400;
   --display-style: italic;
@@ -262,7 +262,7 @@
   --color-focus:    oklch(45%  0.13 60);
 
   --font-display: "Playfair Display", "Cormorant Garamond", "Tiempos Headline", ui-serif, Georgia, serif;
-  --font-body:    "Hanken Grotesk", "The Future", ui-sans-serif, sans-serif;
+  --font-body:    "Hanken Grotesk", "Geist", ui-sans-serif, sans-serif;
   --font-serif:   "Playfair Display", "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-label:   "IBM Plex Mono", ui-monospace, monospace;
   --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
@@ -312,7 +312,7 @@
   --font-display: "Playfair Display", "Crimson Pro", "Newsreader", ui-serif, Georgia, serif;
   --font-body:    "Crimson Pro", "Newsreader", ui-serif, Georgia, serif;
   --font-serif:   "Playfair Display", "Crimson Pro", ui-serif, Georgia, serif;
-  --font-label:   "Inter", "The Future", ui-sans-serif, sans-serif;
+  --font-label:   "Inter", "Geist", ui-sans-serif, sans-serif;
   --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
 
   --display-weight: 700;
@@ -358,7 +358,7 @@
   --color-accent-ink: oklch(78% 0.190 138);
   --color-focus:    oklch(86%  0.190 138);
 
-  --font-display: "JetBrains Mono", "IBM Plex Mono", "The Future Mono", ui-monospace, monospace;
+  --font-display: "JetBrains Mono", "IBM Plex Mono", "Geist Mono", ui-monospace, monospace;
   --font-body:    "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
   --font-serif:   "JetBrains Mono", ui-monospace, monospace;
   --font-label:   "JetBrains Mono", ui-monospace, monospace;
@@ -404,9 +404,9 @@
   --color-accent-ink: oklch(58% 0.24 28);
   --color-focus:    #E51A1A;
 
-  --font-display: "Anton", "Bebas Neue", "Space Grotesk", sans-serif;
-  --font-body:    "Inter", "Public Sans", "The Future", ui-sans-serif, sans-serif;
-  --font-serif:   "Anton", "Space Grotesk", sans-serif;
+  --font-display: "Anton", "Bebas Neue", "Albert Sans", sans-serif;
+  --font-body:    "Public Sans", "Albert Sans", "Hanken Grotesk", ui-sans-serif, sans-serif;
+  --font-serif:   "Anton", "Albert Sans", sans-serif;
   --font-label:   "JetBrains Mono", ui-monospace, monospace;
   --font-mono:    "JetBrains Mono", ui-monospace, monospace;
 
@@ -454,7 +454,7 @@
   --color-focus:    oklch(50%  0.12 50);
 
   --font-display: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
-  --font-body:    "Plus Jakarta Sans", "Hanken Grotesk", "The Future", ui-sans-serif, sans-serif;
+  --font-body:    "Plus Jakarta Sans", "Hanken Grotesk", "Geist", ui-sans-serif, sans-serif;
   --font-serif:   "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-label:   "IBM Plex Mono", ui-monospace, monospace;
   --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
@@ -551,7 +551,7 @@
   --color-focus:    oklch(38%  0.135 250);
 
   --font-display: "Hanken Grotesk", "Inter", ui-sans-serif, sans-serif;
-  --font-body:    "Hanken Grotesk", "Inter", "The Future", ui-sans-serif, sans-serif;
+  --font-body:    "Hanken Grotesk", "Inter", "Geist", ui-sans-serif, sans-serif;
   --font-serif:   "Newsreader", ui-serif, Georgia, serif;
   --font-label:   "IBM Plex Mono", ui-monospace, monospace;
   --font-mono:    "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
@@ -606,8 +606,8 @@
   --color-accent-ink: oklch(54% 0.20 35);
   --color-focus:    oklch(58%  0.190 35);
 
-  --font-display: "Inter Tight", "Space Grotesk", ui-sans-serif, sans-serif;
-  --font-body:    "Plus Jakarta Sans", "Hanken Grotesk", "The Future", ui-sans-serif, sans-serif;
+  --font-display: "Inter Tight", "Albert Sans", ui-sans-serif, sans-serif;
+  --font-body:    "Albert Sans", "Hanken Grotesk", ui-sans-serif, sans-serif;
   --font-serif:   "Inter Tight", ui-sans-serif, sans-serif;
   --font-label:   "JetBrains Mono", ui-monospace, monospace;
   --font-mono:    "JetBrains Mono", ui-monospace, monospace;
@@ -729,7 +729,7 @@
 }
 
 /* ──────────────────────────────────────────────────────────────
-   RISO — risograph print · Space Grotesk display, off-register
+   RISO — risograph print · Public Sans display, off-register
    Inspiration: Are.na, e-flux, Frieze, indie magazine sites.
    Warm peach paper, riso cyan + yellow as accents, slight CMYK
    misregistration on display via text-shadow.
@@ -750,10 +750,10 @@
   --color-accent-ink: oklch(58%  0.170 220);
   --color-focus:    oklch(58%    0.170 220);
 
-  --font-display: "Space Grotesk", "Inter Tight", system-ui, sans-serif;
+  --font-display: "Public Sans", "Albert Sans", ui-sans-serif, system-ui, sans-serif;
   --font-body:    "Newsreader", "Tiempos", ui-serif, Georgia, serif;
   --font-serif:   "Newsreader", ui-serif, Georgia, serif;
-  --font-label:   "Space Grotesk", ui-monospace, monospace;
+  --font-label:   "Public Sans", "Albert Sans", ui-sans-serif, sans-serif;
   --font-mono:    "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
 
   --display-weight: 800;

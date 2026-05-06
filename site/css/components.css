@@ -748,7 +748,6 @@
   font-size: var(--text-md);
   line-height: var(--lh-snug);
   color: var(--color-ink-2);
-  font-style: italic;
   max-width: 40ch;
 }
 
@@ -899,7 +898,6 @@
 .found-panel__rule {
   margin: 0;
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: var(--text-md);
   line-height: var(--lh-normal);
   color: var(--color-ink-2);
@@ -977,7 +975,6 @@
 
 .type-spec__body {
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: var(--text-md);
   line-height: var(--lh-normal);
   color: var(--color-ink-2);
@@ -1529,7 +1526,6 @@
 .vs__panel--personal[data-variant="hallmark"] .vs__panel-bio {
   margin: var(--space-md) 0 0;
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: 1rem;
   line-height: var(--lh-relaxed);
   color: var(--color-ink-2);
@@ -1779,7 +1775,6 @@
 .install-pane__next {
   margin: 0;
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: var(--text-md);
   line-height: var(--lh-normal);
   color: var(--color-ink-2);
@@ -2030,54 +2025,14 @@ body:not(.easter-open) > footer {
   .easter__cursor { animation: none; opacity: 1; }
 }
 
-/* — Reveals ————————————————————————————————————————— */
-.reveal {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
+/* — Reveals (disabled) ——————————————————————————————————
+   Scroll-in animation removed by product decision — landing reads
+   cleaner without staggered fades. Class kept so JS + markup stay
+   stable; element renders in its final state with no transform/fade. */
+.reveal,
 .reveal.is-in {
-  animation: reveal var(--dur-long) var(--ease-out) forwards;
-  animation-delay: calc(var(--i, 0) * 60ms);
-}
-
-@keyframes reveal { to { opacity: 1; transform: none; } }
-
-/* Theme-specific reveal patterns */
-[data-theme="brutal"] .reveal,
-[data-theme="manifesto"] .reveal,
-[data-theme="sport"] .reveal {
-  transform: translateX(-16px);
-}
-
-@keyframes reveal-sweep { to { opacity: 1; transform: none; } }
-
-[data-theme="brutal"] .reveal.is-in,
-[data-theme="manifesto"] .reveal.is-in,
-[data-theme="sport"] .reveal.is-in {
-  animation: reveal-sweep var(--dur-long) var(--ease-out) forwards;
-  animation-delay: calc(var(--i, 0) * 60ms);
-}
-
-[data-theme="atelier"] .reveal,
-[data-theme="salon"] .reveal,
-[data-theme="newsprint"] .reveal {
-  transform: none; /* no spatial reveal — fade only */
-}
-
-[data-theme="atelier"] .reveal.is-in,
-[data-theme="salon"] .reveal.is-in,
-[data-theme="newsprint"] .reveal.is-in {
-  animation: reveal-fade calc(var(--dur-long) * 1.4) var(--ease-out) forwards;
-  animation-delay: calc(var(--i, 0) * 80ms);
-}
-
-@keyframes reveal-fade { to { opacity: 1; } }
-
-[data-theme="terminal"] .reveal,
-[data-theme="terminal"] .reveal.is-in {
-  transform: none;
   opacity: 1;
+  transform: none;
   animation: none;
 }
 
@@ -2144,7 +2099,6 @@ body:not(.easter-open) > footer {
 }
 
 [data-theme="studio"] .hero__photo-caption {
-  font-style: italic;
   letter-spacing: 0;
   text-transform: none;
   font-feature-settings: "ss01";
@@ -2315,7 +2269,6 @@ body:not(.easter-open) > footer {
 [data-theme="riso"] .tell__why,
 [data-theme="riso"] .foot__tagline {
   font-family: var(--font-serif);
-  font-style: italic;
   font-weight: 400;
 }
 
@@ -2396,7 +2349,6 @@ body:not(.easter-open) > footer {
 
 .hero__lede {
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: var(--text-md);
   line-height: var(--lh-normal);
   color: var(--color-ink-2);
@@ -2499,6 +2451,14 @@ body:not(.easter-open) > footer {
 }
 
 .hero--split .hero__proof a { margin-top: var(--space-sm); }
+
+/* Editorial: the proof block reads cleaner with just the CTA. */
+[data-theme="editorial"] .hero--split .hero__proof .label,
+[data-theme="editorial"] .hero--split .hero__proof .hero__proof-line { display: none; }
+[data-theme="editorial"] .hero--split .hero__proof {
+  padding-block-start: 0;
+  border-block-start: 0;
+}
 
 /* H3 — Stat-Led. Giant number + qualifier. */
 .hero--stat {
@@ -2614,7 +2574,6 @@ body:not(.easter-open) > footer {
   margin-block: var(--space-xl) 0;
   font-family: var(--font-serif);
   font-size: var(--text-md);
-  font-style: italic;
   color: var(--color-ink-2);
   line-height: var(--lh-snug);
 }
@@ -3182,7 +3141,6 @@ body:not(.easter-open) > footer {
 
 .foot__tagline {
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: var(--text-md);
   color: var(--color-ink-2);
   max-width: 50ch;
@@ -3380,7 +3338,6 @@ body:not(.easter-open) > footer {
 .foot__catalog,
 .foot__credit {
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: 0.9375rem;
   line-height: var(--lh-relaxed);
   color: var(--color-ink-2);
@@ -3940,7 +3897,10 @@ html[data-theme="halo"] body::before {
   opacity: 1;
 }
 
-html[data-theme="halo"] .banner,
+/* Lift content above the halo body::before glow.
+   Banner is excluded so it keeps its sticky z-index (200) — the
+   theme-dropdown lives inside .banner and needs that elevation
+   to render above the orbit + glow layers below. */
 html[data-theme="halo"] main,
 html[data-theme="halo"] .easter,
 html[data-theme="halo"] aside {
@@ -4091,7 +4051,8 @@ html[data-theme="halo"] aside {
   font-size: 0;
 }
 
-.ex-card__thumb img {
+.ex-card__thumb img,
+.ex-card__thumb video {
   display: block;
   width: 100%;
   height: 100%;
@@ -4101,12 +4062,16 @@ html[data-theme="halo"] aside {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .ex-card:hover .ex-card__thumb img { transform: scale(1.025); }
+  .ex-card:hover .ex-card__thumb img,
+  .ex-card:hover .ex-card__thumb video { transform: scale(1.025); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ex-card__thumb img { transition: none; }
-  .ex-card:hover .ex-card__thumb img { transform: none; }
+  .ex-card__thumb video { animation-play-state: paused; }
+  .ex-card__thumb img,
+  .ex-card__thumb video { transition: none; }
+  .ex-card:hover .ex-card__thumb img,
+  .ex-card:hover .ex-card__thumb video { transform: none; }
 }
 
 .ex-card__meta {
@@ -4927,46 +4892,27 @@ html[data-theme="halo"] aside {
   color: var(--color-muted);
 }
 
-/* ───────────── SALON — true-centred section heads + fleuron ─────────────
-   Salon's existing grid override (in sections.css) was fine but the
-   eyebrow + title weren't perfectly stacked. Tighten the gap between
-   them, give the title a comfortable measure, and make the fleuron
-   read as a divider rather than a stray glyph. */
+/* ───────────── SALON — left-aligned, italic title, fleuron divider ───────────── */
 
 [data-theme="salon"] .section__head {
   gap: var(--space-sm);
   padding-block-end: var(--space-2xl);
 }
 
-[data-theme="salon"] .section-label {
-  display: inline-flex;
-  justify-content: center;
-  margin-inline: auto;
-}
-
 [data-theme="salon"] .section__title {
   max-width: 32ch;
-  margin-inline: auto;
   font-style: italic;
 }
 
 [data-theme="salon"] .section__head::after {
   content: "❦";
   display: block;
-  text-align: center;
   color: var(--color-accent);
   font-size: 1.1rem;
   margin-block-start: var(--space-lg);
   font-family: var(--font-serif);
   line-height: 1;
   opacity: 0.65;
-}
-
-/* Section 07 lead paragraph + outro — Salon centers all flowing prose */
-[data-theme="salon"] .examples__intro,
-[data-theme="salon"] .examples__outro {
-  text-align: center;
-  margin-inline: auto;
 }
 
 /* ───────────── NEWSPRINT — justified prose blocks ─────────────
