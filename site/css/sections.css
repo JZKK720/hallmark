@@ -1362,6 +1362,282 @@ html[data-theme="almanac"] body {
   color: var(--color-accent-ink);
 }
 
+/* — 04 · Anti-patterns — Slop, by name ——————————————————
+   Five-row editorial list: number · slop name (struck-through,
+   muted) · fix label + body (clean, ink). Side-by-side typography
+   so the contrast IS the design. Hairline rules between rows. */
+
+.anti__intro {
+  margin: 0 0 var(--space-2xl);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-md);
+  line-height: var(--lh-snug);
+  color: var(--color-ink-2);
+  max-width: 60ch;
+}
+
+[data-theme="brutal"] .anti__intro,
+[data-theme="manifesto"] .anti__intro,
+[data-theme="terminal"] .anti__intro,
+[data-theme="sport"] .anti__intro,
+[data-theme="almanac"] .anti__intro,
+[data-theme="quiet"] .anti__intro,
+[data-theme="bloom"] .anti__intro,
+[data-theme="riso"] .anti__intro {
+  font-family: var(--font-body);
+  font-style: normal;
+}
+
+.anti__intro code {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.875em;
+  background: var(--color-paper-2);
+  padding: 0.05em 0.35em;
+  border: var(--rule-hair) solid var(--color-rule);
+  color: var(--color-ink);
+}
+
+.anti-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.anti-row {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: var(--space-xl);
+  padding-block: var(--space-xl);
+  border-block-start: var(--rule-hair) solid var(--color-rule);
+  align-items: start;
+}
+
+.anti-row:first-child {
+  border-block-start: 0;
+  padding-block-start: 0;
+}
+
+@media (max-width: 60rem) {
+  .anti-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+.anti-row__num {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-block-start: 0.45em;
+  font-feature-settings: "tnum" 1;
+}
+
+.anti-row__name {
+  margin: 0 0 var(--space-sm) 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--display-weight, 500);
+  font-size: clamp(1.25rem, 1.5vw + 0.75rem, 1.75rem);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-rule-2);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-rule-2);
+  font-optical-sizing: auto;
+}
+
+[data-theme="brutal"] .anti-row__name,
+[data-theme="manifesto"] .anti-row__name,
+[data-theme="sport"] .anti-row__name {
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+[data-theme="terminal"] .anti-row__name {
+  font-family: var(--font-mono);
+  font-style: normal;
+}
+
+.anti-row__desc {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9375rem;
+  line-height: var(--lh-relaxed);
+  color: var(--color-muted);
+  max-width: 50ch;
+}
+
+[data-theme="brutal"] .anti-row__desc,
+[data-theme="manifesto"] .anti-row__desc,
+[data-theme="terminal"] .anti-row__desc,
+[data-theme="sport"] .anti-row__desc,
+[data-theme="almanac"] .anti-row__desc,
+[data-theme="quiet"] .anti-row__desc,
+[data-theme="bloom"] .anti-row__desc {
+  font-family: var(--font-body);
+  font-style: normal;
+}
+
+.anti-row__fix-label {
+  margin: 0 0 var(--space-2xs) 0;
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-feature-settings: "tnum";
+}
+
+.anti-row__fix-body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink);
+  max-width: 45ch;
+}
+
+/* — Section pull-arrow ————————————————————————————————————
+   Editorial "continued on p. 12" cue at the end of each section.
+   Italic serif label + arrow, biased left or right per section
+   for rhythm. Hover nudges the arrow forward. Pulls the eye into
+   the next section instead of stopping cold. */
+.section__pull {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
+  margin-block-start: var(--space-xl);
+  padding-block: var(--space-sm);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-md);
+  line-height: 1.2;
+  color: var(--color-ink-2);
+  text-decoration: none;
+  border-block-start: var(--rule-hair) solid var(--color-rule);
+  width: fit-content;
+  transition: color var(--dur-micro) var(--ease-out);
+}
+
+.section__pull--right {
+  margin-inline-start: auto;
+  text-align: end;
+}
+
+.section__pull-arrow {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--color-rule-2);
+  font-feature-settings: "tnum";
+  transition: transform var(--dur-short) var(--ease-out),
+              color var(--dur-micro) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .section__pull:hover { color: var(--color-ink); }
+  .section__pull:hover .section__pull-arrow {
+    transform: translateX(4px);
+    color: var(--color-accent);
+  }
+}
+
+.section__pull:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+  color: var(--color-ink);
+}
+
+[data-theme="brutal"] .section__pull,
+[data-theme="manifesto"] .section__pull,
+[data-theme="terminal"] .section__pull,
+[data-theme="sport"] .section__pull,
+[data-theme="almanac"] .section__pull,
+[data-theme="quiet"] .section__pull,
+[data-theme="bloom"] .section__pull {
+  font-family: var(--font-body);
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+}
+
+[data-theme="terminal"] .section__pull-arrow::before {
+  content: ">";
+  margin-inline-end: 0.4em;
+  color: var(--color-accent);
+}
+
+/* — Interlude — full-bleed typographic moment between sections —
+   One declarative phrase set in the active theme's display face,
+   centered on a contrasting paper band. Punctuates the scroll;
+   resets attention before the next section. Zero motion, pure type. */
+.interlude {
+  margin-inline: calc(-1 * var(--page-gutter));
+  padding-block: var(--space-3xl);
+  padding-inline: var(--page-gutter);
+  background: var(--color-paper-2);
+  border-block: var(--rule-hair) solid var(--color-rule);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.interlude__phrase {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--display-weight, 500);
+  font-style: var(--display-style, normal);
+  font-size: clamp(2.25rem, 6vw + 1rem, 5rem);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-ink);
+  font-optical-sizing: auto;
+  max-width: 22ch;
+  /* Long-word safety inherited from base.css */
+}
+
+.interlude__phrase em {
+  font-style: italic;
+  color: var(--color-accent-ink, var(--color-accent));
+  font-weight: 500;
+}
+
+[data-theme="brutal"] .interlude__phrase,
+[data-theme="manifesto"] .interlude__phrase,
+[data-theme="sport"] .interlude__phrase {
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="brutal"] .interlude__phrase em,
+[data-theme="manifesto"] .interlude__phrase em,
+[data-theme="sport"] .interlude__phrase em {
+  font-style: normal;
+  color: var(--color-accent);
+}
+
+[data-theme="terminal"] .interlude__phrase {
+  font-family: var(--font-mono);
+}
+
+[data-theme="terminal"] .interlude__phrase em {
+  font-style: normal;
+  color: var(--color-accent);
+}
+
+@media (max-width: 48rem) {
+  .interlude { padding-block: var(--space-2xl); }
+}
+
 /* ──────────────────────────────────────────────────────────────
    Mobile collapse — section-head one-column on narrow viewports.
    Many themes override `.section__head`'s `grid-template-columns`

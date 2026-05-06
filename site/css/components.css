@@ -452,6 +452,89 @@
   .banner__theme-indicator .banner__theme { display: none; }
 }
 
+/* — Chapter rail — sticky outline on wide viewports ————————
+   Vertical list of section coordinates pinned to the left margin.
+   Highlights the current section as you scroll. Hidden below 80rem
+   (1280px) where there's no margin space for it. */
+.chapter-rail {
+  position: fixed;
+  top: 50%;
+  left: max(var(--space-sm), calc((100vw - 76rem) / 2 - 7rem));
+  transform: translateY(-50%);
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.chapter-rail__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.chapter-rail__list a {
+  display: grid;
+  grid-template-columns: 1.6em 1fr;
+  align-items: baseline;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: var(--color-rule-2);
+  padding: 0.15rem 0.4rem 0.15rem 0;
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  transition: color var(--dur-micro) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .chapter-rail__list a:hover {
+    color: var(--color-ink-2);
+  }
+}
+
+.chapter-rail__list a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.chapter-rail__list a.is-current {
+  color: var(--color-ink);
+}
+
+.chapter-rail__num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  text-transform: none;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--color-rule-2);
+  text-align: end;
+  transition: color var(--dur-micro) var(--ease-out);
+}
+
+.chapter-rail__list a.is-current .chapter-rail__num {
+  color: var(--color-accent);
+}
+
+.chapter-rail__name {
+  /* The name itself is small mono — only the active section's name
+     gets visible weight; the others fade. */
+  opacity: 0.6;
+  transition: opacity var(--dur-micro) var(--ease-out);
+}
+
+.chapter-rail__list a.is-current .chapter-rail__name,
+.chapter-rail__list a:hover .chapter-rail__name {
+  opacity: 1;
+}
+
+@media (max-width: 80rem) {
+  .chapter-rail { display: none; }
+}
+
 /* — Section label (01 / FOUNDATIONS) —————————————————— */
 .section-label {
   font-family: var(--font-label);

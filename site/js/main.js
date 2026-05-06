@@ -1069,6 +1069,51 @@ if (statesBtn && statesReadout) {
   });
 }
 
+/* — Chapter rail — IntersectionObserver to highlight current section
+   The rail is hidden via CSS below 80rem; we still wire the observer
+   regardless so the highlight is correct if the user resizes up. */
+(() => {
+  const railLinks = document.querySelectorAll(".chapter-rail [data-chapter-link]");
+  if (!railLinks.length || !("IntersectionObserver" in window)) return;
+
+  const sections = Array.from(railLinks).map((a) => {
+    const id = a.getAttribute("href").slice(1);
+    return { link: a, section: document.getElementById(id) };
+  }).filter((x) => x.section);
+
+  const visible = new Set();
+
+  const setCurrent = () => {
+    let activeId = null;
+    let topMost = Infinity;
+    for (const id of visible) {
+      const sec = document.getElementById(id);
+      if (!sec) continue;
+      const top = sec.getBoundingClientRect().top;
+      if (top < topMost) { topMost = top; activeId = id; }
+    }
+    railLinks.forEach((a) => a.classList.remove("is-current"));
+    if (activeId) {
+      const link = document.querySelector(`.chapter-rail a[href="#${activeId}"]`);
+      if (link) link.classList.add("is-current");
+    }
+  };
+
+  const railIO = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      const id = e.target.id;
+      if (e.isIntersecting) visible.add(id);
+      else visible.delete(id);
+    }
+    setCurrent();
+  }, {
+    rootMargin: "-25% 0px -55% 0px",
+    threshold: 0,
+  });
+
+  sections.forEach((s) => railIO.observe(s.section));
+})();
+
 /* — Tab-click scroll-jump fix —————————————————————————————
    The CSS-only radio tab pattern in Section 04 (Without/With) and
    Section 05 (Foundations) places the radio inputs at top:0 of their

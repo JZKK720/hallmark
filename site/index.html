@@ -139,6 +139,18 @@
     </aside>
   </header>
 
+  <!-- CHAPTER RAIL — sticky outline visible on wide viewports only.
+       Highlights current section as you scroll. Hidden below 80rem. -->
+  <aside class="chapter-rail" aria-label="Page outline">
+    <ol class="chapter-rail__list">
+      <li><a href="#examples" data-chapter-link="examples"><span class="chapter-rail__num">II</span><span class="chapter-rail__name">Examples</span></a></li>
+      <li><a href="#skills" data-chapter-link="skills"><span class="chapter-rail__num">III</span><span class="chapter-rail__name">Skills</span></a></li>
+      <li><a href="#anti-patterns" data-chapter-link="anti-patterns"><span class="chapter-rail__num">IV</span><span class="chapter-rail__name">Anti-patterns</span></a></li>
+      <li><a href="#s5-foundations" data-chapter-link="foundations"><span class="chapter-rail__num">V</span><span class="chapter-rail__name">Foundations</span></a></li>
+      <li><a href="#install" data-chapter-link="install"><span class="chapter-rail__num">VI</span><span class="chapter-rail__name">Install</span></a></li>
+    </ol>
+  </aside>
+
   <main class="page">
 
     <!-- 01 · HERO SLOT — archetype swaps per theme -->
@@ -312,6 +324,11 @@
         </a>
 
       </div>
+
+      <a class="section__pull" href="#skills" aria-label="Continue to Skills section">
+        <span class="section__pull-label">See the verbs</span>
+        <span class="section__pull-arrow" aria-hidden="true">→</span>
+      </a>
     </section>
 
     <!-- 03 · SKILLS — five things Hallmark does, one ruleset underneath -->
@@ -523,10 +540,116 @@
         </li>
 
       </ol>
+
+      <a class="section__pull section__pull--right" href="#anti-patterns" aria-label="Continue to Anti-patterns section">
+        <span class="section__pull-label">See the named tells</span>
+        <span class="section__pull-arrow" aria-hidden="true">→</span>
+      </a>
     </section>
 
-    <!-- 04 · WITHOUT / WITH — same copy, two design languages, four examples -->
-    <section class="section reveal" style="--i:3" aria-labelledby="s4">
+    <!-- INTERLUDE — full-bleed typographic moment between III and IV.
+         Mid-scroll punctuation: a single declarative phrase set in
+         the active theme's display face, on a contrasting paper band.
+         Reprise of the marketing pitch in oversized type. -->
+    <aside class="interlude reveal" style="--i:3" aria-hidden="true">
+      <p class="interlude__phrase"><em>The page</em> is the demo.</p>
+    </aside>
+
+    <!-- 04 · ANTI-PATTERNS — Slop, by name. Five named AI-UI tells, each
+         with the Hallmark fix beside it. Replaces the original Without/
+         With section (preserved as a <template> below). -->
+    <section class="section reveal" style="--i:3" id="anti-patterns" aria-labelledby="s-anti">
+      <header class="section__head">
+        <p class="section-label">
+          <span class="num">04</span><span class="divider">⁄</span><span>Anti-patterns</span>
+        </p>
+        <h2 class="section__title" id="s-anti">
+          Slop, by name.
+        </h2>
+      </header>
+
+      <p class="anti__intro">
+        Five tells the LLM reaches for by default. The Hallmark fix beside each. <code>hallmark audit</code> flags every one of these on existing code.
+      </p>
+
+      <ol class="anti-list">
+
+        <li class="anti-row">
+          <p class="anti-row__num tnum">01</p>
+          <div class="anti-row__slop">
+            <h3 class="anti-row__name">The purple-gradient hero.</h3>
+            <p class="anti-row__desc">A hero with a background gradient from purple to blue or purple to pink, white centred text. The single most-recognised AI aesthetic.</p>
+          </div>
+          <div class="anti-row__fix">
+            <p class="anti-row__fix-label">Hallmark</p>
+            <p class="anti-row__fix-body">Pick a single anchor hue. One accent. No gradient backgrounds on heroes. If you want warmth, tint the neutrals.</p>
+          </div>
+        </li>
+
+        <li class="anti-row">
+          <p class="anti-row__num tnum">02</p>
+          <div class="anti-row__slop">
+            <h3 class="anti-row__name">Inter as display.</h3>
+            <p class="anti-row__desc">Inter (or Roboto, or Open Sans) used as both display and body, no pairing face. A one-font page is a template page.</p>
+          </div>
+          <div class="anti-row__fix">
+            <p class="anti-row__fix-label">Hallmark</p>
+            <p class="anti-row__fix-body">Pair a distinctive display face with a refined body. Two faces minimum, never the same family doing both jobs.</p>
+          </div>
+        </li>
+
+        <li class="anti-row">
+          <p class="anti-row__num tnum">03</p>
+          <div class="anti-row__slop">
+            <h3 class="anti-row__name">Centred everything.</h3>
+            <p class="anti-row__desc">Headline centred, body centred, button centred, section after section of centred columns. Symmetry as default.</p>
+          </div>
+          <div class="anti-row__fix">
+            <p class="anti-row__fix-label">Hallmark</p>
+            <p class="anti-row__fix-body">Bias the layout. Wide left margin, narrow right — or the reverse. Breaking symmetry once is enough to register intent.</p>
+          </div>
+        </li>
+
+        <li class="anti-row">
+          <p class="anti-row__num tnum">04</p>
+          <div class="anti-row__slop">
+            <h3 class="anti-row__name">The icon-tile feature card.</h3>
+            <p class="anti-row__desc">Rounded rectangle, icon in a coloured square top-left, two-line heading, three-line copy, optional "Learn more →". The universal template.</p>
+          </div>
+          <div class="anti-row__fix">
+            <p class="anti-row__fix-label">Hallmark</p>
+            <p class="anti-row__fix-body">If you need feature cards, let them be asymmetric — vary sizes, vary alignments, pull the icon inline. Or drop the icon and lead with type.</p>
+          </div>
+        </li>
+
+        <li class="anti-row">
+          <p class="anti-row__num tnum">05</p>
+          <div class="anti-row__slop">
+            <h3 class="anti-row__name">The AI nav.</h3>
+            <p class="anti-row__desc">Wordmark hard-left, four inline links centred, CTA button hard-right, sticky on scroll, hairline border-bottom. The shape every LLM ships.</p>
+          </div>
+          <div class="anti-row__fix">
+            <p class="anti-row__fix-label">Hallmark</p>
+            <p class="anti-row__fix-body">Pick a nav archetype that matches the page's genre — newspaper masthead, terminal command bar, edge-aligned minimal. The nav should tell you what kind of site you're on.</p>
+          </div>
+        </li>
+
+      </ol>
+
+      <a class="section__pull section__pull--right" href="#s5-foundations" aria-label="Continue to Foundations section">
+        <span class="section__pull-label">Read the rules</span>
+        <span class="section__pull-arrow" aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <!-- DEPRECATED: original Section 04 (Without / with) — replaced by
+         the Gallery of Shame above. Wrapped in <template> so the markup
+         stays in this file but doesn't render. To revert: change the
+         opening <template> tag to <section class="section reveal"
+         style="--i:3" aria-labelledby="s4"> and the closing </template>
+         to </section>, then remove the Anti-patterns section above. -->
+    <template id="section-04-archive-without-with">
+      <section class="section reveal" style="--i:3" aria-labelledby="s4">
       <header class="section__head">
         <p class="section-label">
           <span class="num">04</span><span class="divider">⁄</span><span>Without / with</span>
@@ -695,7 +818,13 @@
         </div>
 
       </div>
-    </section>
+
+      <a class="section__pull" href="#s5-foundations" aria-label="Continue to Foundations section">
+        <span class="section__pull-label">Read the rules</span>
+        <span class="section__pull-arrow" aria-hidden="true">→</span>
+      </a>
+      </section>
+    </template>
 
     <!-- 05 · FOUNDATIONS — vertical list + active panel (CSS-only tabs) -->
     <section class="section reveal" style="--i:4" aria-labelledby="s5-foundations">
@@ -818,6 +947,11 @@
         </div>
 
       </div>
+
+      <a class="section__pull section__pull--right" href="#install" aria-label="Continue to Install section">
+        <span class="section__pull-label">Install in your editor</span>
+        <span class="section__pull-arrow" aria-hidden="true">→</span>
+      </a>
     </section>
 
     <!-- 06 · INSTALL — one command, every harness -->
