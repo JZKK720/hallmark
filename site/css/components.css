@@ -111,7 +111,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  margin-inline-start: var(--space-2xs);
+  /* Sit close to the Install button — pull back against the banner's
+     flex gap so the two read as a CTA pair. */
+  margin-inline-start: calc(-1 * var(--space-md) + 0.25rem);
   padding: 0.18rem 0.65rem;
   font-family: var(--font-label);
   font-weight: 500;
@@ -131,7 +133,8 @@
 .banner__star-icon {
   flex-shrink: 0;
   display: block;
-  color: var(--color-accent);
+  /* GitHub-style golden-yellow star, theme-independent. */
+  color: #f5b300;
 }
 
 .banner__star-count {
@@ -140,14 +143,12 @@
 }
 
 .banner__star:hover {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-paper);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  border-color: var(--color-ink);
 }
 
-.banner__star:hover .banner__star-icon {
-  color: var(--color-paper);
-}
+/* Star icon stays yellow on hover — it's a brand mark, not a state. */
 
 .banner__star:focus-visible {
   outline: 2px solid var(--color-focus);
@@ -2410,6 +2411,13 @@ body:not(.easter-open) > footer {
 [data-theme="almanac"] .hero__lede {
   font-style: normal;
   font-family: var(--font-body);
+}
+
+[data-theme="manifesto"] .hero__display {
+  /* Anton is a tall narrow condensed face — at the default 1.02
+     tight line-height, the words stack with no breathing room.
+     Bump line-height so multi-line headlines have visual rhythm. */
+  line-height: 1.05;
 }
 
 [data-theme="manifesto"] .hero__display,

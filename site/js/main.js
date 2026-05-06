@@ -732,19 +732,17 @@ attachCopyButtons();
     }
   } catch (e) { /* localStorage may throw on private mode */ }
 
-  // No fresh cache — fetch.
+  // No fresh cache — fetch. On any failure, leave the static "0"
+  // placeholder in place rather than swap in an asterisk fallback.
   fetch(`https://api.github.com/repos/${REPO}`, { headers: { Accept: "application/vnd.github+json" } })
     .then((r) => (r.ok ? r.json() : null))
     .then((d) => {
-      if (!d || typeof d.stargazers_count !== "number") {
-        starEl.textContent = "★";
-        return;
-      }
+      if (!d || typeof d.stargazers_count !== "number") return;
       const n = d.stargazers_count;
       starEl.textContent = format(n);
       try { localStorage.setItem(CACHE_KEY, JSON.stringify({ n, t: Date.now() })); } catch (e) { }
     })
-    .catch(() => { starEl.textContent = "★"; });
+    .catch(() => { /* keep "0" placeholder */ });
 })();
 
 /* — Theme application ————————————————————————————————— */

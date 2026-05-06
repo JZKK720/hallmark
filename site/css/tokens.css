@@ -312,7 +312,7 @@
   --font-display: "Playfair Display", "Crimson Pro", "Newsreader", ui-serif, Georgia, serif;
   --font-body:    "Crimson Pro", "Newsreader", ui-serif, Georgia, serif;
   --font-serif:   "Playfair Display", "Crimson Pro", ui-serif, Georgia, serif;
-  --font-label:   "IBM Plex Sans", "The Future", ui-sans-serif, sans-serif;
+  --font-label:   "Inter", "The Future", ui-sans-serif, sans-serif;
   --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
 
   --display-weight: 700;
@@ -405,7 +405,7 @@
   --color-focus:    #E51A1A;
 
   --font-display: "Anton", "Bebas Neue", "Space Grotesk", sans-serif;
-  --font-body:    "IBM Plex Sans", "Public Sans", "The Future", ui-sans-serif, sans-serif;
+  --font-body:    "Inter", "Public Sans", "The Future", ui-sans-serif, sans-serif;
   --font-serif:   "Anton", "Space Grotesk", sans-serif;
   --font-label:   "JetBrains Mono", ui-monospace, monospace;
   --font-mono:    "JetBrains Mono", ui-monospace, monospace;
@@ -504,8 +504,8 @@
   --color-accent-ink: oklch(46% 0.14 232);
   --color-focus:    oklch(50%  0.16 232);
 
-  --font-display: "IBM Plex Sans", "Hanken Grotesk", ui-sans-serif, sans-serif;
-  --font-body:    "IBM Plex Sans", "Hanken Grotesk", ui-sans-serif, sans-serif;
+  --font-display: "Hanken Grotesk", "Inter", ui-sans-serif, sans-serif;
+  --font-body:    "Hanken Grotesk", "Inter", ui-sans-serif, sans-serif;
   --font-serif:   "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-label:   "IBM Plex Mono", ui-monospace, monospace;
   --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
@@ -550,8 +550,8 @@
   --color-accent-ink: oklch(40% 0.13 250);
   --color-focus:    oklch(38%  0.135 250);
 
-  --font-display: "IBM Plex Sans", "Hanken Grotesk", ui-sans-serif, sans-serif;
-  --font-body:    "IBM Plex Sans", "The Future", ui-sans-serif, sans-serif;
+  --font-display: "Hanken Grotesk", "Inter", ui-sans-serif, sans-serif;
+  --font-body:    "Hanken Grotesk", "Inter", "The Future", ui-sans-serif, sans-serif;
   --font-serif:   "Newsreader", ui-serif, Georgia, serif;
   --font-label:   "IBM Plex Mono", ui-monospace, monospace;
   --font-mono:    "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
