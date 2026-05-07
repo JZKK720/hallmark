@@ -833,6 +833,127 @@
   object-position: top left;
 }
 
+/* — Per-theme .brief-output framing —————————————————————————
+   The same demo media reads differently when the FRAME reacts to the
+   theme. Border weight, corner style, optional shadow, optional
+   per-theme caption. Frame, not content. */
+
+/* HARD EDGES + heavier border. */
+[data-theme="brutal"] .brief-output {
+  border: 2px solid var(--color-ink);
+  border-radius: 0;
+}
+[data-theme="manifesto"] .brief-output {
+  border: 3px solid var(--color-ink);
+  border-radius: 0;
+}
+[data-theme="terminal"] .brief-output {
+  border: 1px solid var(--color-accent);
+  border-radius: 0;
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--color-accent) 25%, transparent);
+}
+[data-theme="newsprint"] .brief-output {
+  border: 2px double var(--color-ink);
+  border-radius: 0;
+}
+[data-theme="editorial"] .brief-output {
+  border: 0.5px solid var(--color-rule);
+  border-radius: 0;
+}
+
+/* SLIGHT-RADIUS group (4–6px). */
+[data-theme="sport"] .brief-output {
+  border: 1.5px solid var(--color-accent);
+  border-radius: 4px;
+}
+[data-theme="almanac"] .brief-output {
+  border: 1px solid var(--color-rule);
+  border-radius: 4px;
+}
+[data-theme="garden"] .brief-output {
+  border: 1px solid var(--color-rule);
+  border-radius: 6px;
+}
+[data-theme="halo"] .brief-output {
+  border: 1px solid var(--color-rule-2);
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px color-mix(in oklch, var(--color-accent) 22%, transparent),
+              0 0 32px -8px color-mix(in oklch, var(--color-accent) 28%, transparent);
+}
+[data-theme="violet"] .brief-output {
+  border: 1px solid var(--color-rule);
+  border-radius: 6px;
+}
+[data-theme="studio"] .brief-output {
+  border: 0.5px solid var(--color-rule-2);
+  border-radius: 6px;
+}
+
+/* SOFT-CARD group (8–14px). */
+[data-theme="quiet"] .brief-output { border-radius: 8px; }
+[data-theme="coral"] .brief-output { border-radius: 8px; }
+[data-theme="aurora"] .brief-output {
+  border: 1px solid var(--color-rule-2);
+  border-radius: 12px;
+  box-shadow: 0 0 24px -10px color-mix(in oklch, var(--color-accent) 35%, transparent);
+}
+[data-theme="pastel"] .brief-output {
+  border: 1px solid var(--color-rule);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px -16px oklch(20% 0.04 270 / 0.18);
+}
+[data-theme="plume"] .brief-output {
+  border: 1px solid var(--color-rule);
+  border-radius: 12px;
+}
+[data-theme="bloom"] .brief-output {
+  border: 1px solid var(--color-rule);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px -14px color-mix(in oklch, var(--color-accent) 22%, transparent);
+}
+
+/* Atelier / Salon / Linen — hairline only, no radius, optional caption. */
+[data-theme="atelier"] .brief-output,
+[data-theme="salon"] .brief-output,
+[data-theme="linen"] .brief-output {
+  border: 1px solid var(--color-rule-2);
+  border-radius: 0;
+}
+
+/* Riso — duotone offset shadow, hard 0 radius. */
+[data-theme="riso"] .brief-output {
+  border: 2px solid var(--color-ink);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 var(--color-accent-2, var(--color-accent));
+}
+
+/* Midnight — inner glow ring on dark paper. */
+[data-theme="midnight"] .brief-output {
+  border: 1px solid var(--color-rule-2);
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--color-paper) 25%, transparent);
+}
+
+/* Per-theme captions on editorial-register themes — small italic-mono
+   note above the demo, like a foundry plate label. */
+[data-theme="atelier"] .skill-row__demo--build::before,
+[data-theme="salon"] .skill-row__demo--build::before,
+[data-theme="almanac"] .skill-row__demo--build::before,
+[data-theme="studio"] .skill-row__demo--build::before,
+[data-theme="sport"] .skill-row__demo--build::before {
+  display: block;
+  margin: 0 0 var(--space-xs) 0;
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+[data-theme="atelier"] .skill-row__demo--build::before { content: "Plate I"; }
+[data-theme="salon"] .skill-row__demo--build::before { content: "Specimen — i"; font-style: italic; text-transform: none; letter-spacing: 0; font-family: var(--font-serif); }
+[data-theme="almanac"] .skill-row__demo--build::before { content: "Fig. 01 — 2026 ed."; }
+[data-theme="studio"] .skill-row__demo--build::before { content: "Frame 01"; }
+[data-theme="sport"] .skill-row__demo--build::before { content: "Lap 1"; }
+
 /* Row III — Audit demo: a CSS-only inline slop hero. Built deliberately
    to LOOK like every default AI hero — purple-pink gradient, centered,
    Inter, ✨ badge, gradient pill CTA. Lives outside theme tokens
@@ -923,6 +1044,31 @@
   color: #6b21a8;
   border-radius: 999px;
   user-select: none;
+}
+
+/* Caption above the slop card — frames the gradient as a quoted artifact, not
+   a card competing with the page. Mono caps, theme-coloured. */
+.audit-slop__caption {
+  display: block;
+  margin: 0 0 var(--space-sm) 0;
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Tint the slop card down on dark / charged themes so it stops winning the
+   visual contest against the surrounding theme. The card still reads as AI
+   slop — purpose retained. */
+[data-theme="midnight"] .audit-slop,
+[data-theme="manifesto"] .audit-slop,
+[data-theme="halo"] .audit-slop,
+[data-theme="aurora"] .audit-slop,
+[data-theme="riso"] .audit-slop,
+[data-theme="terminal"] .audit-slop,
+[data-theme="brutal"] .audit-slop {
+  filter: saturate(0.55) brightness(0.82);
 }
 
 /* Audit checklist — replaces the old 4-row info panel. Each row reads:
