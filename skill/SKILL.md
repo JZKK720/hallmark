@@ -199,23 +199,24 @@ Hallmark works best when you know three things before writing code:
 2. **Use case.** What single job does this interface do? What is the one action the user should be able to take?
 3. **Tone.** Pick an extreme — *editorial, brutalist, soft, utilitarian, luxury, playful, technical, austere*. "Clean and modern" is not a tone.
 
-**Always ask — answering is optional.** Hallmark almost always asks before it designs. Even when the brief looks complete, post one short bundled prompt covering all three fields **plus** any open questions you'd want answered (brand colour, reference site, page sections, must-have content). Make every field skippable — the user can fill in some, all, or none.
+**Always ask — answering is optional.** Hallmark **always** asks before it designs. The bundled question is the first thing the user sees after the pre-flight block. Even on a five-word brief — *"design a podcast site"*, *"build a SaaS landing"*, *"make me a portfolio"* — ask. Especially on those briefs, since they're where the model is most tempted to invent.
 
 The prompt format:
 
-> *"Before I start, three quick fields — answer any or skip:*
-> *· **Audience** — who's this for?*
-> *· **Use case** — what one action should they take?*
-> *· **Tone** — pick an extreme: editorial / brutalist / soft / utilitarian / luxury / playful / technical / austere.*
-> *Anything else I should know — brand colour, reference site, must-have sections? Or just say 'go ahead' and I'll infer from the brief and tell you what I picked."*
+> *Before I build, I need three things:*
+>
+> *1. **Audience** — Who will use this? What do they care about?*
+> *2. **Use case** — What's the one action the page should drive? (Sign up? Subscribe? Read? Buy?)*
+> *3. **Tone** — Pick an extreme: editorial · brutalist · soft · utilitarian · luxury · playful · technical · austere. "Clean and modern" isn't a tone.*
+>
+> *Or say **"go ahead"** and I'll infer from the brief — I'll tell you what I picked.*
 
-Send the prompt **once**, in one message. Do not ladder follow-ups; if the user answers some fields and skips others, treat the skipped fields as opt-out and infer them. If the user says "go ahead", "you pick", "just build it", "don't ask", or doesn't engage after one prompt, the inference protocol below kicks in.
+Send the prompt **once**, in one message. Bold the three labels (Audience / Use case / Tone) so the user can scan them. Do not ladder follow-ups; if the user answers some fields and skips others, treat the skipped fields as opt-out and infer them. If the user says "go ahead", "you pick", "just build it", "don't ask", or doesn't engage after one prompt, the inference protocol below kicks in.
 
-**Two narrow exceptions** where the gate is silent:
-- The user already named all three (audience, use, tone) explicitly in the brief.
+**One exception** where the gate is silent:
 - The skill is invoked with `audit`, `study`, or `redesign --mood` — those verbs read context from the target, not the user.
 
-In every other case, ask the bundled prompt. Default is to ask, not to skip.
+There is no "the brief looks complete" exception. There is no "the user already named all three" exception. There is no length threshold below which asking is skipped. A long, detailed brief gets the same three-question prompt as a five-word one — the user can wave you through with *"go ahead"* in two seconds. **Default is to ask. The cost of asking is one extra message; the cost of guessing wrong is a whole rebuild.**
 
 **Genre — pick before themes.** Before the theme route, settle on a genre. Hallmark ships four: **editorial** (default · the canonical anti-slop voice), **modern-minimal** (Stripe / Linear / ElevenLabs school), **atmospheric** (Suno / Runway / dark-AI-tool school), **playful** (post-Linear soft school). The genre scopes which themes can rotate, which slop-test gates apply, and which voice fixtures the LLM picks from. Detection is signal-based — silent default to editorial unless the brief fires one of these:
 
