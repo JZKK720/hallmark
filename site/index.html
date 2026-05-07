@@ -49,9 +49,11 @@
 
     <a class="banner__install" href="#install" aria-label="Jump to install section">Install</a>
 
-    <a class="banner__star" href="https://github.com/Luffixos/hallmark" target="_blank" rel="noopener" aria-label="Star Hallmark on GitHub">
+    <a class="banner__star" href="https://github.com/Luffixos/hallmark" target="_blank" rel="noopener"
+      aria-label="Star Hallmark on GitHub">
       <svg class="banner__star-icon" viewBox="0 0 16 16" width="11" height="11" aria-hidden="true">
-        <path fill="currentColor" d="M8 0.5l2.36 4.78 5.27.77-3.81 3.72.9 5.24L8 12.55 3.28 15.01l.9-5.24L.37 6.05l5.27-.77L8 .5z"/>
+        <path fill="currentColor"
+          d="M8 0.5l2.36 4.78 5.27.77-3.81 3.72.9 5.24L8 12.55 3.28 15.01l.9-5.24L.37 6.05l5.27-.77L8 .5z" />
       </svg>
       <span class="banner__star-count tnum" data-star-count>0</span>
     </a>
@@ -59,65 +61,87 @@
     <span class="banner__spacer" aria-hidden="true"></span>
 
     <div class="banner__theme-wrap" data-theme-wrap>
-      <button class="banner__theme-indicator" type="button"
-              aria-haspopup="listbox" aria-expanded="false"
-              aria-controls="theme-dropdown"
-              data-theme-trigger>
+      <button class="banner__theme-indicator" type="button" aria-haspopup="listbox" aria-expanded="false"
+        aria-controls="theme-dropdown" data-theme-trigger>
         <span class="banner__ordinal tnum" data-theme-ordinal>01 / 23</span>
         <span class="banner__indicator-sep" aria-hidden="true">—</span>
         <span class="banner__theme" data-theme-current>Specimen</span>
         <svg class="banner__caret" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
-          <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
       </button>
 
       <div class="theme-dropdown" id="theme-dropdown" role="listbox" aria-label="Theme picker" hidden>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="specimen" aria-label="01 — Specimen"
-          style="--dot: oklch(96% 0.018 80); --dot-edge: oklch(70% 0.04 75);"><span class="theme-dropdown__num">01</span></button>
+          style="--dot: oklch(96% 0.018 80); --dot-edge: oklch(70% 0.04 75);"><span
+            class="theme-dropdown__num">01</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="midnight" aria-label="02 — Midnight"
-          style="--dot: oklch(15% 0.022 250); --dot-edge: oklch(72% 0.16 220);"><span class="theme-dropdown__num">02</span></button>
+          style="--dot: oklch(15% 0.022 250); --dot-edge: oklch(72% 0.16 220);"><span
+            class="theme-dropdown__num">02</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="brutal" aria-label="03 — Brutal"
-          style="--dot: oklch(98% 0.001 0); --dot-edge: oklch(60% 0.21 27);"><span class="theme-dropdown__num">03</span></button>
+          style="--dot: oklch(98% 0.001 0); --dot-edge: oklch(60% 0.21 27);"><span
+            class="theme-dropdown__num">03</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="garden" aria-label="04 — Garden"
-          style="--dot: oklch(95% 0.030 130); --dot-edge: oklch(54% 0.16 14);"><span class="theme-dropdown__num">04</span></button>
+          style="--dot: oklch(95% 0.030 130); --dot-edge: oklch(54% 0.16 14);"><span
+            class="theme-dropdown__num">04</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="atelier" aria-label="05 — Atelier"
-          style="--dot: oklch(94% 0.005 60); --dot-edge: oklch(45% 0.13 60);"><span class="theme-dropdown__num">05</span></button>
+          style="--dot: oklch(94% 0.005 60); --dot-edge: oklch(45% 0.13 60);"><span
+            class="theme-dropdown__num">05</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="newsprint" aria-label="06 — Newsprint"
-          style="--dot: oklch(92% 0.045 50); --dot-edge: oklch(32% 0.10 28);"><span class="theme-dropdown__num">06</span></button>
+          style="--dot: oklch(92% 0.045 50); --dot-edge: oklch(32% 0.10 28);"><span
+            class="theme-dropdown__num">06</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="terminal" aria-label="07 — Terminal"
-          style="--dot: oklch(11% 0.018 145); --dot-edge: oklch(78% 0.19 138);"><span class="theme-dropdown__num">07</span></button>
+          style="--dot: oklch(11% 0.018 145); --dot-edge: oklch(78% 0.19 138);"><span
+            class="theme-dropdown__num">07</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="manifesto" aria-label="08 — Manifesto"
-          style="--dot: oklch(10% 0.005 60); --dot-edge: oklch(60% 0.22 27);"><span class="theme-dropdown__num">08</span></button>
+          style="--dot: oklch(10% 0.005 60); --dot-edge: oklch(60% 0.22 27);"><span
+            class="theme-dropdown__num">08</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="salon" aria-label="09 — Salon"
-          style="--dot: oklch(94% 0.030 65); --dot-edge: oklch(40% 0.085 50);"><span class="theme-dropdown__num">09</span></button>
+          style="--dot: oklch(94% 0.030 65); --dot-edge: oklch(40% 0.085 50);"><span
+            class="theme-dropdown__num">09</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="linen" aria-label="10 — Linen"
-          style="--dot: oklch(89% 0.022 95); --dot-edge: oklch(46% 0.06 95);"><span class="theme-dropdown__num">10</span></button>
+          style="--dot: oklch(89% 0.022 95); --dot-edge: oklch(46% 0.06 95);"><span
+            class="theme-dropdown__num">10</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="almanac" aria-label="11 — Almanac"
-          style="--dot: oklch(94% 0.008 245); --dot-edge: oklch(38% 0.135 250);"><span class="theme-dropdown__num">11</span></button>
+          style="--dot: oklch(94% 0.008 245); --dot-edge: oklch(38% 0.135 250);"><span
+            class="theme-dropdown__num">11</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="sport" aria-label="12 — Sport"
-          style="--dot: oklch(98% 0.003 250); --dot-edge: oklch(58% 0.190 35);"><span class="theme-dropdown__num">12</span></button>
+          style="--dot: oklch(98% 0.003 250); --dot-edge: oklch(58% 0.190 35);"><span
+            class="theme-dropdown__num">12</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="studio" aria-label="13 — Studio"
-          style="--dot: oklch(96.5% 0.014 95); --dot-edge: oklch(46% 0.140 145);"><span class="theme-dropdown__num">13</span></button>
+          style="--dot: oklch(96.5% 0.014 95); --dot-edge: oklch(46% 0.140 145);"><span
+            class="theme-dropdown__num">13</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="pastel" aria-label="14 — Pastel"
-          style="--dot: oklch(98% 0.008 240); --dot-edge: oklch(54% 0.110 282);"><span class="theme-dropdown__num">14</span></button>
+          style="--dot: oklch(98% 0.008 240); --dot-edge: oklch(54% 0.110 282);"><span
+            class="theme-dropdown__num">14</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="riso" aria-label="15 — Riso"
-          style="--dot: oklch(91% 0.034 30); --dot-edge: oklch(58% 0.170 220);"><span class="theme-dropdown__num">15</span></button>
+          style="--dot: oklch(91% 0.034 30); --dot-edge: oklch(58% 0.170 220);"><span
+            class="theme-dropdown__num">15</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="quiet" aria-label="16 — Quiet"
-          style="--dot: oklch(100% 0 0); --dot-edge: oklch(15% 0 0);"><span class="theme-dropdown__num">16</span></button>
+          style="--dot: oklch(100% 0 0); --dot-edge: oklch(15% 0 0);"><span
+            class="theme-dropdown__num">16</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="bloom" aria-label="17 — Bloom"
-          style="--dot: oklch(96% 0.018 35); --dot-edge: oklch(64% 0.180 18);"><span class="theme-dropdown__num">17</span></button>
+          style="--dot: oklch(96% 0.018 35); --dot-edge: oklch(64% 0.180 18);"><span
+            class="theme-dropdown__num">17</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="coral" aria-label="18 — Coral"
-          style="--dot: oklch(96.5% 0.005 50); --dot-edge: oklch(64% 0.165 28);"><span class="theme-dropdown__num">18</span></button>
+          style="--dot: oklch(96.5% 0.005 50); --dot-edge: oklch(64% 0.165 28);"><span
+            class="theme-dropdown__num">18</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="violet" aria-label="19 — Violet"
-          style="--dot: oklch(99% 0.003 280); --dot-edge: oklch(58% 0.16 285);"><span class="theme-dropdown__num">19</span></button>
+          style="--dot: oklch(99% 0.003 280); --dot-edge: oklch(58% 0.16 285);"><span
+            class="theme-dropdown__num">19</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="aurora" aria-label="20 — Aurora"
-          style="--dot: oklch(11% 0.025 200); --dot-edge: oklch(72% 0.170 200);"><span class="theme-dropdown__num">20</span></button>
+          style="--dot: oklch(11% 0.025 200); --dot-edge: oklch(72% 0.170 200);"><span
+            class="theme-dropdown__num">20</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="halo" aria-label="21 — Halo"
-          style="--dot: oklch(13% 0.005 60); --dot-edge: oklch(74% 0.16 70);"><span class="theme-dropdown__num">21</span></button>
+          style="--dot: oklch(13% 0.005 60); --dot-edge: oklch(74% 0.16 70);"><span
+            class="theme-dropdown__num">21</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="plume" aria-label="22 — Plume"
-          style="--dot: oklch(96% 0.020 70); --dot-edge: oklch(68% 0.130 18);"><span class="theme-dropdown__num">22</span></button>
+          style="--dot: oklch(96% 0.020 70); --dot-edge: oklch(68% 0.130 18);"><span
+            class="theme-dropdown__num">22</span></button>
         <button class="theme-dropdown__dot" type="button" data-theme-btn="editorial" aria-label="23 — Editorial"
-          style="--dot: oklch(94% 0.020 75); --dot-edge: oklch(60% 0.160 35);"><span class="theme-dropdown__num">23</span></button>
+          style="--dot: oklch(94% 0.020 75); --dot-edge: oklch(60% 0.160 35);"><span
+            class="theme-dropdown__num">23</span></button>
       </div>
     </div>
 
@@ -158,160 +182,77 @@
         </h2>
       </header>
 
-      <p class="examples__intro">No shared theme. No shared layout. <span class="examples__hint">Open any card →</span></p>
+      <p class="examples__intro">One-shotted. No shared theme. No shared layout.</p>
 
       <div class="examples-rail" role="list" aria-label="Eight example landing pages">
 
         <div class="ex-card" role="listitem">
           <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
-            <video src="_tests/_thumbs/BananaStudio-loop.mp4" autoplay loop muted playsinline preload="metadata" width="1784" height="1080"></video>
+            <video data-hover-play src="_tests/_thumbs/BananaStudio-loop.mp4" autoplay loop muted playsinline
+              preload="metadata" width="1784" height="1080"></video>
           </div>
-          <div class="ex-card__meta">
-            <span class="ex-card__num">01</span>
-            <span class="ex-card__name">Banana Studio</span>
-            <span class="ex-card__brief">Creative studio · playful motion, vivid yellow accent</span>
-            
-          </div>
-          <div class="ex-card__trail" aria-hidden="true">
-            <p class="trail__row"><span class="trail__k">Brief</span><span class="trail__v">Independent design studio site.</span></p>
-            <p class="trail__row"><span class="trail__k">Genre</span><span class="trail__v">playful</span></p>
-            <p class="trail__row"><span class="trail__k">Macro</span><span class="trail__v">Marquee Hero</span></p>
-            <p class="trail__row"><span class="trail__k">Theme</span><span class="trail__v">Bloom</span></p>
-            <p class="trail__row"><span class="trail__k">Enrich</span><span class="trail__v">Tier-A motion-led hero loop</span></p>
-          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a creative studio with
+            playful motion</p>
         </div>
 
         <div class="ex-card" role="listitem">
           <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
-            <video src="_tests/_thumbs/SaaS-loop.mp4" autoplay loop muted playsinline preload="metadata" width="1784" height="1080"></video>
+            <video data-hover-play src="_tests/_thumbs/SaaS-loop.mp4" autoplay loop muted playsinline preload="metadata"
+              width="1784" height="1080"></video>
           </div>
-          <div class="ex-card__meta">
-            <span class="ex-card__num">02</span>
-            <span class="ex-card__name">Modern SaaS</span>
-            <span class="ex-card__brief">Product platform · split hero, modern-minimal register</span>
-            
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a SaaS product page,
+            modern-minimal</p>
+        </div>
+
+        <div class="ex-card" role="listitem">
+          <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
+            <video data-hover-play src="_tests/_thumbs/wayfare-loop.mp4" autoplay loop muted playsinline
+              preload="metadata" width="1784" height="1080"></video>
           </div>
-          <div class="ex-card__trail" aria-hidden="true">
-            <p class="trail__row"><span class="trail__k">Brief</span><span class="trail__v">B2B SaaS product platform.</span></p>
-            <p class="trail__row"><span class="trail__k">Genre</span><span class="trail__v">modern-minimal</span></p>
-            <p class="trail__row"><span class="trail__k">Macro</span><span class="trail__v">Split Hero</span></p>
-            <p class="trail__row"><span class="trail__k">Theme</span><span class="trail__v">Quiet</span></p>
-            <p class="trail__row"><span class="trail__k">Enrich</span><span class="trail__v">Tier-A product walkthrough loop</span></p>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a travel booking site,
+            atmospheric</p>
+        </div>
+
+        <div class="ex-card" role="listitem">
+          <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
+            <video data-hover-play src="_tests/_thumbs/slow-pour-loop.mp4" autoplay loop muted playsinline
+              preload="metadata" width="1784" height="1080"></video>
           </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a small-batch coffee
+            subscription page</p>
         </div>
 
         <div class="ex-card" role="listitem">
           <picture class="ex-card__thumb" aria-hidden="true">
-            <img src="_tests/_thumbs/03-maple.png" alt="" loading="lazy" decoding="async" width="1024" height="640" />
+            <img src="_tests/_thumbs/05-tracejam.png" alt="" loading="lazy" decoding="async" width="1024"
+              height="640" />
           </picture>
-          <div class="ex-card__meta">
-            <span class="ex-card__num">03</span>
-            <span class="ex-card__name">Maple Street Bread</span>
-            <span class="ex-card__brief">Artisan bakery · market-board layout, hand-built SVG</span>
-            
-          </div>
-          <div class="ex-card__trail" aria-hidden="true">
-            <p class="trail__row"><span class="trail__k">Brief</span><span class="trail__v">Artisan bakery, eight breads.</span></p>
-            <p class="trail__row"><span class="trail__k">Genre</span><span class="trail__v">editorial</span></p>
-            <p class="trail__row"><span class="trail__k">Macro</span><span class="trail__v">Catalogue</span></p>
-            <p class="trail__row"><span class="trail__k">Theme</span><span class="trail__v">Almanac</span></p>
-            <p class="trail__row"><span class="trail__k">Enrich</span><span class="trail__v">Tier-A hand-built SVG silhouettes</span></p>
-          </div>
-        </div>
-
-        <div class="ex-card" role="listitem">
-          <picture class="ex-card__thumb" aria-hidden="true">
-            <img src="_tests/_thumbs/04-meridian.png" alt="" loading="lazy" decoding="async" width="1024" height="640" />
-          </picture>
-          <div class="ex-card__meta">
-            <span class="ex-card__num">04</span>
-            <span class="ex-card__name">Meridian</span>
-            <span class="ex-card__brief">Studio manifesto · dark paper, yellow strike</span>
-            
-          </div>
-          <div class="ex-card__trail" aria-hidden="true">
-            <p class="trail__row"><span class="trail__k">Brief</span><span class="trail__v">Studio manifesto, four principles.</span></p>
-            <p class="trail__row"><span class="trail__k">Genre</span><span class="trail__v">editorial</span></p>
-            <p class="trail__row"><span class="trail__k">Macro</span><span class="trail__v">Quote-Led</span></p>
-            <p class="trail__row"><span class="trail__k">Theme</span><span class="trail__v">Brutal</span></p>
-            <p class="trail__row"><span class="trail__k">Enrich</span><span class="trail__v">none — voice carries the brand</span></p>
-          </div>
-        </div>
-
-        <div class="ex-card" role="listitem">
-          <picture class="ex-card__thumb" aria-hidden="true">
-            <img src="_tests/_thumbs/05-tracejam.png" alt="" loading="lazy" decoding="async" width="1024" height="640" />
-          </picture>
-          <div class="ex-card__meta">
-            <span class="ex-card__num">05</span>
-            <span class="ex-card__name">Tracejam</span>
-            <span class="ex-card__brief">Observability SaaS · dark paper, sticky trace panel</span>
-            
-          </div>
-          <div class="ex-card__trail" aria-hidden="true">
-            <p class="trail__row"><span class="trail__k">Brief</span><span class="trail__v">SaaS observability platform.</span></p>
-            <p class="trail__row"><span class="trail__k">Genre</span><span class="trail__v">atmospheric</span></p>
-            <p class="trail__row"><span class="trail__k">Macro</span><span class="trail__v">Workbench</span></p>
-            <p class="trail__row"><span class="trail__k">Theme</span><span class="trail__v">Midnight</span></p>
-            <p class="trail__row"><span class="trail__k">Enrich</span><span class="trail__v">Tier-A sticky trace panel</span></p>
-          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build an observability
+            dashboard, dark</p>
         </div>
 
         <div class="ex-card" role="listitem">
           <picture class="ex-card__thumb" aria-hidden="true">
             <img src="_tests/_thumbs/06-anya.png" alt="" loading="lazy" decoding="async" width="1024" height="640" />
           </picture>
-          <div class="ex-card__meta">
-            <span class="ex-card__num">06</span>
-            <span class="ex-card__name">Anya</span>
-            <span class="ex-card__brief">Software architect personal site · sticky TOC, pure white</span>
-            
-          </div>
-          <div class="ex-card__trail" aria-hidden="true">
-            <p class="trail__row"><span class="trail__k">Brief</span><span class="trail__v">Software architect personal site.</span></p>
-            <p class="trail__row"><span class="trail__k">Genre</span><span class="trail__v">modern-minimal</span></p>
-            <p class="trail__row"><span class="trail__k">Macro</span><span class="trail__v">Index-First</span></p>
-            <p class="trail__row"><span class="trail__k">Theme</span><span class="trail__v">Quiet</span></p>
-            <p class="trail__row"><span class="trail__k">Enrich</span><span class="trail__v">none — typography only</span></p>
-          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a software architect
+            personal site</p>
         </div>
 
         <div class="ex-card" role="listitem">
           <picture class="ex-card__thumb" aria-hidden="true">
             <img src="_tests/_thumbs/07-foundry.png" alt="" loading="lazy" decoding="async" width="1024" height="640" />
           </picture>
-          <div class="ex-card__meta">
-            <span class="ex-card__num">07</span>
-            <span class="ex-card__name">Foundry</span>
-            <span class="ex-card__brief">SOC2 compliance SaaS · six-tile bento, deep-red accent</span>
-            
-          </div>
-          <div class="ex-card__trail" aria-hidden="true">
-            <p class="trail__row"><span class="trail__k">Brief</span><span class="trail__v">SOC2 compliance SaaS.</span></p>
-            <p class="trail__row"><span class="trail__k">Genre</span><span class="trail__v">editorial</span></p>
-            <p class="trail__row"><span class="trail__k">Macro</span><span class="trail__v">Bento Grid</span></p>
-            <p class="trail__row"><span class="trail__k">Theme</span><span class="trail__v">Newsprint</span></p>
-            <p class="trail__row"><span class="trail__k">Enrich</span><span class="trail__v">Tier-A logo grid + counter</span></p>
-          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a SOC2 compliance
+            landing page</p>
         </div>
 
         <div class="ex-card" role="listitem">
           <picture class="ex-card__thumb" aria-hidden="true">
             <img src="_tests/_thumbs/08-cohort.png" alt="" loading="lazy" decoding="async" width="1024" height="640" />
           </picture>
-          <div class="ex-card__meta">
-            <span class="ex-card__num">08</span>
-            <span class="ex-card__name">Cohort</span>
-            <span class="ex-card__brief">Cohort-based courses · stat-led, three supporting figures</span>
-            
-          </div>
-          <div class="ex-card__trail" aria-hidden="true">
-            <p class="trail__row"><span class="trail__k">Brief</span><span class="trail__v">Cohort-based courses platform.</span></p>
-            <p class="trail__row"><span class="trail__k">Genre</span><span class="trail__v">editorial</span></p>
-            <p class="trail__row"><span class="trail__k">Macro</span><span class="trail__v">Stat-Led</span></p>
-            <p class="trail__row"><span class="trail__k">Theme</span><span class="trail__v">Linen</span></p>
-            <p class="trail__row"><span class="trail__k">Enrich</span><span class="trail__v">none — typography only</span></p>
-          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a cohort-based courses
+            page, stat-led</p>
         </div>
 
       </div>
@@ -334,7 +275,8 @@
       </header>
 
       <p class="skills__intro">
-        Hallmark has one default behaviour and three explicit verbs. Each reads a different input and returns a different shape — same opinions, different jobs.
+        Hallmark has one default behaviour and three explicit verbs. Each reads a different input and returns a
+        different shape — same opinions, different jobs.
       </p>
 
       <ol class="skills-list">
@@ -344,26 +286,35 @@
           <header class="skill-row__head">
             <div class="skill-row__head-body">
               <h3 class="skill-row__title">Build <span class="skill-row__title-meta">(default)</span></h3>
-              <p class="skill-row__lede">Ask for a page. Get a page that doesn't look generated. Hallmark picks a macrostructure first, then dresses it — and refuses to repeat the same shape twice.</p>
+              <p class="skill-row__lede">Ask for a page. Get a page that doesn't look generated. Hallmark picks a
+                macrostructure first, then dresses it — and refuses to repeat the same shape twice.</p>
             </div>
           </header>
 
           <div class="skill-row__body">
             <figure class="skill-row__demo skill-row__demo--build">
-              <span class="brief-pill" aria-label="Example brief">"Build me a landing page for an indie podcast platform."</span>
+              <span class="brief-pill" aria-label="Example brief">"Build me a landing page for an indie podcast
+                platform."</span>
               <span class="brief-arrow" aria-hidden="true">↓</span>
               <span class="fig-corners brief-output">
                 <span class="fig-corners__bl"></span><span class="fig-corners__br"></span>
-                <video class="brief-output__media" src="_tests/_thumbs/Podcast-loop.mp4" autoplay loop muted playsinline preload="metadata" width="1600" height="1022" aria-label="Podcast platform — a Hallmark output looping through its scroll"></video>
+                <video class="brief-output__media" src="_tests/_thumbs/Podcast-loop.mp4" autoplay loop muted playsinline
+                  preload="metadata" width="1600" height="1022"
+                  aria-label="Podcast platform — a Hallmark output looping through its scroll"></video>
               </span>
             </figure>
 
             <ol class="skill-row__list">
-              <li class="dna__row"><span class="dna__k">Invocation</span><span class="dna__v">(default) — just ask</span></li>
-              <li class="dna__row"><span class="dna__k">Reads</span><span class="dna__v">your brief, project tokens, framework</span></li>
-              <li class="dna__row"><span class="dna__k">Picks</span><span class="dna__v">macrostructure → theme → enrichment</span></li>
-              <li class="dna__row"><span class="dna__k">Returns</span><span class="dna__v">a working page, stamped, slop-tested</span></li>
-              <li class="dna__row"><span class="dna__k">Refuses</span><span class="dna__v">repeating the last 3 macrostructures</span></li>
+              <li class="dna__row"><span class="dna__k">Invocation</span><span class="dna__v">(default) — just
+                  ask</span></li>
+              <li class="dna__row"><span class="dna__k">Reads</span><span class="dna__v">your brief, project tokens,
+                  framework</span></li>
+              <li class="dna__row"><span class="dna__k">Picks</span><span class="dna__v">macrostructure → theme →
+                  enrichment</span></li>
+              <li class="dna__row"><span class="dna__k">Returns</span><span class="dna__v">a working page, stamped,
+                  slop-tested</span></li>
+              <li class="dna__row"><span class="dna__k">Refuses</span><span class="dna__v">repeating the last 3
+                  macrostructures</span></li>
             </ol>
           </div>
         </li>
@@ -373,7 +324,8 @@
           <header class="skill-row__head">
             <div class="skill-row__head-body">
               <h3 class="skill-row__title">Study</h3>
-              <p class="skill-row__lede">Paste a design you admire. Hallmark reads its structure, not its pixels — and returns a 10-field DNA card you can build against. Never copies. Never claims to ID fonts.</p>
+              <p class="skill-row__lede">Paste a design you admire. Hallmark reads its structure, not its pixels — and
+                returns a 10-field DNA card you can build against. Never copies. Never claims to ID fonts.</p>
             </div>
           </header>
 
@@ -383,21 +335,32 @@
               <span class="brief-arrow" aria-hidden="true">↓</span>
               <span class="fig-corners brief-output">
                 <span class="fig-corners__bl"></span><span class="fig-corners__br"></span>
-                <img src="_tests/_thumbs/study-example.png" alt="A scheduling-tool landing page — used as a study reference for Hallmark's DNA extractor" loading="lazy" decoding="async" width="1680" height="1050" />
+                <img src="_tests/_thumbs/study-example.png"
+                  alt="A scheduling-tool landing page — used as a study reference for Hallmark's DNA extractor"
+                  loading="lazy" decoding="async" width="1680" height="1050" />
               </span>
             </figure>
 
             <ol class="skill-row__list">
-              <li class="dna__row"><span class="dna__k">Invocation</span><span class="dna__v"><code>hallmark study &lt;screenshot&gt;</code></span></li>
+              <li class="dna__row"><span class="dna__k">Invocation</span><span
+                  class="dna__v"><code>hallmark study &lt;screenshot&gt;</code></span></li>
               <li class="dna__row"><span class="dna__k">Macrostructure</span><span class="dna__v">Split Hero</span></li>
-              <li class="dna__row"><span class="dna__k">Hero archetype</span><span class="dna__v">H7 Clipped · copy-left + product-mock right</span></li>
-              <li class="dna__row"><span class="dna__k">Display role</span><span class="dna__v">heavy geometric sans</span></li>
-              <li class="dna__row"><span class="dna__k">Body role</span><span class="dna__v">same family · regular weight</span></li>
-              <li class="dna__row"><span class="dna__k">Label role</span><span class="dna__v">grotesque · sentence case</span></li>
-              <li class="dna__row"><span class="dna__k">Paper band</span><span class="dna__v">light · pure white</span></li>
-              <li class="dna__row"><span class="dna__k">Accent hue</span><span class="dna__v">cool blue + magenta · organic gradient</span></li>
-              <li class="dna__row"><span class="dna__k">Rhythm</span><span class="dna__v">left-copy · right product card · overlapping watercolor blobs</span></li>
-              <li class="dna__row"><span class="dna__k">Refuses</span><span class="dna__v">to ID fonts · to copy pixels</span></li>
+              <li class="dna__row"><span class="dna__k">Hero archetype</span><span class="dna__v">H7 Clipped · copy-left
+                  + product-mock right</span></li>
+              <li class="dna__row"><span class="dna__k">Display role</span><span class="dna__v">heavy geometric
+                  sans</span></li>
+              <li class="dna__row"><span class="dna__k">Body role</span><span class="dna__v">same family · regular
+                  weight</span></li>
+              <li class="dna__row"><span class="dna__k">Label role</span><span class="dna__v">grotesque · sentence
+                  case</span></li>
+              <li class="dna__row"><span class="dna__k">Paper band</span><span class="dna__v">light · pure white</span>
+              </li>
+              <li class="dna__row"><span class="dna__k">Accent hue</span><span class="dna__v">cool blue + magenta ·
+                  organic gradient</span></li>
+              <li class="dna__row"><span class="dna__k">Rhythm</span><span class="dna__v">left-copy · right product card
+                  · overlapping watercolor blobs</span></li>
+              <li class="dna__row"><span class="dna__k">Refuses</span><span class="dna__v">to ID fonts · to copy
+                  pixels</span></li>
             </ol>
           </div>
         </li>
@@ -407,21 +370,20 @@
           <header class="skill-row__head">
             <div class="skill-row__head-body">
               <h3 class="skill-row__title">Audit</h3>
-              <p class="skill-row__lede">Point Hallmark at a page. Get a ranked punch list of what's wrong — scored against the anti-pattern catalogue. <strong>No edits.</strong> Just the diagnosis.</p>
+              <p class="skill-row__lede">Point Hallmark at a page. Get a ranked punch list of what's wrong — scored
+                against the anti-pattern catalogue. <strong>No edits.</strong> Just the diagnosis.</p>
             </div>
           </header>
 
           <div class="skill-row__body">
             <figure class="skill-row__demo skill-row__demo--audit" aria-label="Sample AI-default landing hero">
               <figcaption class="audit-slop__caption">Specimen — actual AI slop, untouched</figcaption>
-              <div class="audit-slop">
-                <div class="audit-slop__inner">
-                  <span class="audit-slop__badge">✨ NEW</span>
-                  <h4 class="audit-slop__title">Build the future of work.</h4>
-                  <p class="audit-slop__lede">The all-in-one platform for modern teams.</p>
-                  <span class="audit-slop__cta">Get started free →</span>
-                </div>
-              </div>
+              <span class="fig-corners brief-output">
+                <span class="fig-corners__bl"></span><span class="fig-corners__br"></span>
+                <img src="_tests/_thumbs/audit-slop.png"
+                  alt="A typical AI-default landing hero — purple-pink gradient, generic headline, gradient pill CTA"
+                  loading="lazy" decoding="async" width="1024" height="640" />
+              </span>
             </figure>
 
             <ol class="audit-check">
@@ -464,7 +426,9 @@
           <header class="skill-row__head">
             <div class="skill-row__head-body">
               <h3 class="skill-row__title">Redesign</h3>
-              <p class="skill-row__lede">Same content. Same brand. Different bones. Hallmark throws out the structural fingerprint and rebuilds with a deliberately different one — new section rhythm, new heading placement, new component voice.</p>
+              <p class="skill-row__lede">Same content. Same brand. Different bones. Hallmark throws out the structural
+                fingerprint and rebuilds with a deliberately different one — new section rhythm, new heading placement,
+                new component voice.</p>
             </div>
           </header>
 
@@ -473,16 +437,20 @@
               <figure class="diptych__half" data-state="before">
                 <span class="fig-corners">
                   <span class="fig-corners__bl"></span><span class="fig-corners__br"></span>
-                  <img src="_tests/_thumbs/verb-refine.png" alt="A split-hero macrostructure" loading="lazy" decoding="async" width="1024" height="640" />
+                  <img src="_tests/_thumbs/example-redesign-uractivation.png"
+                    alt="The original page — generic SaaS chrome before the redesign" loading="lazy" decoding="async"
+                    width="1784" height="1080" />
                 </span>
-                <figcaption class="diptych__cap">Split hero</figcaption>
+                <figcaption class="diptych__cap">Before</figcaption>
               </figure>
               <figure class="diptych__half" data-state="after">
                 <span class="fig-corners">
                   <span class="fig-corners__bl"></span><span class="fig-corners__br"></span>
-                  <img src="_tests/_thumbs/verb-redesign.png" alt="A long-document macrostructure with the same brand voice" loading="lazy" decoding="async" width="1024" height="640" />
+                  <video data-hover-play src="_tests/_thumbs/uractivation-after-loop.mp4" autoplay loop muted
+                    playsinline preload="metadata" width="1784" height="1080"
+                    aria-label="Same content, redesigned by Hallmark — different macrostructure, different fingerprint"></video>
                 </span>
-                <figcaption class="diptych__cap">Long document</figcaption>
+                <figcaption class="diptych__cap">After Hallmark redesign</figcaption>
               </figure>
             </figure>
           </div>
@@ -490,7 +458,8 @@
 
       </ol>
 
-      <a class="section__pull section__pull--right" href="#anti-patterns" aria-label="Continue to Anti-patterns section">
+      <a class="section__pull section__pull--right" href="#anti-patterns"
+        aria-label="Continue to Anti-patterns section">
         <span class="section__pull-label">See the named tells</span>
         <span class="section__pull-arrow" aria-hidden="true">→</span>
       </a>
@@ -518,7 +487,8 @@
       </header>
 
       <p class="anti__intro">
-        Five tells the LLM reaches for by default. The Hallmark fix beside each. <code>hallmark audit</code> flags every one of these on existing code.
+        Five tells the LLM reaches for by default. The Hallmark fix beside each. <code>hallmark audit</code> flags every
+        one of these on existing code.
       </p>
 
       <ol class="anti-list">
@@ -527,11 +497,13 @@
           <p class="anti-row__num tnum">01</p>
           <div class="anti-row__slop">
             <h3 class="anti-row__name">The purple-gradient hero.</h3>
-            <p class="anti-row__desc">A hero with a background gradient from purple to blue or purple to pink, white centred text. The single most-recognised AI aesthetic.</p>
+            <p class="anti-row__desc">A hero with a background gradient from purple to blue or purple to pink, white
+              centred text. The single most-recognised AI aesthetic.</p>
           </div>
           <div class="anti-row__fix">
             <p class="anti-row__fix-label">Hallmark</p>
-            <p class="anti-row__fix-body">Pick a single anchor hue. One accent. No gradient backgrounds on heroes. If you want warmth, tint the neutrals.</p>
+            <p class="anti-row__fix-body">Pick a single anchor hue. One accent. No gradient backgrounds on heroes. If
+              you want warmth, tint the neutrals.</p>
           </div>
         </li>
 
@@ -539,11 +511,13 @@
           <p class="anti-row__num tnum">02</p>
           <div class="anti-row__slop">
             <h3 class="anti-row__name">Inter as display.</h3>
-            <p class="anti-row__desc">Inter (or Roboto, or Open Sans) used as both display and body, no pairing face. A one-font page is a template page.</p>
+            <p class="anti-row__desc">Inter (or Roboto, or Open Sans) used as both display and body, no pairing face. A
+              one-font page is a template page.</p>
           </div>
           <div class="anti-row__fix">
             <p class="anti-row__fix-label">Hallmark</p>
-            <p class="anti-row__fix-body">Pair a distinctive display face with a refined body. Two faces minimum, never the same family doing both jobs.</p>
+            <p class="anti-row__fix-body">Pair a distinctive display face with a refined body. Two faces minimum, never
+              the same family doing both jobs.</p>
           </div>
         </li>
 
@@ -551,11 +525,13 @@
           <p class="anti-row__num tnum">03</p>
           <div class="anti-row__slop">
             <h3 class="anti-row__name">Centred everything.</h3>
-            <p class="anti-row__desc">Headline centred, body centred, button centred, section after section of centred columns. Symmetry as default.</p>
+            <p class="anti-row__desc">Headline centred, body centred, button centred, section after section of centred
+              columns. Symmetry as default.</p>
           </div>
           <div class="anti-row__fix">
             <p class="anti-row__fix-label">Hallmark</p>
-            <p class="anti-row__fix-body">Bias the layout. Wide left margin, narrow right — or the reverse. Breaking symmetry once is enough to register intent.</p>
+            <p class="anti-row__fix-body">Bias the layout. Wide left margin, narrow right — or the reverse. Breaking
+              symmetry once is enough to register intent.</p>
           </div>
         </li>
 
@@ -563,11 +539,13 @@
           <p class="anti-row__num tnum">04</p>
           <div class="anti-row__slop">
             <h3 class="anti-row__name">The icon-tile feature card.</h3>
-            <p class="anti-row__desc">Rounded rectangle, icon in a coloured square top-left, two-line heading, three-line copy, optional "Learn more →". The universal template.</p>
+            <p class="anti-row__desc">Rounded rectangle, icon in a coloured square top-left, two-line heading,
+              three-line copy, optional "Learn more →". The universal template.</p>
           </div>
           <div class="anti-row__fix">
             <p class="anti-row__fix-label">Hallmark</p>
-            <p class="anti-row__fix-body">If you need feature cards, let them be asymmetric — vary sizes, vary alignments, pull the icon inline. Or drop the icon and lead with type.</p>
+            <p class="anti-row__fix-body">If you need feature cards, let them be asymmetric — vary sizes, vary
+              alignments, pull the icon inline. Or drop the icon and lead with type.</p>
           </div>
         </li>
 
@@ -575,11 +553,13 @@
           <p class="anti-row__num tnum">05</p>
           <div class="anti-row__slop">
             <h3 class="anti-row__name">The AI nav.</h3>
-            <p class="anti-row__desc">Wordmark hard-left, four inline links centred, CTA button hard-right, sticky on scroll, hairline border-bottom. The shape every LLM ships.</p>
+            <p class="anti-row__desc">Wordmark hard-left, four inline links centred, CTA button hard-right, sticky on
+              scroll, hairline border-bottom. The shape every LLM ships.</p>
           </div>
           <div class="anti-row__fix">
             <p class="anti-row__fix-label">Hallmark</p>
-            <p class="anti-row__fix-body">Pick a nav archetype that matches the page's genre — newspaper masthead, terminal command bar, edge-aligned minimal. The nav should tell you what kind of site you're on.</p>
+            <p class="anti-row__fix-body">Pick a nav archetype that matches the page's genre — newspaper masthead,
+              terminal command bar, edge-aligned minimal. The nav should tell you what kind of site you're on.</p>
           </div>
         </li>
 
@@ -614,8 +594,10 @@
         <li class="found-card">
           <span class="found-card__icon" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <text x="3" y="36" font-family="'Fraunces', 'Tiempos', serif" font-style="italic" font-size="34" font-weight="500" fill="currentColor">A</text>
-              <text x="22" y="42" font-family="'Geist', 'Inter', sans-serif" font-size="22" font-weight="600" fill="currentColor">a</text>
+              <text x="3" y="36" font-family="'Fraunces', 'Tiempos', serif" font-style="italic" font-size="34"
+                font-weight="500" fill="currentColor">A</text>
+              <text x="22" y="42" font-family="'Geist', 'Inter', sans-serif" font-size="22" font-weight="600"
+                fill="currentColor">a</text>
             </svg>
           </span>
           <h3 class="found-card__name">Type</h3>
@@ -625,10 +607,10 @@
         <li class="found-card">
           <span class="found-card__icon" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="currentColor">
-              <circle cx="9" cy="24" r="4.5"/>
-              <circle cx="20" cy="24" r="4.5" opacity="0.7"/>
-              <circle cx="31" cy="24" r="4.5" opacity="0.4"/>
-              <circle cx="42" cy="24" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="9" cy="24" r="4.5" />
+              <circle cx="20" cy="24" r="4.5" opacity="0.7" />
+              <circle cx="31" cy="24" r="4.5" opacity="0.4" />
+              <circle cx="42" cy="24" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5" />
             </svg>
           </span>
           <h3 class="found-card__name">Colour</h3>
@@ -638,12 +620,12 @@
         <li class="found-card">
           <span class="found-card__icon" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-              <line x1="4" y1="26" x2="44" y2="26"/>
-              <line x1="8" y1="22" x2="8" y2="30"/>
-              <line x1="16" y1="24" x2="16" y2="28"/>
-              <line x1="24" y1="18" x2="24" y2="32"/>
-              <line x1="32" y1="24" x2="32" y2="28"/>
-              <line x1="40" y1="22" x2="40" y2="30"/>
+              <line x1="4" y1="26" x2="44" y2="26" />
+              <line x1="8" y1="22" x2="8" y2="30" />
+              <line x1="16" y1="24" x2="16" y2="28" />
+              <line x1="24" y1="18" x2="24" y2="32" />
+              <line x1="32" y1="24" x2="32" y2="28" />
+              <line x1="40" y1="22" x2="40" y2="30" />
             </svg>
           </span>
           <h3 class="found-card__name">Space</h3>
@@ -652,9 +634,10 @@
 
         <li class="found-card">
           <span class="found-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M 6 32 Q 18 32 24 24 T 40 14"/>
-              <path d="M 34 14 L 40 14 L 40 20"/>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M 6 32 Q 18 32 24 24 T 40 14" />
+              <path d="M 34 14 L 40 14 L 40 20" />
             </svg>
           </span>
           <h3 class="found-card__name">Motion</h3>
@@ -664,10 +647,10 @@
         <li class="found-card">
           <span class="found-card__icon" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-              <path d="M 11 16 Q 7 19 7 24 Q 7 28 11 28"/>
-              <path d="M 17 16 Q 13 19 13 24 Q 13 28 17 28"/>
-              <path d="M 31 16 Q 27 19 27 24 Q 27 28 31 28"/>
-              <path d="M 37 16 Q 33 19 33 24 Q 33 28 37 28"/>
+              <path d="M 11 16 Q 7 19 7 24 Q 7 28 11 28" />
+              <path d="M 17 16 Q 13 19 13 24 Q 13 28 17 28" />
+              <path d="M 31 16 Q 27 19 27 24 Q 27 28 31 28" />
+              <path d="M 37 16 Q 33 19 33 24 Q 33 28 37 28" />
             </svg>
           </span>
           <h3 class="found-card__name">Voice</h3>
@@ -677,8 +660,8 @@
         <li class="found-card">
           <span class="found-card__icon" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="6" y="12" width="14" height="26"/>
-              <rect x="22" y="18" width="20" height="20"/>
+              <rect x="6" y="12" width="14" height="26" />
+              <rect x="22" y="18" width="20" height="20" />
             </svg>
           </span>
           <h3 class="found-card__name">Layout</h3>
@@ -688,9 +671,9 @@
         <li class="found-card">
           <span class="found-card__icon" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round">
-              <line x1="6" y1="14" x2="42" y2="14" stroke-width="3.5"/>
-              <line x1="6" y1="25" x2="32" y2="25" stroke-width="2"/>
-              <line x1="6" y1="36" x2="22" y2="36" stroke-width="1.2"/>
+              <line x1="6" y1="14" x2="42" y2="14" stroke-width="3.5" />
+              <line x1="6" y1="25" x2="32" y2="25" stroke-width="2" />
+              <line x1="6" y1="36" x2="22" y2="36" stroke-width="1.2" />
             </svg>
           </span>
           <h3 class="found-card__name">Hierarchy</h3>
@@ -700,8 +683,8 @@
         <li class="found-card">
           <span class="found-card__icon" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="6" y="6" width="36" height="36"/>
-              <circle cx="24" cy="24" r="3" fill="currentColor"/>
+              <rect x="6" y="6" width="36" height="36" />
+              <circle cx="24" cy="24" r="3" fill="currentColor" />
             </svg>
           </span>
           <h3 class="found-card__name">Restraint</h3>
@@ -751,15 +734,15 @@
         <div class="install-pane__row">
           <p class="install-pane__label"><span class="install-pane__step">II</span> In</p>
           <ul class="install-pane__harnesses">
-            <li class="harness">              <span class="harness__name">Claude Code</span>
+            <li class="harness"> <span class="harness__name">Claude Code</span>
               <code class="harness__path">~/.claude/skills/hallmark/</code>
               <span class="harness__status harness__status--ok">auto-detected</span>
             </li>
-            <li class="harness">              <span class="harness__name">Cursor</span>
+            <li class="harness"> <span class="harness__name">Cursor</span>
               <code class="harness__path">.cursor/rules/hallmark.mdc</code>
               <span class="harness__status harness__status--ok">auto-detected</span>
             </li>
-            <li class="harness">              <span class="harness__name">Codex &amp; others</span>
+            <li class="harness"> <span class="harness__name">Codex &amp; others</span>
               <code class="harness__path">git clone · copy skill/</code>
               <span class="harness__status">manual</span>
             </li>
@@ -785,7 +768,8 @@
       <ol class="easter__lines" aria-live="polite">
         <li class="easter__line easter__line--cmd"><span class="easter__prompt">$</span> hallmark.observe()</li>
         <li class="easter__line easter__line--punchline" data-easter-punchline>
-          <span class="easter__arrow">&gt;</span> <span data-easter-line>theme connoisseur.</span><span class="easter__cursor" aria-hidden="true"></span>
+          <span class="easter__arrow">&gt;</span> <span data-easter-line>theme connoisseur.</span><span
+            class="easter__cursor" aria-hidden="true"></span>
         </li>
       </ol>
       <p class="easter__hint">
@@ -890,13 +874,14 @@
         <svg class="hero__bloom-wash" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet">
           <defs>
             <radialGradient id="bloomGrad" cx="0.42" cy="0.36" r="0.72">
-              <stop offset="0%" stop-color="currentColor" stop-opacity="0.85"/>
-              <stop offset="55%" stop-color="currentColor" stop-opacity="0.45"/>
-              <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+              <stop offset="0%" stop-color="currentColor" stop-opacity="0.85" />
+              <stop offset="55%" stop-color="currentColor" stop-opacity="0.45" />
+              <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
             </radialGradient>
           </defs>
-          <path d="M 80 60 Q 60 140 90 220 Q 50 280 80 360 Q 110 410 200 420 Q 320 440 340 360 Q 380 280 340 220 Q 380 130 320 80 Q 240 30 180 60 Q 130 30 80 60 Z"
-                fill="url(#bloomGrad)"/>
+          <path
+            d="M 80 60 Q 60 140 90 220 Q 50 280 80 360 Q 110 410 200 420 Q 320 440 340 360 Q 380 280 340 220 Q 380 130 320 80 Q 240 30 180 60 Q 130 30 80 60 Z"
+            fill="url(#bloomGrad)" />
         </svg>
         <span class="hero__bloom-glyph"><em>Hallmark.</em></span>
         <span class="hero__bloom-dot" aria-hidden="true"></span>
@@ -924,12 +909,12 @@
         <div class="hero__orbit-rings">
           <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
             <g fill="none" stroke="currentColor" stroke-linecap="round">
-              <circle cx="200" cy="200" r="190" stroke-width="0.6" opacity="0.35"/>
-              <circle cx="200" cy="200" r="155" stroke-width="0.8" opacity="0.5"/>
-              <circle cx="200" cy="200" r="118" stroke-width="1"   opacity="0.7"/>
-              <circle cx="200" cy="200" r="82"  stroke-width="1.4" opacity="0.85"/>
-              <circle cx="200" cy="200" r="48"  stroke-width="1.8" opacity="1"/>
-              <line x1="200" y1="10" x2="200" y2="22" stroke-width="1.2" stroke="var(--color-accent)"/>
+              <circle cx="200" cy="200" r="190" stroke-width="0.6" opacity="0.35" />
+              <circle cx="200" cy="200" r="155" stroke-width="0.8" opacity="0.5" />
+              <circle cx="200" cy="200" r="118" stroke-width="1" opacity="0.7" />
+              <circle cx="200" cy="200" r="82" stroke-width="1.4" opacity="0.85" />
+              <circle cx="200" cy="200" r="48" stroke-width="1.8" opacity="1" />
+              <line x1="200" y1="10" x2="200" y2="22" stroke-width="1.2" stroke="var(--color-accent)" />
             </g>
           </svg>
         </div>

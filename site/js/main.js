@@ -8,6 +8,36 @@ const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
    element renders in its final state on load so scrolling reads clean. */
 document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-in"));
 
+/* — Hover-to-play videos —————————————————————————————————
+   Videos with data-hover-play render as static first-frame on desktop
+   (hover-capable devices) and only play while the pointer is over the
+   card. On touch devices (no hover), they autoplay continuously so the
+   page reads as a moving showcase on mobile. */
+{
+  const supportsHover = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const videos = document.querySelectorAll("video[data-hover-play]");
+
+  if (supportsHover) {
+    videos.forEach((video) => {
+      // Pause + reset to first frame on load (desktop static preview).
+      video.removeAttribute("autoplay");
+      try { video.pause(); video.currentTime = 0; } catch (_) {}
+
+      const card = video.closest(".ex-card, .diptych__half") || video.parentElement;
+      if (!card) return;
+
+      const onEnter = () => { video.play().catch(() => {}); };
+      const onLeave = () => { video.pause(); try { video.currentTime = 0; } catch (_) {} };
+
+      card.addEventListener("mouseenter", onEnter);
+      card.addEventListener("mouseleave", onLeave);
+      card.addEventListener("focusin",   onEnter);
+      card.addEventListener("focusout",  onLeave);
+    });
+  }
+  // On touch devices, the autoplay attribute already runs the loop.
+}
+
 /* — Theme registry ————————————————————————————————————— */
 const THEMES = {
   specimen: "Specimen",
