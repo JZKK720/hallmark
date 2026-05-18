@@ -4,6 +4,32 @@ A forward-looking plan for what to build next, drawn from the gaps the latest re
 
 ---
 
+## Now — actively working on
+
+### N.1  Better themes + more custom-designed themes
+
+**Status now.** The 22 catalog themes work but a handful (Plain, Specimen, Salon, Linen) bleed into each other on first read — same paper-band, similar accent footprint, similar display roles. Real distinctiveness lives in only ~12 of them. Custom-theme construction (the `custom-theme.md` branch) exists but is rarely reached for; users mostly stay on catalog defaults.
+
+**Build.**
+1. **Tighten the existing 22** — audit each theme's three diversification axes (paper-band / display-style / accent-hue) and pull any pair that overlaps on 2+ axes back to distinct territory. The themes that ship today should each carry a stronger fingerprint.
+2. **Add 4–6 new catalog themes** in underserved corners of the axis space — e.g. mid-band warm chromatic (something between Salon and Garden), dark-monochrome editorial (no current Midnight equivalent for serif-led editorial), high-contrast print-poster (a Brutal cousin that's quieter), warm dark with handwritten accent. Each new theme ships with its own tokens block in `site/css/tokens.css` and a stamp axis declaration.
+3. **Surface the custom branch more often.** Right now custom requires 3+ vibe words. Lower the bar so a single distinctive brand colour or unusual font request routes to custom, not the closest catalog cousin.
+
+**Why it matters.** Catalog rotation is the headline differentiator — if half the catalog is interchangeable, the rotation doesn't deliver. More distinct themes = more visible variety per session = users feel the discipline working without reading the rules.
+
+### N.2  Nanobanana image generation inside Hallmark (image-led theme)
+
+**Status now.** [`assets.md`](skill/references/assets.md) lists Nanobanana as the canonical generated-still source (Tier C in the enrichment hierarchy) but the integration is *recommend-only* — Hallmark tells the user to go generate something and bring it back. No first-class image-led theme exists; image-heavy briefs route to a typography-only macrostructure and feel underserved.
+
+**Build.**
+1. **First-class Nanobanana hook.** When the brief signals "needs imagery" (e-commerce, travel, food, lookbook, gallery) and the user hasn't supplied real assets, Hallmark generates a brief for Nanobanana (style, subject, framing, palette tokens), invokes the API, ingests the returned image, and wires it into the build. Cache by prompt hash so re-runs are cheap.
+2. **New image-led theme** (working title: **Plate**) — a theme tuned for image-heavy compositions. Generous photographic framing, neutral chrome around full-bleed imagery, hairline rules, restrained type so the picture leads. Pairs with the Photographic macrostructure and the H6 Photographic-Fold archetype. Distinct from existing themes because it assumes imagery exists and treats text as caption-grade.
+3. **Token discipline for generated stills.** Nanobanana outputs need to thread back to the theme's accent / paper — extract dominant hue from the returned image, suggest as accent override, let the user confirm. Prevents the "generated image clashes with the theme palette" failure mode.
+
+**Why it matters.** Today Hallmark is a typography-led tool. Half of real-world landing pages need imagery (consumer brands, hospitality, e-commerce). Adding first-class Nanobanana support + an image-led theme covers that gap without forcing the user to leave the skill, and it positions Hallmark as a complete builder rather than a type-only specialist.
+
+---
+
 ## Tier 1 — Ship next (high impact, contained scope)
 
 ### 1.1  Theme-aware microinteraction tokens
