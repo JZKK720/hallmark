@@ -24,6 +24,13 @@ When imagery is needed *and* the user hasn't supplied real assets, pick from thi
 - All placeholder URLs reference a single constant — a `--placeholder-base` CSS variable or `PLACEHOLDER_BASE` config constant. User edits one place to swap the entire site.
 - Alt text describes the **intended** subject ("Hand-thrown ceramic mug, top-down on linen") not the placeholder ("Picsum image"). When the user swaps in the real photo, alt is already correct.
 
+**Remote asset safety:**
+
+- Treat third-party image, logo, video, icon, and font URLs as prototype defaults, not production defaults. Before shipping production code, prefer vendored or self-hosted assets unless the user explicitly wants third-party hosting.
+- Do not add a third-party script, tracking pixel, widget, or API dependency as an asset shortcut. Asset sources provide files; they do not get to execute code in the page.
+- When remote assets remain in production, state the privacy and availability tradeoff in the handoff: visitors will request those third-party hosts, and the page depends on their uptime and integrity.
+- For user-supplied brand or customer logos, prefer official asset pages or checked-in files. Do not hotlink a logo from an unrelated site.
+
 **Anti-patterns:**
 
 - Never inline base64 placeholder images (bloats CSS).
