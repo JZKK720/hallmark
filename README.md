@@ -21,7 +21,7 @@ Hallmark picks a macrostructure for the brief, dresses it in one of twenty-two t
 | *(default)* | Build new UI. Picks a macrostructure, applies the rule-set, runs the slop test before handing back. |
 | `hallmark audit <target>` | Score existing code against the anti-patterns. Punch list, no edits. |
 | `hallmark redesign <target>` | Throw out the structure, keep copy + IA + brand, rebuild with a different fingerprint. |
-| `hallmark study <screenshot \| URL>` | Extract the **DNA** from a design you admire — macrostructure, type-pairing, colour anchor. Refuses pixel-clones, paid templates, and competitor pages. Optionally emits a portable `design.md` for handoff to other AI tools. |
+| `hallmark study <screenshot \| URL>` | Extract the **DNA** from a design you admire — macrostructure, type-pairing, colour anchor. Refuses pixel-clones and paid templates. Optionally emits a portable `design.md` for handoff to other AI tools. |
 
 ---
 

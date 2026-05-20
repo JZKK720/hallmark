@@ -6,11 +6,11 @@ A described screenshot (`input-description.md`) of a Pentagram-style design stud
 
 ## What `study` does
 
-> *"Extract the DNA — macrostructure, archetypes, type-pairing role, colour anchor, rhythm — and produce a diagnosis report, then optionally rebuild the user's content using the extracted DNA. Never copies pixels. Never claims to identify exact fonts. Refuses obvious template-marketplace or competitor-page screenshots."*
+> *"Extract the DNA — macrostructure, archetypes, type-pairing role, colour anchor, rhythm — and produce a diagnosis report, then optionally rebuild the user's content using the extracted DNA. Never copies pixels. Never claims to identify exact fonts. Refuses obvious template-marketplace screenshots."*
 
 Five-step pipeline (per [`SKILL.md`](../../../SKILL.md) § `hallmark study`):
 
-1. **Refuse-or-proceed check** — public reference, not a paid template, not a direct competitor's live page → proceed.
+1. **Refuse-or-proceed check** — public reference, not a paid template → proceed.
 2. **Vision pass** — read the image into the structured-fields schema in [`study.md`](../../../references/study.md). Output ten fields.
 3. **Diagnosis report** — return the named macrostructure + archetypes + anti-patterns to NOT carry over. See [`diagnosis.md`](diagnosis.md).
 4. **Confirmation question** — ask before building.
@@ -51,11 +51,11 @@ The `studied: yes` flag tells future `audit` runs to be lenient on "Specimen-fal
 
 The screenshot maps neatly to study-examples.md Example A (Pentagram-style editorial portfolio). It exercises:
 
-- The refusal heuristics (public reference, not a competitor → proceed).
+- The refusal heuristics (public reference, not a paid template → proceed).
 - The 10-field structured schema.
 - The font-role-not-font-ID discipline.
 - The "anti-patterns the screenshot has — do NOT carry over" output.
 - The confirmation question.
 - The `studied: yes` stamp.
 
-If the input had been a paid Squarespace-template marketplace screenshot, the verb would have refused. If the input had been a direct competitor's live site, the verb would have asked before extracting. Both branches are documented in [`study.md`](../../../references/study.md); this test exercises the proceed-with-public-reference branch.
+If the input had been a paid Squarespace-template marketplace screenshot, the verb would have refused. If the input had been ambiguous (an unknown agency page or a personal portfolio with no clear ownership), the verb would have asked before extracting. Both branches are documented in [`study.md`](../../../references/study.md); this test exercises the proceed-with-public-reference branch.

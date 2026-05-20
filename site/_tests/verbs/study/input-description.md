@@ -26,4 +26,4 @@ The user pasted a screenshot of a design studio's portfolio site they admire. Be
 
 ## Refusal heuristics check
 
-The screenshot is a public reference (a real studio's published portfolio, not a paid template). The user is in a related domain (small studio) but not a direct competitor. **Proceed with DNA extraction at the structural level only — no copy, no pixel-faithful reproduction.**
+The screenshot is a public reference (a real studio's published portfolio, not a paid template). **Proceed with DNA extraction at the structural level only — no copy, no pixel-faithful reproduction.**

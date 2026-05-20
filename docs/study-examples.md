@@ -12,7 +12,7 @@ The whole point of `study`: extract **structural DNA** (macrostructure + archety
 
 ### Refuse-or-proceed check
 
-Public reference for inspiration → proceed. (Refusal heuristics fire on: paid-template-marketplace listings, competitor live marketing pages, copy-protected portfolios. None match.)
+Public reference for inspiration → proceed. (Refusal heuristics fire on: paid-template-marketplace listings, copy-protected portfolios. None match.)
 
 ### Diagnosis report (what `study` returns first)
 
@@ -114,7 +114,7 @@ The homepage emits the agency's mark in 22-rem Bricolage 800, ruled grid behind,
 
 ### Refuse-or-proceed check
 
-A *competitor's live portfolio* is the edge case here. Per `study.md` § Refusal heuristics: if the user is in the same domain as the screenshot subject, ask first.
+An ambiguous source is the edge case here. Per `study.md` § Refusal heuristics: when you can't tell whether the source is the user's own work or someone else's, ask first.
 
 > *"Is this your own work, a public reference for inspiration, or someone else's live site? If it's someone else's live site, I'll extract the DNA at the structural level only — no copy, no demos, no font IDs — and you'll bring your own content. If it's a paid portfolio template, I won't reproduce it."*
 
@@ -170,7 +170,7 @@ Output: the user's actual name in italic-Fraunces top-left, their demo (e.g. an 
 
 1. **Names the font role, not the font ID.** Visual font identification is unreliable. The skill proposes one or two real candidates from the canon and asks the user to confirm.
 2. **Never copies pixels.** The DNA is the macrostructure + archetype + colour-anchor + type-pairing — not the dress.
-3. **Refuses the obvious bad sources.** Paid-template-marketplace listings; competitor live marketing pages without explicit user confirmation; copy-protected portfolios without permission.
+3. **Refuses the obvious bad sources.** Paid-template-marketplace listings; copy-protected portfolios without permission.
 4. **Always disclosures the substitutions.** When the screenshot's font is paid (Tiempos / Söhne / Druk) and the user hasn't confirmed a licence, the skill names a free understudy (Fraunces / Inter Tight / Bricolage Grotesque) and *says it's substituting*.
 
 These three examples cover the most common categories of `study` request: an editorial portfolio, a type-specimen statement page, and a small personal site. The protocol is the same for every screenshot — refuse-or-proceed, diagnose, confirm, build. See [`study.md`](study.md) for the full protocol.

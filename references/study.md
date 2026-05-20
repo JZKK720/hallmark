@@ -61,14 +61,13 @@ Run this check **before** extracting anything. If any of the following is true, 
 | If the screenshot is… | Then… |
 | --- | --- |
 | A paid template marketplace listing (ThemeForest, Gumroad templates, Webflow templates, Framer templates, Notion templates) | Refuse. Suggest: "Tell me what you like about it and I'll build with `hallmark default` instead." |
-| A live competitor's marketing page where the user's intent is replication | Refuse. Suggest: "I can extract the structural pattern but won't reproduce a competitor's surface. Would the pattern alone be useful?" |
 | A famous designer's signature work (Pentagram project pages, Klim foundry specimens, Mathieu Triay's portfolio, etc.) being treated as a template | Soft-refuse. Acknowledge the source by name, extract DNA only, and refuse to copy distinctive choices that read as that designer's signature. |
 | Copyrighted artwork, photography, or illustrations as the design's centerpiece | Refuse to reproduce the artwork. The DNA can still be extracted (the *fact* that the page uses one big image as its hero is structural; the specific image is not). |
 | A user's own previous work | Proceed. |
 | A public reference site the user is using for inspiration on their own brand | Proceed. State the source if known. |
-| Anything ambiguous | **Ask once:** *"Is this your own work, a public reference, or someone else's live site? If it's a competitor or a marketplace template, I'll skip the build and just give you the diagnosis."* |
+| Anything ambiguous | **Ask once:** *"Is this your own work, a public reference, or someone else's live site? If it's a marketplace template, I'll skip the build and just give you the diagnosis."* |
 
-**Never** silently proceed when you suspect the screenshot is a marketplace listing or a competitor. The user must explicitly confirm. The cost of asking is low; the cost of building a knockoff is reputational.
+**Never** silently proceed when you suspect the screenshot is a marketplace listing. The user must explicitly confirm. The cost of asking is low; the cost of building a knockoff is reputational.
 
 ### URL refuse list (auto-refuse on domain match)
 
@@ -80,8 +79,7 @@ In URL mode, run this **before** WebFetch fires — don't even fetch the page. I
 | `framer.com/templates/*`, `*.framer.website` (Framer marketplace + template demos), `webflow.com/templates/*` (Webflow templates) | Refuse same as above — these are the marketplace ecosystem by another name. |
 | `gumroad.com/*` where the page is selling a UI kit or template (heuristic: `og:type=product` plus *template*, *UI kit*, *starter*, *bundle* in the title) | Refuse. |
 | `dribbble.com/shots/*`, `behance.net/gallery/*` (designer presentation work) | Soft-refuse. *"These are individual designers' presentation pieces — I'll extract DNA only, not reproduce signature choices. If a specific designer's voice resonates, tell me what about it does."* |
-| Any URL the user discloses as a direct competitor | Refuse the build. *"I'll extract the structural pattern but won't reproduce a competitor's surface. Would the pattern alone be useful?"* |
-| Anything ambiguous (an unfamiliar agency page, a personal portfolio, an unknown SaaS) | **Ask once:** *"Is this your own site, a public reference you admire, or a competitor? If competitor or marketplace, I'll skip the build and give you the diagnosis only."* |
+| Anything ambiguous (an unfamiliar agency page, a personal portfolio, an unknown SaaS) | **Ask once:** *"Is this your own site, a public reference you admire, or someone else's live site? If it's a marketplace template, I'll skip the build and give you the diagnosis only."* |
 
 The image-mode refusal rules above still apply by analogy in URL mode — if the page reads as signature work from a known designer, soft-refuse the same way.
 
@@ -181,7 +179,7 @@ After the five-step pass, fill out this schema. The diagnosis report is built fr
   "source_mode":       "image | url",
   "source_url":        "<the URL if source_mode=url, else null>",
   "source":            "user-described | public-reference | unknown",
-  "refusal":           "ok | refused (paid-template) | refused (competitor) | soft-refusal (signature work)",
+  "refusal":           "ok | refused (paid-template) | soft-refusal (signature work)",
   "macrostructure":    "<name from macrostructures.md>",
   "macrostructure_alt":"<second-closest, if it leans>",
   "hero": {
@@ -423,7 +421,7 @@ If the user just confirms the diagnosis without naming emission, **do not emit**
 
 ### The emission-refusal layer (tighter than diagnosis refusal)
 
-Diagnosis refusal asks: *"can I read this without crossing the line into cloning a competitor or copying a paid template?"* The answer is usually yes — reading is cheap and educational.
+Diagnosis refusal asks: *"can I read this without copying a paid template?"* The answer is usually yes — reading is cheap and educational.
 
 Emission refusal asks: *"can I package this DNA as a portable system the user (or any AI tool the user hands the file to) will then use as their own design language?"* That's meaningfully more extractive than a diagnosis. The user already has the diagnosis; the file is a separate, durable artifact that travels.
 
@@ -437,7 +435,7 @@ The two refusal layers do not match. A reference can clear the diagnosis bar and
 >
 > *(a) your own site*
 > *(b) a public reference for your own brand (you have permission to learn from it)*
-> *(c) something else (a competitor, a designer you admire, a stranger's site you stumbled on)*
+> *(c) something else (a designer you admire, a stranger's site you stumbled on)*
 >
 > *Reply (a), (b), or (c).*
 
@@ -449,9 +447,9 @@ Then dispatch on the answer:
 | (b) "public reference for own brand" | Emit, but include a `## Provenance` block: *"Extracted from `<URL>` as a public reference for the user's brand on <date>. The DNA is structural; specific tokens may need to be regenerated to match the user's brand identity rather than the source's."* |
 | (c) "something else" | **Refuse.** *"I won't emit a `design.md` from a third-party site I'm not authorised to extract from. The diagnosis is yours — that's a learning tool. The portable spec needs a source you can attest authorship of, or a public reference for your own brand. If you want a design.md anyway, take a screenshot of your own moodboard or your own existing site, and I'll study that instead."* |
 
-If the user has already disclosed source attribution earlier in the conversation (e.g., during the initial "is this your own work / public reference / competitor" check, they answered "my own site"), do not re-ask — carry that attestation forward. The ask is only needed when status is unknown.
+If the user has already disclosed source attribution earlier in the conversation (e.g., during the initial "is this your own work / public reference / someone else's site" check, they answered "my own site"), do not re-ask — carry that attestation forward. The ask is only needed when status is unknown.
 
-The image-mode refusal table at the top of this file still applies in both modes. A source that already failed the diagnosis refusal (paid template, declared competitor, soft-refused signature work) is auto-refused at emission — do not re-ask.
+The image-mode refusal table at the top of this file still applies in both modes. A source that already failed the diagnosis refusal (paid template, soft-refused signature work) is auto-refused at emission — do not re-ask.
 
 ### What gets written
 
