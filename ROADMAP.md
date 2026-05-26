@@ -16,11 +16,11 @@ What's next.
 
 **Brand-first flow.** From a short product description, Hallmark generates a complete brand — palette, type system, voice, custom imagery via Nanobanana — and locks it into a `design.md`. The user then runs Hallmark normally and the whole site builds against that generated brand, page after page. Closes the gap for users who have a product idea but no brand yet.
 
-**Theme-aware motion tokens.** Per-theme `--dur-micro` / `--dur-short` / `--dur-long`, scaled by the table already in [`microinteractions.md`](references/microinteractions.md). Atelier should feel slower than Brutal; today they share durations. One pass through the tokens file.
+**Theme-aware motion tokens.** Per-theme `--dur-micro` / `--dur-short` / `--dur-long`, scaled by the table already in [`microinteractions.md`](skills/hallmark/references/microinteractions.md). Atelier should feel slower than Brutal; today they share durations. One pass through the tokens file.
 
 **`hallmark variant`** — produce three structurally distinct versions of the same brief side-by-side; the user picks one or asks for a fourth. The biggest cause of "AI feel" is users accepting the first output because they didn't know it could be different.
 
-**Structural cookbook.** [`structure.md`](references/structure.md) catalogues the *axes* of variety but doesn't show what a left-margin-headed, hairline-divided, no-image page actually looks like assembled. Twelve to twenty worked fingerprints with short HTML/CSS sketches — patterns are easier to reach for than principles.
+**Structural cookbook.** [`structure.md`](skills/hallmark/references/structure.md) catalogues the *axes* of variety but doesn't show what a left-margin-headed, hairline-divided, no-image page actually looks like assembled. Twelve to twenty worked fingerprints with short HTML/CSS sketches — patterns are easier to reach for than principles.
 
 **Tactile-rebellion reference.** Controlled imperfection — handmade textures, hand-drawn SVG paths, controlled-jitter typography (a 0.5° tilt on one mark is taste; on every word it's chaos). Where the field is going.
 

@@ -66,13 +66,13 @@ Each page is self-contained HTML + CSS, stamped with its macrostructure in the C
 npx skills add nutlope/hallmark
 ```
 
-Re-run any time to update. Or copy [`SKILL.md`](SKILL.md) + [`references/`](references/) into:
+Re-run any time to update. Or copy [`SKILL.md`](skills/hallmark/SKILL.md) + [`references/`](skills/hallmark/references/) into:
 
 - **Claude Code** — `~/.claude/skills/hallmark/`
 - **Cursor** — `.cursor/rules/hallmark.mdc` (body of `SKILL.md`, no frontmatter)
 - **Codex** — `~/.codex/skills/hallmark/` (personal) or `.codex/skills/hallmark/` (project-scoped)
 
-The rule-set lives in [`SKILL.md`](SKILL.md) and [`references/`](references/). Worked examples in [`docs/recipes.md`](docs/recipes.md) and [`docs/study-examples.md`](docs/study-examples.md).
+The rule-set lives in [`SKILL.md`](skills/hallmark/SKILL.md) and [`references/`](skills/hallmark/references/). Worked examples in [`docs/recipes.md`](docs/recipes.md) and [`docs/study-examples.md`](docs/study-examples.md).
 
 ---
 
