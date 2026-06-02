@@ -3796,6 +3796,20 @@ html[data-theme="aurora"] body {
   .ex-card__thumb video { transition: none; }
 }
 
+/* Hover scroll for the image cards (the four new themes + the bespoke build).
+   The thumb is a tall full-page screenshot; on hover we pan object-position
+   top → bottom so the page "scrolls" itself. Pure CSS, GPU-light, no video
+   decode. Touch devices and reduced-motion get a static top crop. Only the
+   <img> cards scroll; the original <video> cards keep their hover-play. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .ex-card__thumb img { transition: object-position 600ms ease; }
+  .ex-card:hover .ex-card__thumb img,
+  .ex-card:focus-visible .ex-card__thumb img {
+    object-position: left bottom;
+    transition: object-position 5s ease-in-out;
+  }
+}
+
 /* New card meta — single-line prompt only, mono. The card is the prompt
    that produced the output above it. */
 .ex-card__prompt {
