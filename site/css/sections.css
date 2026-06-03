@@ -510,7 +510,6 @@
 [data-theme="terminal"] .study__intro,
 [data-theme="sport"] .study__intro,
 [data-theme="almanac"] .study__intro,
-[data-theme="quiet"] .study__intro,
 [data-theme="bloom"] .study__intro {
   font-family: var(--font-body);
   font-style: normal;
@@ -546,7 +545,6 @@
 [data-theme="terminal"] .skills__intro,
 [data-theme="sport"] .skills__intro,
 [data-theme="almanac"] .skills__intro,
-[data-theme="quiet"] .skills__intro,
 [data-theme="bloom"] .skills__intro,
 [data-theme="riso"] .skills__intro {
   font-family: var(--font-body);
@@ -606,7 +604,6 @@
 [data-theme="terminal"] .skill-row__title-meta,
 [data-theme="sport"] .skill-row__title-meta,
 [data-theme="almanac"] .skill-row__title-meta,
-[data-theme="quiet"] .skill-row__title-meta,
 [data-theme="bloom"] .skill-row__title-meta {
   font-family: var(--font-mono);
   font-style: normal;
@@ -638,13 +635,9 @@
 [data-theme="sport"] .skill-row__lede,
 [data-theme="almanac"] .skill-row__lede,
 [data-theme="studio"] .skill-row__lede,
-[data-theme="quiet"] .skill-row__lede,
 [data-theme="bloom"] .skill-row__lede,
 [data-theme="aurora"] .skill-row__lede,
-[data-theme="plume"] .skill-row__lede,
-[data-theme="halo"] .skill-row__lede,
-[data-theme="coral"] .skill-row__lede,
-[data-theme="violet"] .skill-row__lede {
+[data-theme="coral"] .skill-row__lede {
   font-family: var(--font-body);
   font-style: normal;
 }
@@ -706,8 +699,7 @@
   border-radius: var(--radius-card, 0);
 }
 
-[data-theme="atelier"] .skill-row__list,
-[data-theme="salon"] .skill-row__list {
+[data-theme="atelier"] .skill-row__list {
   border: 0;
   background: transparent;
   padding: 0;
@@ -821,32 +813,17 @@
   border: 1px solid var(--color-rule);
   border-radius: 6px;
 }
-[data-theme="halo"] .brief-output {
-  border: 1px solid var(--color-rule-2);
-  border-radius: 6px;
-  box-shadow: 0 0 0 1px color-mix(in oklch, var(--color-accent) 22%, transparent),
-              0 0 32px -8px color-mix(in oklch, var(--color-accent) 28%, transparent);
-}
-[data-theme="violet"] .brief-output {
-  border: 1px solid var(--color-rule);
-  border-radius: 6px;
-}
 [data-theme="studio"] .brief-output {
   border: 0.5px solid var(--color-rule-2);
   border-radius: 6px;
 }
 
 /* SOFT-CARD group (8–14px). */
-[data-theme="quiet"] .brief-output { border-radius: 8px; }
 [data-theme="coral"] .brief-output { border-radius: 8px; }
 [data-theme="aurora"] .brief-output {
   border: 1px solid var(--color-rule-2);
   border-radius: 12px;
   box-shadow: 0 0 24px -10px color-mix(in oklch, var(--color-accent) 35%, transparent);
-}
-[data-theme="plume"] .brief-output {
-  border: 1px solid var(--color-rule);
-  border-radius: 12px;
 }
 [data-theme="bloom"] .brief-output {
   border: 1px solid var(--color-rule);
@@ -854,10 +831,8 @@
   box-shadow: 0 6px 24px -14px color-mix(in oklch, var(--color-accent) 22%, transparent);
 }
 
-/* Atelier / Salon / Linen — hairline only, no radius, optional caption. */
-[data-theme="atelier"] .brief-output,
-[data-theme="salon"] .brief-output,
-[data-theme="linen"] .brief-output {
+/* Atelier — hairline only, no radius, optional caption. */
+[data-theme="atelier"] .brief-output {
   border: 1px solid var(--color-rule-2);
   border-radius: 0;
 }
@@ -985,7 +960,6 @@
    slop — purpose retained. */
 [data-theme="midnight"] .audit-slop,
 [data-theme="manifesto"] .audit-slop,
-[data-theme="halo"] .audit-slop,
 [data-theme="aurora"] .audit-slop,
 [data-theme="riso"] .audit-slop,
 [data-theme="terminal"] .audit-slop,
@@ -1005,8 +979,7 @@
   border: var(--rule-card, 1px) solid var(--color-rule);
 }
 
-[data-theme="atelier"] .audit-check,
-[data-theme="salon"] .audit-check {
+[data-theme="atelier"] .audit-check {
   border: 0;
   background: transparent;
   padding: 0;
@@ -1250,7 +1223,6 @@
 [data-theme="terminal"] .ba__panel-cap,
 [data-theme="sport"] .ba__panel-cap,
 [data-theme="almanac"] .ba__panel-cap,
-[data-theme="quiet"] .ba__panel-cap,
 [data-theme="bloom"] .ba__panel-cap {
   font-family: var(--font-body);
 }
@@ -1516,72 +1488,6 @@
 [data-theme="manifesto"] .section:nth-of-type(7)::before { content: "EVERY DECISION VISIBLE."; }
 [data-theme="manifesto"] .section:nth-of-type(8)::before { content: "THE PAGE IS A POSITION."; }
 
-/* ── SALON — italic display, fleuron divider, left-aligned ───── */
-[data-theme="salon"] .opening {
-  grid-template-columns: 1fr;
-  padding-block: var(--space-3xl) var(--space-xl);
-}
-[data-theme="salon"] .opening__title {
-  font-style: italic;
-  font-weight: 400;
-  max-width: 14ch;
-}
-[data-theme="salon"] .opening__title em {
-  font-style: normal;
-  font-family: var(--font-display);
-}
-[data-theme="salon"] .opening__sub {
-  margin-top: var(--space-xl);
-  font-family: var(--font-serif);
-  font-style: italic;
-}
-[data-theme="salon"] .opening__aside { display: none; }
-[data-theme="salon"] .section__head {
-  grid-template-columns: 1fr;
-  border-bottom: 0;
-  padding-bottom: var(--space-md);
-}
-[data-theme="salon"] .section__head::after {
-  content: "❦";
-  display: block;
-  color: var(--color-accent);
-  font-size: 1.2rem;
-  margin-top: var(--space-md);
-  font-family: var(--font-serif);
-}
-[data-theme="salon"] .foundations {
-  grid-template-columns: 1fr;
-  max-width: 36rem;
-}
-
-/* ── LINEN — hanging headings, two-column asymmetric, woven texture ─── */
-[data-theme="linen"] .opening { grid-template-columns: 7fr 5fr; gap: var(--space-3xl); }
-/* Section heads hang the label in a left gutter, title in the body column.
-   Reads like a printed manuscript margin note + heading. */
-[data-theme="linen"] .section__head {
-  grid-template-columns: 1fr;
-  gap: var(--space-sm);
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-[data-theme="linen"] .section__title { margin-bottom: var(--space-2xl); }
-[data-theme="linen"] .section-label { margin-bottom: var(--space-sm); }
-[data-theme="linen"] .foundations {
-  grid-template-columns: 5fr 7fr;
-  gap: var(--space-xl) var(--space-2xl);
-}
-@media (max-width: 56rem) { [data-theme="linen"] .foundations { grid-template-columns: 1fr; } }
-[data-theme="linen"] .spec { border-top: 0; border-bottom: var(--rule-hair) solid var(--color-rule); }
-
-/* Signature: barely-visible woven texture — checkerboard at 3% opacity */
-html[data-theme="linen"] body {
-  background-image:
-    linear-gradient(45deg, oklch(20% 0.025 90 / 0.018) 25%, transparent 25%, transparent 75%, oklch(20% 0.025 90 / 0.018) 75%),
-    linear-gradient(45deg, oklch(20% 0.025 90 / 0.018) 25%, transparent 25%, transparent 75%, oklch(20% 0.025 90 / 0.018) 75%);
-  background-size: 6px 6px;
-  background-position: 0 0, 3px 3px;
-}
-
 /* ── ALMANAC — sticky labels, 3-col equal, dense, faint grid bg ────── */
 /* Signature: faint vertical grid running the full page (graph-paper) */
 html[data-theme="almanac"] body {
@@ -1698,6 +1604,93 @@ html[data-theme="almanac"] body {
 [data-theme="garden"] .foundations { grid-template-columns: 5fr 7fr; }
 @media (max-width: 56rem) { [data-theme="garden"] .foundations { grid-template-columns: 1fr; } }
 
+/* ── Garden (reworked) — botanical polish, all scoped to [data-theme="garden"].
+   The palette + type come from the token swap; these add: Young Serif at its
+   true single weight (no faux-bold), leaf-green "drawn" link underlines that
+   warm to clay on hover, and one hand-drawn sprig in the hero on wide screens. */
+[data-theme="garden"] h1,
+[data-theme="garden"] h2,
+[data-theme="garden"] h3,
+[data-theme="garden"] .section__title,
+[data-theme="garden"] .hero__title,
+[data-theme="garden"] .hero__salutation {
+  font-weight: 400;     /* Young Serif is a single organic weight */
+  font-style: normal;   /* roman headers — no faux-italic on Young Serif */
+}
+[data-theme="garden"] .link {
+  color: var(--color-accent);
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-size: 100% 1.5px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 200ms ease, color 200ms ease, background-image 200ms ease;
+}
+[data-theme="garden"] .link:hover {
+  color: var(--color-accent-2);
+  background-image: linear-gradient(var(--color-accent-2), var(--color-accent-2));
+  background-size: 100% 2px;
+}
+/* Garden — an animated botanical drawn into the letter's hero moment.
+   The stem grows from the soil, each leaf sprouts in the stem's wake,
+   then a bud opens; once grown, the whole sprig sways gently from its base.
+   pathLength="100" normalises every path so the draw starts fully hidden
+   and finishes exactly once — no half-drawn pop-in at the start. The sway
+   keyframes open and close at rotate(0) so it eases in without a jump.
+   The mark is "grown, not generated." Reduced-motion: drawn + still. */
+[data-theme="garden"] .slot--hero { position: relative; }
+@media (min-width: 64rem) {
+  [data-theme="garden"] .hero--letter {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.46fr);
+    column-gap: var(--space-3xl);
+    align-items: center;
+  }
+  [data-theme="garden"] .hero--letter .hero__main {
+    display: grid; gap: var(--space-md);
+    grid-column: 1; align-content: center;
+  }
+  [data-theme="garden"] .hero__moment {
+    display: block;
+    grid-column: 2;
+    justify-self: end; align-self: center;
+    width: clamp(140px, 15vw, 200px);
+    height: auto; margin: 0; padding: 0;
+    pointer-events: none;
+  }
+  [data-theme="garden"] .hero__moment svg {
+    width: 100%; height: auto; display: block;
+    stroke: var(--color-accent);
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform-origin: 50% 100%;
+    animation: garden-sway 7s ease-in-out 2.1s infinite;
+  }
+  [data-theme="garden"] .hero__moment path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: garden-draw 1.3s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  }
+  /* stem grows first; leaves sprout bottom-to-top in its wake; bud opens last */
+  [data-theme="garden"] .hero__moment path:nth-of-type(1) { animation-duration: 1.3s; animation-delay: 0s; }
+  [data-theme="garden"] .hero__moment path:nth-of-type(2) { animation-duration: 0.7s; animation-delay: 0.45s; }
+  [data-theme="garden"] .hero__moment path:nth-of-type(3) { animation-duration: 0.7s; animation-delay: 0.6s; }
+  [data-theme="garden"] .hero__moment path:nth-of-type(4) { animation-duration: 0.7s; animation-delay: 0.78s; }
+  [data-theme="garden"] .hero__moment path:nth-of-type(5) { animation-duration: 0.7s; animation-delay: 0.95s; }
+  [data-theme="garden"] .hero__moment path:nth-of-type(6) { animation-duration: 0.6s; animation-delay: 1.25s; }
+}
+@keyframes garden-draw { to { stroke-dashoffset: 0; } }
+@keyframes garden-sway {
+  0%, 100% { transform: rotate(0deg); }
+  30%      { transform: rotate(1.4deg); }
+  70%      { transform: rotate(-1.4deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="garden"] .hero__moment svg { animation: none; }
+  [data-theme="garden"] .hero__moment path { animation: none; stroke-dashoffset: 0; }
+}
+
 /* ── MIDNIGHT existing — numbered display style ─────────────── */
 [data-theme="midnight"] .section-label .num {
   color: var(--color-accent);
@@ -1727,7 +1720,6 @@ html[data-theme="almanac"] body {
 [data-theme="terminal"] .anti__intro,
 [data-theme="sport"] .anti__intro,
 [data-theme="almanac"] .anti__intro,
-[data-theme="quiet"] .anti__intro,
 [data-theme="bloom"] .anti__intro,
 [data-theme="riso"] .anti__intro {
   font-family: var(--font-body);
@@ -1825,7 +1817,6 @@ html[data-theme="almanac"] body {
 [data-theme="terminal"] .anti-row__desc,
 [data-theme="sport"] .anti-row__desc,
 [data-theme="almanac"] .anti-row__desc,
-[data-theme="quiet"] .anti-row__desc,
 [data-theme="bloom"] .anti-row__desc {
   font-family: var(--font-body);
   font-style: normal;
@@ -1869,7 +1860,6 @@ html[data-theme="almanac"] body {
 [data-theme="terminal"] .found__intro,
 [data-theme="sport"] .found__intro,
 [data-theme="almanac"] .found__intro,
-[data-theme="quiet"] .found__intro,
 [data-theme="bloom"] .found__intro,
 [data-theme="riso"] .found__intro {
   font-family: var(--font-body);
@@ -1950,15 +1940,13 @@ html[data-theme="almanac"] body {
   max-width: 28ch;
 }
 
-[data-theme="atelier"] .found-card,
-[data-theme="salon"] .found-card {
+[data-theme="atelier"] .found-card {
   background: transparent;
   border-inline-end: 0;
   border-block-end: var(--rule-hair) dashed var(--color-rule);
 }
 
-[data-theme="atelier"] .found-cards,
-[data-theme="salon"] .found-cards {
+[data-theme="atelier"] .found-cards {
   background: transparent;
   border: 0;
   border-block-start: var(--rule-hair) solid var(--color-rule);

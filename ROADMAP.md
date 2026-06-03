@@ -6,8 +6,6 @@ What's next.
 
 ## Now
 
-**Tighten the 22-theme catalog.** A handful of themes (Plain, Specimen, Salon, Linen) bleed into each other on first read — same paper-band, similar accent footprint, similar display role. Audit each theme's three diversification axes (paper-band / display-style / accent-hue), pull overlapping pairs apart, and add 4–6 new themes in underserved corners (mid-band warm chromatic, dark-monochrome editorial, high-contrast print-poster, warm dark with handwritten accent). Each new theme ships with its own tokens block and stamp axis.
-
 **Nanobanana hook for image-heavy briefs.** Today the integration is recommend-only — Hallmark tells the user to go generate something and bring it back. Image-heavy briefs (e-commerce, travel, food, lookbook) route to typography-only and feel underserved. Add a first-class hook that writes a prompt, invokes the API, ingests the returned image, and wires it into the build (cache by prompt hash). Pair with a new image-led theme (working title *Plate*) tuned for full-bleed photographic compositions.
 
 ---

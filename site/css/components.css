@@ -113,11 +113,6 @@
 
 @media (max-width: 50rem) {
   .banner__install { display: none; }
-  /* Without the Install button to pair with, the star's negative
-     start margin (sized for the install/star pair) pulls it too
-     close to the wordmark. Loosen by +8px so the two CTAs read as
-     bookends, not crowded. */
-  .banner__star { margin-inline-start: -0.25rem; }
 }
 
 /* GitHub star button — sits next to Install in the banner, shows
@@ -144,6 +139,13 @@
   transition: background-color var(--dur-micro) var(--ease-out),
               color var(--dur-micro) var(--ease-out),
               border-color var(--dur-micro) var(--ease-out);
+}
+
+/* When Install is hidden (≤50rem) the star loses its pair, so its negative
+   start margin crowds the wordmark. Loosen it by ~8px (−0.75rem → −0.25rem).
+   Must sit AFTER the base rule above to win the cascade. */
+@media (max-width: 50rem) {
+  .banner__star { margin-inline-start: -0.25rem; }
 }
 
 .banner__star-icon {
@@ -370,7 +372,7 @@
 
 /* — Banner pill per-theme shape + voice ————————————————————————
    The banner is the only fixed surface that crosses every theme. If
-   it stays the same shape on all 22 themes, the "switching themes
+   it stays the same shape on all 20 themes, the "switching themes
    rebuilds the page" claim leaks. Per-theme shape (border-radius) and
    font choice push the banner into the theme's register too. */
 
@@ -418,19 +420,12 @@
   font-style: italic;
 }
 
-/* SOFT-CARD RADIUS — garden / halo / violet / studio. */
+/* SOFT-CARD RADIUS — garden / studio. */
 [data-theme="garden"] .banner__install,
 [data-theme="garden"] .banner__star,
-[data-theme="halo"] .banner__install,
-[data-theme="halo"] .banner__star,
-[data-theme="violet"] .banner__install,
-[data-theme="violet"] .banner__star,
 [data-theme="studio"] .banner__install,
 [data-theme="studio"] .banner__star {
   border-radius: 6px;
-}
-[data-theme="halo"] .banner__install {
-  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--color-accent) 35%, transparent);
 }
 [data-theme="studio"] .banner__install,
 [data-theme="studio"] .banner__star {
@@ -445,15 +440,9 @@
   box-shadow: 1px 1px 0 var(--color-accent-2, var(--color-accent));
 }
 
-/* ATELIER / SALON — italic serif label, hairline only (atelier). */
+/* ATELIER — italic serif label, hairline only. */
 [data-theme="atelier"] .banner__install {
   border-color: var(--color-rule);
-  font-family: var(--font-serif);
-  font-style: italic;
-  letter-spacing: 0;
-  text-transform: none;
-}
-[data-theme="salon"] .banner__install {
   font-family: var(--font-serif);
   font-style: italic;
   letter-spacing: 0;
@@ -467,8 +456,7 @@
   text-transform: uppercase;
   letter-spacing: -0.01em;
 }
-[data-theme="atelier"] .banner__theme-indicator,
-[data-theme="salon"] .banner__theme-indicator {
+[data-theme="atelier"] .banner__theme-indicator {
   font-style: italic;
 }
 
@@ -537,7 +525,7 @@
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: color-mix(in oklch, var(--dot-edge, var(--color-ink)) 55%, var(--color-ink));
+  color: var(--num, color-mix(in oklch, var(--dot-edge, var(--color-ink)) 55%, var(--color-ink)));
   font-feature-settings: "tnum";
   pointer-events: none;
 }
@@ -1098,12 +1086,9 @@
 [data-theme="terminal"] .found-panel__rule,
 [data-theme="sport"] .found-panel__rule,
 [data-theme="almanac"] .found-panel__rule,
-[data-theme="quiet"] .found-panel__rule,
 [data-theme="bloom"] .found-panel__rule,
 [data-theme="aurora"] .found-panel__rule,
-[data-theme="halo"] .found-panel__rule,
-[data-theme="coral"] .found-panel__rule,
-[data-theme="violet"] .found-panel__rule {
+[data-theme="coral"] .found-panel__rule {
   font-family: var(--font-body);
   font-style: normal;
 }
@@ -2001,20 +1986,17 @@
   border-width: 2px;
 }
 
-[data-theme="atelier"] .install-pane,
-[data-theme="salon"] .install-pane {
+[data-theme="atelier"] .install-pane {
   border: 0;
   background: transparent;
   box-shadow: none;
 }
 
-[data-theme="atelier"] .install-pane__row,
-[data-theme="salon"] .install-pane__row {
+[data-theme="atelier"] .install-pane__row {
   padding-inline: 0;
 }
 
-[data-theme="atelier"] .install-pane__row + .install-pane__row,
-[data-theme="salon"] .install-pane__row + .install-pane__row {
+[data-theme="atelier"] .install-pane__row + .install-pane__row {
   border-block-start: var(--rule-hair) solid var(--color-rule);
 }
 
@@ -2250,7 +2232,7 @@ body:not(.easter-open) > footer {
 [data-theme="studio"] .hero__salutation,
 [data-theme="studio"] .spec__name,
 [data-theme="studio"] .tell__name {
-  font-style: italic;
+  font-style: normal;   /* roman — italic headers are banned globally */
   letter-spacing: -0.02em;
   font-variation-settings: "opsz" 144, "SOFT" 30;
 }
@@ -2296,8 +2278,8 @@ body:not(.easter-open) > footer {
 /* ───────────── ATELIER — sketchbook / working-archive ─────────────
    Plate-numeral marginalia beside section heads, old-style figures in
    body text, an italic display optical-size axis for hand-set feel.
-   Earns the workshop name without slipping into the salon-formal
-   register that Salon owns. */
+   Earns the workshop name without slipping into a formal-salon
+   register. */
 
 [data-theme="atelier"] .section-label .num {
   font-family: var(--font-display);
@@ -2448,6 +2430,7 @@ body:not(.easter-open) > footer {
   [data-theme="terminal"] .hero--marquee,
   [data-theme="manifesto"] .hero--marquee,
   [data-theme="aurora"] .hero--marquee,
+  [data-theme="lumen"] .hero--marquee,
   [data-theme="atelier"] .hero--quote,
   [data-theme="riso"] .hero--quote,
   [data-theme="midnight"] .hero--stat,
@@ -2459,6 +2442,7 @@ body:not(.easter-open) > footer {
   [data-theme="terminal"] .hero--marquee .hero__main,
   [data-theme="manifesto"] .hero--marquee .hero__main,
   [data-theme="aurora"] .hero--marquee .hero__main,
+  [data-theme="lumen"] .hero--marquee .hero__main,
   [data-theme="atelier"] .hero--quote .hero__main,
   [data-theme="riso"] .hero--quote .hero__main,
   [data-theme="midnight"] .hero--stat .hero__main,
@@ -2470,6 +2454,7 @@ body:not(.easter-open) > footer {
   [data-theme="terminal"] .hero__moment,
   [data-theme="manifesto"] .hero__moment,
   [data-theme="aurora"] .hero__moment,
+  [data-theme="lumen"] .hero__moment,
   [data-theme="atelier"] .hero__moment,
   [data-theme="riso"] .hero__moment,
   [data-theme="midnight"] .hero__moment,
@@ -2592,6 +2577,23 @@ body:not(.easter-open) > footer {
   background: var(--color-accent);
   box-shadow: 0 0 12px 3px color-mix(in oklch, var(--color-accent) 50%, transparent);
 }
+/* a slow signal ping radiates from the core — gives the ring intent. */
+[data-theme="midnight"] .hero__moment::after {
+  content: "";
+  position: absolute; inset: 50%;
+  width: 8px; height: 8px; margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklch, var(--color-accent) 45%, transparent);
+  animation: midnight-ping 3.6s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+}
+@keyframes midnight-ping {
+  0%   { transform: scale(0.6); opacity: 0.75; }
+  75%  { transform: scale(18);  opacity: 0; }
+  100% { transform: scale(18);  opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="midnight"] .hero__moment::after { animation: none; opacity: 0; }
+}
 
 /* SPORT — three-bar lap chart (horizontal bars in accent). */
 [data-theme="sport"] .hero__moment {
@@ -2607,6 +2609,47 @@ body:not(.easter-open) > footer {
 }
 [data-theme="sport"] .hero__moment::before { width: 90%; }
 [data-theme="sport"] .hero__moment::after { width: 55%; }
+
+/* LUMEN — a glowing filament inside a blueprint chamber (premium AI-tool). */
+[data-theme="lumen"] .hero__moment {
+  width: clamp(8rem, 14vw, 12rem);
+  aspect-ratio: 3 / 5;
+  position: relative;
+  border: 1px solid var(--color-rule);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg,
+      color-mix(in oklch, var(--color-paper-2) 70%, transparent),
+      var(--color-paper));
+  overflow: hidden;
+  isolation: isolate;
+}
+[data-theme="lumen"] .hero__moment::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(var(--rule-blueprint, oklch(96% 0.006 262 / 0.05)) 1px, transparent 1px) 0 0 / 100% 1.4rem,
+    radial-gradient(60% 36% at 50% 16%, var(--color-glow-2, transparent), transparent 70%);
+  pointer-events: none;
+}
+[data-theme="lumen"] .hero__moment::after {
+  content: "";
+  position: absolute; left: 50%; top: 14%; bottom: 14%; width: 2px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    var(--color-accent) 18%,
+    oklch(97% 0.04 90) 50%,
+    var(--color-accent) 82%,
+    transparent 100%);
+  box-shadow: 0 0 10px var(--color-glow, transparent), 0 0 26px var(--color-glow, transparent);
+  animation: lumen-filament var(--dur-pulse, 4s) ease-in-out infinite;
+}
+@keyframes lumen-filament { 0%, 100% { opacity: 0.72; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="lumen"] .hero__moment::after { animation: none; }
+}
 
 .hero__eyebrow {
   display: inline-flex;
@@ -2769,23 +2812,6 @@ body:not(.easter-open) > footer {
   color: var(--color-ink);
 }
 
-/* Quiet: collapse the proof-block down to one italic note + the CTA, so
-   the right column reads as a quiet annotation instead of a sign-up form. */
-[data-theme="quiet"] .hero--split .hero__proof .label,
-[data-theme="quiet"] .hero--split .hero__proof .hero__proof-line:nth-child(3),
-[data-theme="quiet"] .hero--split .hero__proof .hero__proof-line:nth-child(4) { display: none; }
-[data-theme="quiet"] .hero--split .hero__proof {
-  padding-block-start: var(--space-md);
-  border-block-start: var(--rule-hair) solid var(--color-rule);
-}
-[data-theme="quiet"] .hero--split .hero__proof .hero__proof-line {
-  font-family: var(--font-serif);
-  font-style: italic;
-  color: var(--color-muted);
-  max-width: 24ch;
-}
-
-
 /* H3 — Stat-Led. Giant number + qualifier. */
 .hero--stat {
   padding-block: var(--space-2xl) var(--space-xl);
@@ -2913,7 +2939,7 @@ body:not(.easter-open) > footer {
 
 /* H9 — Bloom hero. Layered watercolor wash + oversized italic
    wordmark + small geometric accents. Painterly composition for
-   warm-rose / playful themes (Plume). */
+   warm-rose / playful themes. */
 .hero--bloom {
   display: grid;
   grid-template-columns: minmax(20rem, 1fr) minmax(0, 1.1fr);
@@ -3003,6 +3029,88 @@ body:not(.easter-open) > footer {
   .hero__bloom-stage { aspect-ratio: 4 / 3; }
   .hero__bloom-glyph { font-size: clamp(3rem, 14vw, 5rem); }
 }
+
+/* HUM — playful shape play. The default theme's hero: a soft anchor blob +
+   floating multi-accent shapes that spring-bob. Reduced-motion → static. */
+.hero--hum { gap: var(--space-xl); }
+@media (min-width: 60rem) {
+  .hero--hum {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    column-gap: var(--space-2xl);
+    align-items: center;
+  }
+  .hero--hum .hero__main { display: grid; gap: var(--space-lg); grid-column: 1; align-content: center; }
+  .hero--hum .hero__play { grid-column: 2; }
+}
+.hero__play {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  aspect-ratio: 1 / 1;
+  margin: 0 0 0 auto;
+}
+.hero__play > * { position: absolute; will-change: transform; }
+
+.play-blob {
+  width: 54%; height: 54%; left: 23%; top: 20%;
+  border-radius: 46% 54% 52% 48% / 54% 46% 56% 44%;
+  background: linear-gradient(140deg, var(--color-accent), var(--color-accent-3));
+  box-shadow: 0 22px 60px -26px oklch(20% 0.012 250 / 0.45);
+  animation: hum-float-a 7s ease-in-out infinite;
+}
+.play-dot { border-radius: 50%; }
+.play-dot--pear  { width: 15%; height: 15%; left: 4%;  top: 14%;     background: var(--color-accent);   animation: hum-float-b 6s   ease-in-out infinite; }
+.play-dot--coral { width: 12%; height: 12%; right: 6%; bottom: 16%;  background: var(--color-accent-3); animation: hum-float-c 5.4s ease-in-out infinite; }
+.play-dot--mint  { width: 8%;  height: 8%;  left: 18%; bottom: 8%;   background: var(--color-mint);     animation: hum-float-b 6.6s ease-in-out infinite; }
+.play-pill--cyan {
+  width: 24%; height: 11%; right: 2%; top: 22%;
+  border-radius: 999px; background: var(--color-accent-2);
+  animation: hum-float-c 6.2s ease-in-out infinite;
+}
+.play-ring--lavender {
+  width: 17%; height: 17%; right: 20%; top: 2%;
+  border-radius: 50%; border: 3px solid var(--color-lavender);
+  animation: hum-float-a 7.8s ease-in-out infinite;
+}
+@keyframes hum-float-a { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(4deg); } }
+@keyframes hum-float-b { 0%, 100% { transform: translateY(0); }           50% { transform: translateY(11px); } }
+@keyframes hum-float-c { 0%, 100% { transform: translate(0, 0); }         50% { transform: translate(-9px, -7px); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero__play > * { animation: none !important; }
+}
+@media (max-width: 60rem) {
+  .hero__play { max-width: 17rem; aspect-ratio: 4 / 3; margin-inline: auto; }
+}
+
+/* ───────────── COBALT — landing hero ─────────────
+   Title / lede / CTA in the left column; the right column is intentionally left
+   blank (clean, type-led). Only the cobalt theme uses #hero-cobalt. */
+.hero--cobalt { gap: var(--space-xl); }
+@media (min-width: 60rem) {
+  .hero--cobalt {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.7fr);
+    column-gap: var(--space-2xl);
+    align-items: center;
+  }
+  .hero--cobalt .hero__main { display: grid; gap: var(--space-lg); grid-column: 1; align-content: center; }
+  /* keep the lede at a readable measure even though the column is now wide */
+  .hero--cobalt .hero__lede { max-width: 46ch; }
+}
+.hero--cobalt .hero__cta-row { display: flex; align-items: center; gap: var(--space-lg); flex-wrap: wrap; }
+.hero--cobalt .hero__cta-btn {
+  display: inline-flex; align-items: center; min-height: 44px;
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-label); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.02em;
+  color: var(--color-accent-ink); background: var(--color-accent);
+  border: var(--rule-fine) solid var(--color-accent); border-radius: var(--radius-pill);
+  transition: transform 100ms var(--ease-out), filter 140ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero--cobalt .hero__cta-btn:hover { transform: translateY(-1px); filter: brightness(1.07); }
+}
+.hero--cobalt .hero__cta-btn:active { transform: translateY(1px); }
 
 /* H10 — Orbit hero. Concentric rings + glowing centre dot.
    Atmospheric composition for warm-glow themes (Halo). The rings
@@ -3335,131 +3443,6 @@ body:not(.easter-open) > footer {
   .slot[data-populating] > * { animation: none; opacity: 1; }
 }
 
-/* ───────────── QUIET — polished minimalism ─────────────
-   The "modern enterprise" theme: Geist sans, pure white, large
-   confident display, generous space, pill CTAs. Reads like the
-   ElevenLabs / Stripe school of restraint. Reveals stay off — the
-   page is composed, not animated in. */
-
-[data-theme="quiet"] .reveal,
-[data-theme="quiet"] .reveal.is-in,
-[data-theme="quiet"] .slot[data-populating] > * {
-  opacity: 1;
-  transform: none;
-  animation: none;
-}
-
-[data-theme="quiet"] .hero__display,
-[data-theme="quiet"] .hero__quote p,
-[data-theme="quiet"] .hero__stat,
-[data-theme="quiet"] .section__title,
-[data-theme="quiet"] .foot__wordmark,
-[data-theme="quiet"] .spec__name,
-[data-theme="quiet"] .ex-card__name,
-[data-theme="quiet"] .harness__name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-style: normal;
-  text-transform: none;
-  letter-spacing: -0.025em;
-  text-shadow: none;
-}
-
-[data-theme="quiet"] .hero__display { font-weight: 600; }
-
-[data-theme="quiet"] .hero__lede,
-[data-theme="quiet"] .hero__letter-body,
-[data-theme="quiet"] .spec__rule,
-[data-theme="quiet"] .foot__tagline,
-[data-theme="quiet"] .install-pane__next {
-  font-family: var(--font-body);
-  font-style: normal;
-  font-weight: 400;
-  color: var(--color-neutral);
-}
-
-[data-theme="quiet"] .hero__salutation {
-  font-family: var(--font-display);
-  font-style: normal;
-  font-weight: 600;
-  font-size: var(--text-2xl);
-  letter-spacing: -0.02em;
-}
-
-[data-theme="quiet"] .hero__sign,
-[data-theme="quiet"] .hero__signoff {
-  font-family: var(--font-body);
-  font-style: normal;
-}
-
-[data-theme="quiet"] .hero__attrib,
-[data-theme="quiet"] .section-label,
-[data-theme="quiet"] .label,
-[data-theme="quiet"] .install-pane__label,
-[data-theme="quiet"] .vs__label,
-[data-theme="quiet"] .ex-card__num {
-  font-family: var(--font-label);
-  font-weight: 500;
-}
-
-[data-theme="quiet"] .banner__center {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 0.875rem;
-  letter-spacing: -0.005em;
-  text-transform: none;
-}
-
-[data-theme="quiet"] .banner {
-  background: color-mix(in oklch, var(--color-paper) 94%, transparent);
-  border-block-end-color: var(--color-rule);
-}
-
-/* Pill CTAs — Quiet's signature button. Black-filled primary, white-
-   outlined secondary. Applied to anything that reads as a CTA. */
-[data-theme="quiet"] .install-pane__copy {
-  border-radius: 999px;
-  background: var(--color-ink);
-  color: var(--color-paper);
-  border-color: var(--color-ink);
-  font-weight: 600;
-}
-[data-theme="quiet"] .install-pane__copy:hover {
-  background: var(--color-ink-2);
-  color: var(--color-paper);
-  border-color: var(--color-ink-2);
-}
-[data-theme="quiet"] .install-pane__copy[data-state="copied"] {
-  background: var(--color-ink);
-  color: var(--color-paper);
-  border-color: var(--color-ink);
-}
-
-/* Quiet's install command bar — refined card surface, clean typography. */
-[data-theme="quiet"] .install-pane {
-  background: var(--color-paper-2);
-  border-color: var(--color-rule);
-}
-[data-theme="quiet"] .install-pane__cmd {
-  background: var(--color-paper);
-  border-color: var(--color-rule);
-}
-[data-theme="quiet"] .install-pane__prompt {
-  color: var(--color-muted);
-}
-
-/* The "without/with" demo on Quiet — soft, monochrome panels. */
-[data-theme="quiet"] .vs__panel[data-variant="hallmark"] {
-  border-left-color: var(--color-rule-2);
-  border-color: var(--color-rule);
-}
-
-/* No reveal animation on Quiet — the page is intentionally still. */
-[data-theme="quiet"] .hero,
-[data-theme="quiet"] .hero > * {
-  animation: none !important;
-}
-
 /* ───────────── BLOOM — atmospheric dark, warm bloom ─────────────
    Suno-school: dark canvas with two soft radial colour blooms behind
    the content, confident sans display, single warm accent on small
@@ -3471,12 +3454,9 @@ html[data-theme="bloom"] {
 
 html[data-theme="bloom"] body {
   background:
-    radial-gradient(ellipse 80% 60% at 90% 0%,
-                    color-mix(in oklch, var(--color-accent) 18%, transparent) 0%,
-                    transparent 55%),
-    radial-gradient(ellipse 70% 55% at 5% 95%,
-                    color-mix(in oklch, var(--color-accent-2) 16%, transparent) 0%,
-                    transparent 55%),
+    radial-gradient(ellipse 95% 65% at 82% -8%,
+                    color-mix(in oklch, var(--color-accent) 10%, transparent) 0%,
+                    transparent 62%),
     var(--color-paper);
   background-attachment: fixed;
   min-height: 100dvh;
@@ -3562,7 +3542,7 @@ html[data-theme="bloom"] body {
 /* Bloom — left-aligned section heads (hero stays centered above). The
    atmospheric glow does the centering work — re-centering section heads
    reads as a templated AI fingerprint. Tag stays above the title in the
-   same column (matches slop-test gate 66). */
+   same column (matches slop-test gate 54). */
 [data-theme="bloom"] .section__head {
   grid-template-columns: 1fr;
   text-align: left;
@@ -3669,40 +3649,6 @@ html[data-theme="bloom"] body {
   border-radius: 999px;
 }
 
-/* ───────────── VIOLET — modern-minimal · Linear voice ─────────────
-   Tighter typographic feel than Coral. Near-white paper, near-black
-   ink, single quiet violet accent on focus + small marks. */
-
-[data-theme="violet"] .reveal,
-[data-theme="violet"] .reveal.is-in,
-[data-theme="violet"] .slot[data-populating] > * {
-  opacity: 1;
-  transform: none;
-  animation: none;
-}
-
-
-[data-theme="violet"] .hero__display,
-[data-theme="violet"] .hero__quote p,
-[data-theme="violet"] .hero__stat,
-[data-theme="violet"] .section__title,
-[data-theme="violet"] .foot__wordmark,
-[data-theme="violet"] .spec__name,
-[data-theme="violet"] .ex-card__name,
-[data-theme="violet"] .harness__name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-style: normal;
-  letter-spacing: -0.035em;
-}
-
-[data-theme="violet"] .install-pane__copy {
-  background: var(--color-ink);
-  color: var(--color-paper);
-  border-color: var(--color-ink);
-  border-radius: 999px;
-}
-
 /* ───────────── AURORA — atmospheric · cool blue-green dark ─────────────
    Two cool blooms behind the content (cyan top-right, teal-green
    bottom-left). Sentient body for warmth. */
@@ -3790,149 +3736,6 @@ html[data-theme="aurora"] body {
   border-radius: 999px;
 }
 
-/* ───────────── HALO — atmospheric · hero-only amber bloom ─────────────
-   The bloom is a single moment near the top. Below the hero the page
-   is content-led on charcoal — less Suno, more "tool you actually
-   work in." Implemented as a fixed-position pseudo-element clipped
-   to the top ~80vh. */
-
-html[data-theme="halo"] {
-  background: var(--color-paper);
-}
-
-html[data-theme="halo"] body {
-  position: relative;
-  background: var(--color-paper);
-  min-height: 100dvh;
-}
-
-html[data-theme="halo"] body::before {
-  content: "";
-  position: fixed;
-  inset: 0 0 auto 0;
-  height: 80vh;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(ellipse 60% 80% at 70% 0%,
-                    color-mix(in oklch, var(--color-accent) 22%, transparent) 0%,
-                    transparent 60%);
-  opacity: 1;
-}
-
-/* Lift content above the halo body::before glow.
-   Banner is excluded so it keeps its sticky z-index (200) — the
-   theme-dropdown lives inside .banner and needs that elevation
-   to render above the orbit + glow layers below. */
-html[data-theme="halo"] main,
-html[data-theme="halo"] .easter,
-html[data-theme="halo"] aside {
-  position: relative;
-  z-index: 1;
-}
-
-[data-theme="halo"] .hero__display,
-[data-theme="halo"] .hero__quote p,
-[data-theme="halo"] .hero__stat,
-[data-theme="halo"] .section__title,
-[data-theme="halo"] .foot__wordmark,
-[data-theme="halo"] .spec__name,
-[data-theme="halo"] .ex-card__name,
-[data-theme="halo"] .harness__name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-
-[data-theme="halo"] .banner {
-  background: color-mix(in oklch, var(--color-paper) 72%, transparent);
-  border-block-end-color: var(--color-rule);
-}
-
-[data-theme="halo"] .ex-card,
-[data-theme="halo"] .install-pane,
-[data-theme="halo"] .vs__panel[data-variant="hallmark"] {
-  background: var(--color-paper-2);
-}
-
-[data-theme="halo"] .reveal { transform: none; }
-[data-theme="halo"] .reveal.is-in {
-  animation: reveal-fade calc(var(--dur-long) * 1.1) var(--ease-out) forwards;
-  animation-delay: calc(var(--i, 0) * 60ms);
-}
-
-/* ───────────── PLUME — playful · warm cream + tinted bands ─────────────
-   Alternating section backgrounds (paper vs paper-2), hover-lift on
-   cards, soft drop shadows, friendly motion — the playful canon. */
-
-/* Hero only — drop the right-side bloom stage and centre the copy.
-   The rest of the page keeps its asymmetric rhythm; only the hero
-   reads as a centred lede. */
-[data-theme="plume"] .hero--bloom {
-  grid-template-columns: 1fr;
-  justify-items: center;
-  text-align: center;
-  padding-block: var(--space-3xl) var(--space-2xl);
-}
-[data-theme="plume"] .hero--bloom .hero__bloom-stage { display: none; }
-[data-theme="plume"] .hero--bloom .hero__copy {
-  justify-items: center;
-  align-items: center;
-}
-[data-theme="plume"] .hero--bloom .hero__display,
-[data-theme="plume"] .hero--bloom .hero__lede {
-  margin-inline: auto;
-}
-[data-theme="plume"] .hero--bloom .hero__cta-row,
-[data-theme="plume"] .hero--bloom .hero__eyebrow,
-[data-theme="plume"] .hero--bloom .hero__proof {
-  justify-content: center;
-}
-
-[data-theme="plume"] .page > .section:nth-child(even) {
-  background: var(--color-paper-2);
-  margin-inline: calc(-1 * var(--page-gutter));
-  padding-inline: var(--page-gutter);
-  padding-block: var(--space-2xl);
-  border-radius: 0;
-}
-
-[data-theme="plume"] .hero__display,
-[data-theme="plume"] .hero__quote p,
-[data-theme="plume"] .hero__stat,
-[data-theme="plume"] .section__title,
-[data-theme="plume"] .foot__wordmark,
-[data-theme="plume"] .spec__name,
-[data-theme="plume"] .ex-card__name,
-[data-theme="plume"] .harness__name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-}
-
-[data-theme="plume"] .hero__lede,
-[data-theme="plume"] .ex-card__brief,
-[data-theme="plume"] .install-pane__next,
-[data-theme="plume"] .spec__rule,
-[data-theme="plume"] .foot__tagline {
-  font-family: var(--font-body);
-  font-style: normal;
-}
-
-[data-theme="plume"] .ex-card,
-[data-theme="plume"] .install-pane,
-[data-theme="plume"] .vs__panel[data-variant="hallmark"] {
-  background: var(--color-paper);
-  border-color: var(--color-rule-2);
-}
-
-[data-theme="plume"] .install-pane__copy {
-  background: var(--color-accent);
-  color: var(--color-paper);
-  border-color: var(--color-accent);
-  border-radius: 999px;
-}
-
 /* ───────────── EXAMPLES RAIL — TILES ─────────────
    Each tile in the horizontal scroll-snap rail. Cards inherit the
    active theme's --radius-card, --rule-card, and --shadow-card so
@@ -3991,6 +3794,23 @@ html[data-theme="halo"] aside {
   .ex-card__thumb video { animation-play-state: paused; }
   .ex-card__thumb img,
   .ex-card__thumb video { transition: none; }
+}
+
+/* Hover scroll for the image cards (the four new themes + the bespoke build).
+   The thumb is a tall full-page screenshot; on hover we pan object-position
+   top → bottom so the page "scrolls" itself. Pure CSS, GPU-light, no video
+   decode. Touch devices and reduced-motion get a static top crop. Only the
+   <img> cards scroll; the original <video> cards keep their hover-play. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .ex-card__thumb img { transition: object-position 400ms ease; }
+  .ex-card:hover .ex-card__thumb img,
+  .ex-card:focus-visible .ex-card__thumb img {
+    object-position: left bottom;
+    /* steady, even scroll through the whole page; per-card duration is set
+       inline (--scroll-dur) proportional to page height so every card scrolls
+       at the same brisk speed. */
+    transition: object-position var(--scroll-dur, 2.4s) linear;
+  }
 }
 
 /* New card meta — single-line prompt only, mono. The card is the prompt
@@ -4138,8 +3958,7 @@ html[data-theme="halo"] aside {
 [data-theme="brutal"] .study-card,
 [data-theme="manifesto"] .study-card { border-width: 2px; }
 
-[data-theme="atelier"] .study-card,
-[data-theme="salon"] .study-card {
+[data-theme="atelier"] .study-card {
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -4147,8 +3966,7 @@ html[data-theme="halo"] aside {
   border-radius: 0;
 }
 
-[data-theme="atelier"] .study-card__media,
-[data-theme="salon"] .study-card__media {
+[data-theme="atelier"] .study-card__media {
   border-block-end: 0;
 }
 
@@ -4698,31 +4516,6 @@ html[data-theme="halo"] aside {
   color: var(--color-muted);
 }
 
-/* ───────────── SALON — left-aligned, italic title, fleuron divider ───────────── */
-
-[data-theme="salon"] .section__head {
-  gap: var(--space-sm);
-  padding-block-end: var(--space-2xl);
-}
-
-[data-theme="salon"] .section__title {
-  max-width: 32ch;
-  font-style: italic;
-}
-
-[data-theme="salon"] .section__head::after {
-  content: "❦";
-  display: block;
-  color: var(--color-accent);
-  font-size: 1.7rem;
-  margin-block-start: var(--space-xl);
-  padding-block-start: var(--space-md);
-  border-block-start: var(--rule-hair) solid var(--color-rule);
-  font-family: var(--font-serif);
-  line-height: 1;
-  opacity: 0.85;
-}
-
 /* ───────────── NEWSPRINT — justified prose blocks ─────────────
    Print discipline. Long-form copy gets justified + hyphenated where
    the column is wide enough to render evenly. Headlines stay
@@ -4747,11 +4540,10 @@ html[data-theme="halo"] aside {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   EDITORIAL THEME — open-design-inspired structural overrides (v0.9.0)
+   EDITORIAL THEME — structural overrides (v0.9.0)
 
-   The 23rd theme. Editorial-premium voice: mixed serif italic
-   inside sans display, Roman-numeral marginalia, hairline rules,
-   asymmetric grids. Inspired by github.com/nexu-io/open-design.
+   Editorial-premium voice: mixed serif italic inside sans display,
+   Roman-numeral marginalia, hairline rules, asymmetric grids.
    ────────────────────────────────────────────────────────────── */
 
 /* Mixed display: italic Playfair word inside Inter Tight headline */
@@ -4789,11 +4581,11 @@ html[data-theme="halo"] aside {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   OPEN-DESIGN STEALS — reusable utilities (v0.9.0)
+   EDITORIAL UTILITIES — reusable patterns (v0.9.0)
 
-   Six patterns extracted from open-design. NOT theme-only — these
-   are utilities any theme can use. Skill rules cross-reference them
-   in component-cookbook.md and microinteractions.md.
+   Six structural patterns. NOT theme-only — these are utilities any
+   theme can use. Skill rules cross-reference them in
+   component-cookbook.md and microinteractions.md.
    ────────────────────────────────────────────────────────────── */
 
 /* — Tabular numerals utility ———————————————————————————————
@@ -4858,7 +4650,7 @@ html[data-theme="halo"] aside {
 
 /* — Asymmetric hero ratio knob ——————————————————————————————
    Default split-hero ratio is 50/50; this knob swaps it to 0.78/1.22
-   per the open-design move. Apply to `.hero--split[data-ratio="asym"]`. */
+   for the asymmetric editorial move. Apply to `.hero--split[data-ratio="asym"]`. */
 .hero--split[data-ratio="asym"] {
   grid-template-columns: 0.78fr 1.22fr;
 }

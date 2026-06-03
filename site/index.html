@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="specimen">
+<html lang="en" data-theme="hum">
 
 <head>
   <meta charset="utf-8" />
@@ -19,7 +19,7 @@
   <meta property="og:image:secure_url" content="https://www.usehallmark.com/OG-hallmark.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="2400" />
-  <meta property="og:image:height" content="1356" />
+  <meta property="og:image:height" content="1260" />
   <meta property="og:image:alt" content="Hallmark — A design skill that refuses to look AI-generated" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hallmark — A design skill that refuses to look AI-generated" />
@@ -54,12 +54,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Inter+Tight:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Public+Sans:wght@400;500;600;700&display=swap" />
+    href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Inter+Tight:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Public+Sans:wght@400;500;600;700&family=Young+Serif&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" />
 
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/tokens.css?v=24" />
+  <link rel="stylesheet" href="css/base.css?v=24" />
+  <link rel="stylesheet" href="css/components.css?v=24" />
+  <link rel="stylesheet" href="css/sections.css?v=24" />
 
   <script>
     // Load theme before paint to avoid flash. Order: ?theme= → localStorage → default.
@@ -104,7 +104,7 @@
   <header class="banner" role="banner">
     <a class="banner__mark" href="#top" aria-label="Hallmark — top of page">
       <span class="brand-mark" aria-hidden="true"><span class="brand-mark__slash">/</span><span class="brand-mark__name">hallmark</span></span>
-      <span class="banner__ver tnum">v1.0</span>
+      <span class="banner__ver tnum">v1.1</span>
     </a>
 
     <a class="banner__install" href="#install" aria-label="Jump to install section">Install</a>
@@ -123,9 +123,9 @@
     <div class="banner__theme-wrap" data-theme-wrap>
       <button class="banner__theme-indicator" type="button" aria-haspopup="listbox" aria-expanded="false"
         aria-controls="theme-dropdown" data-theme-trigger>
-        <span class="banner__ordinal tnum" data-theme-ordinal>01 / 23</span>
+        <span class="banner__ordinal tnum" data-theme-ordinal>01 / 20</span>
         <span class="banner__indicator-sep" aria-hidden="true">—</span>
-        <span class="banner__theme" data-theme-current>Specimen</span>
+        <span class="banner__theme" data-theme-current>Hum</span>
         <svg class="banner__caret" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
           <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
             stroke-linejoin="round" />
@@ -133,72 +133,66 @@
       </button>
 
       <div class="theme-dropdown" id="theme-dropdown" role="listbox" aria-label="Theme picker" hidden>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="specimen" aria-label="01 — Specimen"
-          style="--dot: oklch(96% 0.018 80); --dot-edge: oklch(70% 0.04 75);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="hum" aria-label="01 · Hum"
+          style="--dot: oklch(97% 0.012 95); --dot-edge: oklch(68% 0.24 18); --num: oklch(30% 0.05 18);"><span
             class="theme-dropdown__num">01</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="midnight" aria-label="02 — Midnight"
-          style="--dot: oklch(15% 0.022 250); --dot-edge: oklch(72% 0.16 220);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="specimen" aria-label="02 · Specimen"
+          style="--dot: oklch(96% 0.018 80); --dot-edge: oklch(70% 0.04 75); --num: oklch(30% 0.05 75);"><span
             class="theme-dropdown__num">02</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="brutal" aria-label="03 — Brutal"
-          style="--dot: oklch(98% 0.001 0); --dot-edge: oklch(60% 0.21 27);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="midnight" aria-label="03 · Midnight"
+          style="--dot: oklch(15% 0.022 250); --dot-edge: oklch(72% 0.16 220); --num: oklch(90% 0.04 220);"><span
             class="theme-dropdown__num">03</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="garden" aria-label="04 — Garden"
-          style="--dot: oklch(95% 0.030 130); --dot-edge: oklch(54% 0.16 14);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="brutal" aria-label="04 · Brutal"
+          style="--dot: oklch(98% 0.001 0); --dot-edge: oklch(60% 0.21 27); --num: oklch(30% 0.05 27);"><span
             class="theme-dropdown__num">04</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="atelier" aria-label="05 — Atelier"
-          style="--dot: oklch(94% 0.005 60); --dot-edge: oklch(45% 0.13 60);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="garden" aria-label="05 · Garden"
+          style="--dot: oklch(95.5% 0.022 92); --dot-edge: oklch(47% 0.13 140); --num: oklch(30% 0.05 140);"><span
             class="theme-dropdown__num">05</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="newsprint" aria-label="06 — Newsprint"
-          style="--dot: oklch(92% 0.045 50); --dot-edge: oklch(32% 0.10 28);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="atelier" aria-label="06 · Atelier"
+          style="--dot: oklch(94% 0.005 60); --dot-edge: oklch(45% 0.13 60); --num: oklch(30% 0.05 60);"><span
             class="theme-dropdown__num">06</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="terminal" aria-label="07 — Terminal"
-          style="--dot: oklch(11% 0.018 145); --dot-edge: oklch(78% 0.19 138);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="newsprint" aria-label="07 · Newsprint"
+          style="--dot: oklch(92% 0.045 50); --dot-edge: oklch(32% 0.10 28); --num: oklch(30% 0.05 28);"><span
             class="theme-dropdown__num">07</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="manifesto" aria-label="08 — Manifesto"
-          style="--dot: oklch(10% 0.005 60); --dot-edge: oklch(60% 0.22 27);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="terminal" aria-label="08 · Terminal"
+          style="--dot: oklch(11% 0.018 145); --dot-edge: oklch(78% 0.19 138); --num: oklch(90% 0.05 138);"><span
             class="theme-dropdown__num">08</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="salon" aria-label="09 — Salon"
-          style="--dot: oklch(94% 0.030 65); --dot-edge: oklch(40% 0.085 50);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="manifesto" aria-label="09 · Manifesto"
+          style="--dot: oklch(10% 0.005 60); --dot-edge: oklch(60% 0.22 27); --num: oklch(90% 0.04 27);"><span
             class="theme-dropdown__num">09</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="linen" aria-label="10 — Linen"
-          style="--dot: oklch(89% 0.022 95); --dot-edge: oklch(46% 0.06 95);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="almanac" aria-label="10 · Almanac"
+          style="--dot: oklch(94% 0.008 245); --dot-edge: oklch(38% 0.135 250); --num: oklch(30% 0.05 250);"><span
             class="theme-dropdown__num">10</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="almanac" aria-label="11 — Almanac"
-          style="--dot: oklch(94% 0.008 245); --dot-edge: oklch(38% 0.135 250);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="sport" aria-label="11 · Sport"
+          style="--dot: oklch(98% 0.003 250); --dot-edge: oklch(58% 0.190 35); --num: oklch(30% 0.05 35);"><span
             class="theme-dropdown__num">11</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="sport" aria-label="12 — Sport"
-          style="--dot: oklch(98% 0.003 250); --dot-edge: oklch(58% 0.190 35);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="studio" aria-label="12 · Studio"
+          style="--dot: oklch(96.5% 0.014 95); --dot-edge: oklch(46% 0.140 145); --num: oklch(30% 0.05 145);"><span
             class="theme-dropdown__num">12</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="studio" aria-label="13 — Studio"
-          style="--dot: oklch(96.5% 0.014 95); --dot-edge: oklch(46% 0.140 145);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="riso" aria-label="13 · Riso"
+          style="--dot: oklch(91% 0.034 30); --dot-edge: oklch(58% 0.170 220); --num: oklch(30% 0.05 220);"><span
             class="theme-dropdown__num">13</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="riso" aria-label="14 — Riso"
-          style="--dot: oklch(91% 0.034 30); --dot-edge: oklch(58% 0.170 220);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="bloom" aria-label="14 · Bloom"
+          style="--dot: oklch(97% 0.010 72); --dot-edge: oklch(56% 0.13 35); --num: oklch(30% 0.05 35);"><span
             class="theme-dropdown__num">14</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="quiet" aria-label="15 — Quiet"
-          style="--dot: oklch(100% 0 0); --dot-edge: oklch(15% 0 0);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="coral" aria-label="15 · Coral"
+          style="--dot: oklch(96.5% 0.005 50); --dot-edge: oklch(64% 0.165 28); --num: oklch(30% 0.05 28);"><span
             class="theme-dropdown__num">15</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="bloom" aria-label="16 — Bloom"
-          style="--dot: oklch(96% 0.018 35); --dot-edge: oklch(64% 0.180 18);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="aurora" aria-label="16 · Aurora"
+          style="--dot: oklch(11% 0.025 200); --dot-edge: oklch(72% 0.170 200); --num: oklch(90% 0.05 200);"><span
             class="theme-dropdown__num">16</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="coral" aria-label="17 — Coral"
-          style="--dot: oklch(96.5% 0.005 50); --dot-edge: oklch(64% 0.165 28);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="editorial" aria-label="17 · Editorial"
+          style="--dot: oklch(94% 0.020 75); --dot-edge: oklch(60% 0.160 35); --num: oklch(30% 0.05 35);"><span
             class="theme-dropdown__num">17</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="violet" aria-label="18 — Violet"
-          style="--dot: oklch(99% 0.003 280); --dot-edge: oklch(58% 0.16 285);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="carnival" aria-label="18 · Carnival"
+          style="--dot: oklch(92% 0.075 85); --dot-edge: oklch(40% 0.13 25); --num: oklch(30% 0.05 25);"><span
             class="theme-dropdown__num">18</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="aurora" aria-label="19 — Aurora"
-          style="--dot: oklch(11% 0.025 200); --dot-edge: oklch(72% 0.170 200);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="lumen" aria-label="19 · Lumen"
+          style="--dot: oklch(15% 0.016 265); --dot-edge: oklch(76% 0.13 60); --num: oklch(90% 0.05 60);"><span
             class="theme-dropdown__num">19</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="halo" aria-label="20 — Halo"
-          style="--dot: oklch(13% 0.005 60); --dot-edge: oklch(74% 0.16 70);"><span
+        <button class="theme-dropdown__dot" type="button" data-theme-btn="cobalt" aria-label="20 · Cobalt"
+          style="--dot: oklch(98.5% 0.004 250); --dot-edge: oklch(58% 0.20 256); --num: oklch(30% 0.05 256);"><span
             class="theme-dropdown__num">20</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="plume" aria-label="21 — Plume"
-          style="--dot: oklch(96% 0.020 70); --dot-edge: oklch(68% 0.130 18);"><span
-            class="theme-dropdown__num">21</span></button>
-        <button class="theme-dropdown__dot" type="button" data-theme-btn="editorial" aria-label="22 — Editorial"
-          style="--dot: oklch(94% 0.020 75); --dot-edge: oklch(60% 0.160 35);"><span
-            class="theme-dropdown__num">22</span></button>
       </div>
     </div>
 
@@ -218,7 +212,7 @@
     <aside class="t-tooltip" data-t-tooltip hidden role="status" aria-live="polite">
       <span class="t-tooltip__arrow" aria-hidden="true"></span>
       <span class="t-tooltip__body">
-        Press <kbd>T</kbd> to see this page in <strong>22 shapes</strong>.
+        Press <kbd>T</kbd> to see this page in <strong>20 shapes</strong>.
       </span>
     </aside>
   </header>
@@ -243,60 +237,105 @@
 
       <div class="examples-rail" role="list" aria-label="Example landing pages">
 
-        <a class="ex-card" role="listitem" href="examples/tally/" target="_blank" rel="noopener" aria-label="Open the Tally example — SaaS product page, modern-minimal — in a new tab">
-          <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
-            <video data-hover-play src="_tests/_thumbs/SaaS-loop.mp4" autoplay loop muted playsinline preload="metadata" width="1784" height="1080"></video>
+        <a class="ex-card" style="--scroll-dur:3.3s" role="listitem" href="examples/hum-07/" target="_blank" rel="noopener" aria-label="Open the Bubble example, a guided sourdough app, Hum, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/hum-07.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
+          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a guided sourdough app, Hum</p>
+        </a>
+
+        <!-- Custom / bespoke showcase. One featured bespoke build; the others live under
+             site/examples/custom-*. Scroll preview via Remotion (see examples/scroll-demos.json);
+             once rendered, swap the <img> for <video data-hover-play src="..." poster="...">. -->
+        <a class="ex-card" style="--scroll-dur:4s" role="listitem" href="examples/custom-04/" target="_blank" rel="noopener" aria-label="Open the Mend Assembly example, a repair-café manifesto poster, custom, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/custom-04.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
+          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a repair-café manifesto poster, custom</p>
+        </a>
+
+        <a class="ex-card" style="--scroll-dur:3.6s" role="listitem" href="examples/garden-01/" target="_blank" rel="noopener" aria-label="Open the Hollowback Apiary example, a small-batch honey farm, Garden, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/garden-01.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
+          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a landing page for a small-batch honey farm</p>
+        </a>
+
+        <a class="ex-card" style="--scroll-dur:4.6s" role="listitem" href="examples/riso-01/" target="_blank" rel="noopener" aria-label="Open the Off-Register example, an indie risograph print fair, Riso, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/riso-01.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
+          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a page for an indie risograph print fair</p>
+        </a>
+
+        <a class="ex-card" style="--scroll-dur:4.7s" role="listitem" href="examples/press-01/" target="_blank" rel="noopener" aria-label="Open the Press Quaternary example, an experimental type studio, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/press-01.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
+          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a portfolio for an experimental typographer</p>
+        </a>
+
+        <a class="ex-card" style="--scroll-dur:3.6s" role="listitem" href="examples/tally/" target="_blank" rel="noopener" aria-label="Open the Tally example, a SaaS product page, modern-minimal, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/tally.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
           </div>
           <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a SaaS product page, modern-minimal</p>
         </a>
 
-        <a class="ex-card" role="listitem" href="examples/wayfare/" target="_blank" rel="noopener" aria-label="Open the Wayfare example — travel booking site, atmospheric — in a new tab">
-          <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
-            <video data-hover-play src="_tests/_thumbs/wayfare-loop.mp4" autoplay loop muted playsinline preload="metadata" width="1784" height="1080"></video>
+        <a class="ex-card" style="--scroll-dur:3s" role="listitem" href="examples/wayfare/" target="_blank" rel="noopener" aria-label="Open the Wayfare example, a travel booking site, atmospheric, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/wayfare.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
           </div>
           <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a travel booking site, atmospheric</p>
         </a>
 
-        <a class="ex-card" role="listitem" href="_tests/09-slow-pour/" target="_blank" rel="noopener" aria-label="Open the Slow Pour example — small-batch coffee subscription — in a new tab">
-          <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
-            <video data-hover-play src="_tests/_thumbs/slow-pour-loop.mp4" autoplay loop muted playsinline preload="metadata" width="1784" height="1080"></video>
-          </div>
-          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a small-batch coffee subscription page</p>
-        </a>
-
-        <a class="ex-card" role="listitem" href="examples/bananastudio/" target="_blank" rel="noopener" aria-label="Open the BananaStudio example — creative studio with playful motion — in a new tab">
-          <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
-            <video data-hover-play src="_tests/_thumbs/BananaStudio-loop.mp4" autoplay loop muted playsinline preload="metadata" width="1784" height="1080"></video>
+        <a class="ex-card" style="--scroll-dur:3.2s" role="listitem" href="examples/bananastudio/" target="_blank" rel="noopener" aria-label="Open the BananaStudio example, a creative studio with playful motion, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/bananastudio.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
           </div>
           <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a creative studio with playful motion</p>
         </a>
 
-        <a class="ex-card" role="listitem" href="_tests/06-anya-portfolio/" target="_blank" rel="noopener" aria-label="Open the Anya Reis example — software architect personal site — in a new tab">
-          <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
-            <video data-hover-play src="_tests/_thumbs/anya-loop.mp4" autoplay loop muted playsinline preload="metadata" width="1784" height="1080"></video>
+        <a class="ex-card" style="--scroll-dur:1.8s" role="listitem" href="_tests/06-anya-portfolio/" target="_blank" rel="noopener" aria-label="Open the Anya Reis example, a software architect personal site, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/anya.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
           </div>
           <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a software architect personal site</p>
         </a>
 
-        <a class="ex-card" role="listitem" href="examples/najm/" target="_blank" rel="noopener" aria-label="Open the NAJM example — Moroccan fashion brand landing page — in a new tab">
-          <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
-            <video data-hover-play src="_tests/_thumbs/Najm-loop.mp4" autoplay loop muted playsinline preload="metadata" width="1784" height="1080"></video>
+        <a class="ex-card" style="--scroll-dur:2s" role="listitem" href="examples/najm/" target="_blank" rel="noopener" aria-label="Open the NAJM example, a Moroccan fashion brand landing page, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/najm.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
           </div>
           <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a Moroccan fashion brand landing page</p>
         </a>
 
-        <a class="ex-card" role="listitem" href="_tests/11-soroe-ceramics/" target="_blank" rel="noopener" aria-label="Open the Soroe example — small ceramics studio site — in a new tab">
-          <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
-            <video data-hover-play src="_tests/_thumbs/Soroe-loop.mp4" autoplay loop muted playsinline preload="metadata" width="1804" height="1080"></video>
-          </div>
-          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a small ceramics studio site</p>
-        </a>
-
-        <a class="ex-card" role="listitem" href="examples/hyperlane/" target="_blank" rel="noopener" aria-label="Open the Hyperlane example — developer infrastructure landing page — in a new tab">
-          <div class="ex-card__thumb ex-card__thumb--video" aria-hidden="true">
-            <video data-hover-play src="_tests/_thumbs/Hyperlane-example.mp4" autoplay loop muted playsinline preload="metadata" width="1784" height="1080"></video>
+        <a class="ex-card" style="--scroll-dur:3.5s" role="listitem" href="examples/hyperlane/" target="_blank" rel="noopener" aria-label="Open the Hyperlane example, a developer infrastructure landing page, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/hyperlane.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
           </div>
           <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a developer infrastructure landing page</p>
+        </a>
+
+        <a class="ex-card" style="--scroll-dur:2.5s" role="listitem" href="examples/cobalt-01/" target="_blank" rel="noopener" aria-label="Open the Distil example, a content-extraction API, Cobalt, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/cobalt-01.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
+          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a content-extraction API, Cobalt</p>
+        </a>
+
+        <a class="ex-card" style="--scroll-dur:2.7s" role="listitem" href="examples/carnival-01/" target="_blank" rel="noopener" aria-label="Open the Cold Snap example, a record-label EP page, Carnival, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/carnival-01.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
+          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build a record-label EP page, Carnival</p>
+        </a>
+
+        <a class="ex-card" style="--scroll-dur:3.1s" role="listitem" href="examples/lumen-01/" target="_blank" rel="noopener" aria-label="Open the Cinder example, an AI reasoning tool, Lumen, in a new tab">
+          <div class="ex-card__thumb" aria-hidden="true">
+            <img src="_tests/_thumbs/lumen-01.jpg?v=24" alt="" loading="lazy" width="1600" height="1000" />
+          </div>
+          <p class="ex-card__prompt"><span class="ex-card__prompt-mark">$</span> /hallmark build an AI reasoning tool, Lumen</p>
         </a>
 
       </div>
@@ -914,7 +953,16 @@
         <p class="hero__letter-body">{{letterBody}}</p>
         <p class="hero__signoff">{{signoff}}<br><span class="hero__sign">— Hallmark</span></p>
       </div>
-      <aside class="hero__moment" aria-hidden="true"></aside>
+      <aside class="hero__moment" aria-hidden="true">
+        <svg viewBox="0 0 120 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path pathLength="100" d="M60 214 C60 168 58 118 60 76 C61 48 60 26 60 8" />
+          <path pathLength="100" d="M60 166 C40 160 26 144 27 120 C51 124 64 144 60 166Z" />
+          <path pathLength="100" d="M60 134 C82 128 96 110 95 86 C70 90 56 112 60 134Z" />
+          <path pathLength="100" d="M60 100 C42 95 31 80 32 58 C54 62 65 80 60 100Z" />
+          <path pathLength="100" d="M60 72 C80 67 92 52 91 32 C68 36 56 54 60 72Z" />
+          <path pathLength="100" d="M60 24 C53 18 53 10 60 4 C67 10 67 18 60 24Z" />
+        </svg>
+      </aside>
     </div>
   </template>
 
@@ -990,6 +1038,45 @@
     </div>
   </template>
 
+  <!-- HUM — playful shape play. A bouncing multi-accent composition on the
+       right; the default theme's hero. Reuses the marquee copy keys. -->
+  <template id="hero-hum">
+    <div class="hero hero--hum">
+      <div class="hero__main">
+        <p class="hero__eyebrow"><span class="mark" aria-hidden="true"></span>{{eyebrow}}</p>
+        <h1 class="hero__display">{{title}}</h1>
+        <p class="hero__lede">{{lede}}</p>
+        <div class="hero__cta">
+          <p class="label">{{ctaLabel}}</p>
+          <pre class="code"
+            data-copy-source><span class="prompt">$</span><span data-copy-text>npx skills add nutlope/hallmark</span><button class="code__copy" type="button" data-copy-btn aria-label="Copy install command"><span class="code__copy-default">Copy</span><span class="code__copy-done">Copied</span></button></pre>
+        </div>
+      </div>
+      <figure class="hero__play" aria-hidden="true">
+        <span class="play-blob"></span>
+        <span class="play-dot play-dot--pear"></span>
+        <span class="play-pill play-pill--cyan"></span>
+        <span class="play-ring play-ring--lavender"></span>
+        <span class="play-dot play-dot--coral"></span>
+        <span class="play-dot play-dot--mint"></span>
+      </figure>
+    </div>
+  </template>
+
+  <template id="hero-cobalt">
+    <div class="hero hero--cobalt">
+      <div class="hero__main">
+        <p class="hero__eyebrow"><span class="mark" aria-hidden="true"></span>{{eyebrow}}</p>
+        <h1 class="hero__display">{{title}}</h1>
+        <p class="hero__lede">{{lede}}</p>
+        <div class="hero__cta-row">
+          <a class="hero__cta-btn" href="#install">{{ctaLabel}}</a>
+          <a class="link hero__link" href="#examples">{{cta}} &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </template>
+
   <!-- ─────────── FOOTER ARCHETYPES ─────────── -->
 
   <!-- The COLOPHON — a single editorial footer for every theme. The
@@ -1001,7 +1088,7 @@
 
       <div class="foot__masthead">
         <span class="foot__wordmark" aria-label="Hallmark"><span class="brand-mark brand-mark--lg" aria-hidden="true"><span class="brand-mark__slash">/</span><span class="brand-mark__name">hallmark</span></span></span>
-        <span class="foot__version tnum">v1.0 · MMXXVI</span>
+        <span class="foot__version tnum">v1.1 · MMXXVI</span>
       </div>
 
       <div class="foot__grid">
@@ -1014,9 +1101,9 @@
         <section class="foot__block">
           <p class="foot__label">In the catalog</p>
           <ul class="foot__stats">
-            <li><span class="foot__stat-num tnum">22</span><span class="foot__stat-key">themes</span></li>
+            <li><span class="foot__stat-num tnum">20</span><span class="foot__stat-key">themes</span></li>
             <li><span class="foot__stat-num tnum">21</span><span class="foot__stat-key">macrostructures</span></li>
-            <li><span class="foot__stat-num tnum">65</span><span class="foot__stat-key">slop-test gates</span></li>
+            <li><span class="foot__stat-num tnum">57</span><span class="foot__stat-key">slop-test gates</span></li>
           </ul>
         </section>
 
@@ -1037,7 +1124,7 @@
     </div>
   </template>
 
-  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/main.js?v=24"></script>
 </body>
 
 </html>
