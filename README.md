@@ -74,17 +74,20 @@ Each page is self-contained HTML + CSS, stamped with its macrostructure in the C
 
 ## Custom <sup>NEW</sup>
 
-Most briefs route to the catalog. But when a brief carries real creative intent (a named brand colour, a vibe the catalog can't carry, or a layout that *is* the point) Hallmark switches to **Custom** and designs the whole page from first principles: a made-to-measure OKLCH palette, a free-font pairing, and a structure no catalog theme would produce. Same fifty-seven slop-test gates. No template underneath.
+When a brief carries creative intent that no catalog theme fits, Hallmark switches to **Custom** and designs the page from scratch: a made-to-measure palette, type, and layout. Same 57 slop-test gates, no template underneath.
 
-One brief, one page that looks like nothing else in the catalog:
+<table>
+  <tr>
+    <td width="50%"><a href="https://www.usehallmark.com/examples/custom-02/"><img src="docs/screenshots/hero-custom-02.jpg" alt="The Cascadia Nightjar sleeper-train ticket hero" /></a></td>
+    <td width="50%"><a href="https://www.usehallmark.com/examples/custom-03/"><img src="docs/screenshots/hero-custom-03.jpg" alt="Ferns and Fathom tea menu as a periodic table hero" /></a></td>
+  </tr>
+  <tr>
+    <td><b>The Cascadia Nightjar</b><br/><sub>Sleeper-train ticket · Custom</sub></td>
+    <td><b>Ferns &amp; Fathom</b><br/><sub>Tea menu as a periodic table · Custom</sub></td>
+  </tr>
+</table>
 
-<p align="center">
-  <a href="https://www.usehallmark.com/examples/custom-04/"><img src="site/_tests/_thumbs/custom-04.jpg" width="560" alt="The Mend Assembly, a repair-café manifesto poster designed from scratch with Custom" /></a>
-</p>
-
-<p align="center"><sub><b>The Mend Assembly</b> &nbsp;·&nbsp; a repair-café manifesto poster, designed from first principles</sub></p>
-
-Custom stays a quiet branch. Vanilla briefs never see it. The protocol lives in [`custom-theme.md`](skills/hallmark/references/custom-theme.md).
+It stays a quiet branch; vanilla briefs never see it. The protocol lives in [`custom-theme.md`](skills/hallmark/references/custom-theme.md).
 
 ---
 
