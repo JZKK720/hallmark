@@ -49,7 +49,7 @@ site/_launch-comparison/
 
 # Local example explorations — kept on disk, never published. The landing
 # carousel links only the featured builds (carnival-01, cobalt-01, custom-01–05,
-# hum-02, lumen-01); those stay tracked. Everything below is scratch: extra
+# hum-07, lumen-01); those stay tracked. Everything below is scratch: extra
 # generations, the private gallery/worked indexes, and component demos.
 site/examples/index.html
 site/examples/worked.html
